@@ -1,0 +1,71 @@
+@import '../../scss/mixin';
+.mail-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $white-color;
+    font-size: 1.4rem;
+    color: $text-dark;
+}
+
+.compose-mail {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    padding: 20px;
+}
+
+.compose-mail .form-group {
+    border: 1px solid $border-light-color-secondary;
+    display: inline-block;
+    width: 100%;
+    // margin-bottom: 0;
+    margin: 5px 0;
+}
+
+.compose-mail .form-group label {
+    line-height: 34px;
+    width: 70px;
+    float: left;
+    padding-left: 10px;
+    margin-bottom: 0;
+    background: #eaebee;
+    margin-right: 10px;
+}
+
+.compose-mail .form-group .form-control {
+    height: 100%;
+}
+
+.compose-mail input,
+.compose-mail input:focus {
+    border: none;
+    padding: 0;
+    width: calc(92% - 70px);
+    float: left;
+}
+
+.compose-mail .compose-options {
+    color: #979797;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.4rem;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+}
+
+.compose-options a {
+    color: #5C6E8A;
+    margin-right: 5px;
+}
+
+.compose-editor {
+    width: 100%;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

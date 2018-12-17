@@ -1,0 +1,297 @@
+<div class="package-add-page page-content-wrapper">
+  <div class="page-content">
+      <div class="container">
+          <app-page-top-bar></app-page-top-bar>
+          <div class="row">
+              <div class="col-md-12 col-sm-12">
+                  <div class="card-box">
+                      <div class="card-head">
+                          <a routerLink="/package" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                              <i class="material-icons">arrow_back_ios</i>
+                          </a>
+                          <header>Edit Package</header>
+                      </div>
+                      <div class="card-body row">
+                          <form id="packageAddForm" class="packageAddForm" name="packageAddForm" [formGroup]="updateForm"
+                          >
+                              <div class="col-lg-6 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" formControlName="name" type="text" id="Package Name" #name>
+                                      <label class="mdl-textfield_label">Package Name*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" formControlName="price" type="number" id="Price" #price>
+                                      <label class="mdl-textfield_label">Price*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" formControlName="duration" type="text" id="duration" #duration>
+                                      <label class="mdl-textfield_label">Duration(eg: 4 days 3 nights)*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-6 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" formControlName="altitude" type="number" id="altitude" #altitude>
+                                      <label class="mdl-textfield_label">Altitude(in meter: 3000)*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 p-t-20">
+                                  <div class="checkbox-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label class="mdl-textfield_label floating-label">Season*</label>
+                                      <div class="form-check form-check-inline">
+                                          <input class="form-check-input" type="checkbox" id="summer" #season  (change) = "checkSeason('summer')" [checked]="this.summer">
+                                          <label class="form-check-label">Summer*</label>
+                                      </div>
+                                      <div class="form-check form-check-inline" >
+                                        <input class="form-check-input" type="checkbox" id="winter" #season (change) = "checkSeason('winter')" [checked]="this.winter">
+                                        <label class="form-check-label">Winter</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="spring"  #season (change) = "checkSeason('spring')" [checked]="this.spring">
+                                        <label class="form-check-label">Spring</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="autumn" #season (change) = "checkSeason('autumn')" [checked]="this.autumn">
+                                        <label class="form-check-label">Autumn</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 p-t-20">
+                                  <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label for="list3" class="mdl-textfield_label floating-label">Package Type*</label>
+                                      <select class="custom-select mdl-textfield_input" id="packageType" formControlName="type" #type>
+                                          <option [value]=null disabled selected="selected">---Select Package Type---</option>
+                                          <option *ngFor="let item of typeList" [value]="item">{{ item }}</option>
+                                          <!-- <option value="Outbound">Outbound</option> -->
+                                        </select>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 p-t-20">
+                                  <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label for="list3" class="mdl-textfield_label floating-label">Difficulty*</label>
+                                      <select class="custom-select mdl-textfield_input" id="difficulty" formControlName="difficulty" #difficulty>
+                                              <option [value]=null disabled selected="selected">---Select Difficulty Level---</option>
+                                              <option *ngFor="let item of difficultyList" [value]="item">{{ item }}</option>
+                                              <!-- <option value="Medium">Medium</option>
+                                              <option value="High">High</option> -->
+                                        </select>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" type="number" id="rating" formControlName="rating" #rating>
+                                      <label class="mdl-textfield_label">Rating*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input" formControlName="keyword" type="text" id="keyword" #keyword>
+                                      <label class="mdl-textfield_label">Keyword*</label>
+                                  </div>
+                              </div>
+
+                              <div class="col-lg-4 p-t-20">
+                                <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <label for="list3" class="mdl-textfield_label floating-label">Category*</label>
+                                    <select class="custom-select mdl-textfield_input" id="packageType" #category placeholder="choose" [value]="this.category">
+                                      <option [value]=null disabled selected="selected">---Select Category---</option>
+                                      <option *ngFor="let item of categoryService" [value]=item.category_id>{{ item.name }}</option>
+                                      <!-- <option value="Outbound">Outbound</option> -->
+                                    </select>
+                                </div>
+                              </div>
+
+                              <div class="col-lg-12 p-t-20 p-b-20">
+                                <label class="control-label col-md-3">Upload Photo*</label>
+                                <form id="coverPhotoForm" class="fileUploadForm">
+                                    <div class="fileUploadForm-conatiner">
+                                      <input type="file" (change)="tripPhotoUpload($event)" accept=".jpg,.jpeg,.png">
+                                    </div>
+                                </form>
+                              </div>
+                              <div class="col-lg-12 p-t-20 p-b-20">
+                                <label class="control-label col-md-3">Multiple Photo Upload*</label>
+                                <form id="multiPhotoForm" class="fileUploadForm">
+                                    <div class="fileUploadForm-conatiner">
+                                      <input type="file" multiple (change)="onChange($event)" accept=".jpg,.jpeg,.png">
+                                    </div>
+                                </form>
+                              </div>
+
+                              <div id="photoTable" class="col-sm-10">
+                                <table class='table table-bordered'>
+                                    <tr>
+                                        <th>Photo</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr *ngFor='let photo of this.allPhoto'>
+                                        <td colspan="1">{{photo.photo}}</td>
+                                        <td><i class="fa fa-minus-circle" (click)="deletePhotoArray(photo)"></i></td>
+                                    </tr>
+                                    <tr *ngFor='let photo of this.photoArray'>
+                                        <td colspan="1">{{photo.photo}}</td>
+                                        <td><i class="fa fa-minus-circle" (click)="deleteNewPhotoArray(photo)"></i></td>
+                                    </tr>
+                                </table>
+                              </div>
+
+
+                              <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 p-t-20">
+                                  <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label class="mdl-textfield_label floating-label">Festival Offer*</label>
+                                      <div class="form-check-inline" id="festivalOffer" *ngFor="let item of choose">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" [value]="item" formControlName="festivalOffer" #festivalOffer (change)="festivalPriceShow(item)">{{ item }}
+                                          </label>
+                                      </div>
+                                      <!-- <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="festivalOffer">No
+                                          </label>
+                                      </div> -->
+                                  </div>
+                              </div>
+                              <div class="col-lg-5 p-t-20">
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width" id="festivalPrice" >
+                                      <input class="mdl-textfield_input" formControlName="festivalPrice" type="text" #festivalPrice>
+                                      <label class="mdl-textfield_label">Festival Price*</label>
+                                  </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-t-20">
+                                  <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label class="mdl-textfield_label floating-label">Special Deal*</label>
+                                      <div class="form-check-inline" *ngFor="let item of choose">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal (change)="specialDeal(item)">{{ item }}
+                                          </label>
+                                      </div>
+                                      <!-- <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="specialDeal">No
+                                          </label>
+                                      </div> -->
+                                  </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-t-20">
+                                  <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label class="mdl-textfield_label floating-label">Feature Deal*</label>
+                                      <div class="form-check-inline" *ngFor="let item of choose">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" formControlName="featuredDeal" [value]="item" #featuredDeal>{{ item }}
+                                          </label>
+                                      </div>
+                                      <!-- <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="featureDeal">No
+                                          </label>
+                                      </div> -->
+                                  </div>
+                              </div>
+                              <div class="col-lg-12 p-t-20">
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">Overview*</label>
+                                      <ckeditor id="overview" formControlName="overview" #overview
+                                        [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
+                                      </ckeditor>
+                                  </div>
+                              </div>
+
+                              <div class="dashed-divider p-t-20"></div>
+                              <div class="col-lg-8 p-t-20" id="itinerary">
+
+                                <!-- ADD Fields -->
+                                  <button  class="btn btn-tbl-add btn-xs pull-right" (click)="addDescriptionField(day.value,description.value)">
+                                    <i class="fa fa-plus"></i>
+                                  </button>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input"  type="number" id="day" #day >
+                                      <label class="mdl-textfield_label">Day*</label>
+                                  </div>
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
+                                      <ckeditor id="description" #description
+                                      [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
+                                  </div>
+                              </div>
+
+                              <div class="col-lg-8 p-t-20" id="edit-itinerary">
+
+                                <!-- Update Fields -->
+                                  <button  class="btn btn-tbl-add btn-xs pull-right" (click)="updateItinerary(editDay.value, editDescription.value)">
+                                    <i class="fa fa-edit"></i>
+                                  </button>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <input class="mdl-textfield_input"  type="number" id="editDay" #editDay formControlNane="editDay" #editDay [value]=this.editItineraryDay 
+                                      >
+                                      <label class="mdl-textfield_label" for="editDay">Day*</label>
+                                  </div>
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
+                                      <ckeditor id="editDescription" #editDescription [(ngModel)]=this.editItineraryDescription
+                                      name="editDescription" [ngModelOptions]="{standalone: true}"
+                                      [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
+                                  </div>
+
+                              </div>
+                              <div class="col-lg-8 p-t-20" id="itineraryTable">
+                                  <table class="table table-bordered" id="descriptionTable">
+                                      <thead>
+                                          <tr>
+                                              <th>Day</th>
+                                              <th>Description</th>
+                                              <th>Action</th>
+                                          </tr>
+                                      </thead>
+                                      <tbody >
+                                          <tr *ngFor="let item of this.itineraryArray">
+                                              <td>{{ item.day}}</td>
+                                              <td>
+                                                  <p [innerHTML]=item.description>
+                                                  </p>
+                                              </td>
+                                              <td>
+                                                  <a class="btn btn-tbl-edit btn-xs" (click)="editDescriptionArray(item)">
+                                                      <i class="fa fa-pencil"></i>
+                                                  </a>
+                                                  <a class="btn  btn-tbl-delete btn-xs" (click)="deleteDescriptionArray(item)">
+                                                      <i class="fa fa-minus"></i>
+                                                  </a>
+                                              </td>
+                                          </tr>
+
+                                          <tr *ngFor="let item of this.newItineraryArray">
+                                              <td>{{ item.trip_day}}</td>
+                                              <td>
+                                                  <p [innerHTML]=item.description>
+                                                  </p>
+                                              </td>
+                                              <td>
+                                                  <a class="btn btn-tbl-edit btn-xs" (click)="editNewDescriptionArray(item)">
+                                                      <i class="fa fa-pencil"></i>
+                                                  </a>
+                                                  <a class="btn  btn-tbl-delete btn-xs" (click)="deleteNewDescriptionArray(item)">
+                                                      <i class="fa fa-minus"></i>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                              <div class="col-lg-12 p-t-20 text-center">
+                                  <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple"
+                                 (click)="updatePackage(name.value,type.value,category.value,price.value,duration.value,difficulty.value,altitude.value,rating.value,keyword.value,festivalPrice.value,overview.value)"
+
+                                  >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                  <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

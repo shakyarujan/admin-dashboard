@@ -1,0 +1,301 @@
+<!-- navbar section -->
+<div class="sidebar fill-dark-secondary">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <!-- <div class="logo">
+          <a class="navbar-brand" routerLink="">
+              Himalaya Vision Treks and Expedition
+          </a>
+          <button class="navbar-toggler navbar-toggler-left" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      </div> -->
+
+      <div class="collapse navbar-collapse sidebar-offcanvas" id="navbarSupportedContent">
+
+          <ul class="navbar-item-container navbar-nav mr-auto">
+              <li class="nav-item">
+                  <form class="search-form-opened" action="#" method="GET">
+                      <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Search..." name="query">
+                          <span class="input-group-btn search-btn">
+                              <a href="javascript:;" class="btn submit">
+                                  <i class="material-icons">search</i>
+                              </a>
+                          </span>
+                      </div>
+                  </form>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a [routerLink]="['/index']" routerLinkActive="router-link-active">
+                      <i class="material-icons">dashboard</i>
+                      <p>Dashboard</p>
+                  </a>
+              </li>
+             <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link nav-toggle sub-menu-toggler" data-target=".users-collapse" data-toggle="collapse">
+                      <i class="material-icons icon-user">person</i>
+                      <p>Users</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu users-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/users" class="nav-link">
+                              <span class="sub-title">All Users</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/usersAdd" class="nav-link">
+                              <span class="sub-title">Add new user</span>
+                          </a>
+                      </li>
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/usersEdit" class="nav-link">
+                              <span class="sub-title">Edit user</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li> -->
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link nav-toggle sub-menu-toggler" data-target=".siteinfo-collapse" data-toggle="collapse">
+                      <!-- <i class="material-icons">info</i> -->
+                      <i class="material-icons">description</i>
+                      <p>Site Info</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu siteinfo-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/siteinfo" class="nav-link">
+                              <span class="sub-title">Site Info</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/whatWeDo" class="nav-link">
+                              <span class="sub-title">What We Do</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link nav-toggle sub-menu-toggler" data-target=".package-collapse" data-toggle="collapse">
+                      <!-- <i class="material-icons">list_alt</i> -->
+                      <i class="material-icons">card_travel</i>
+                      <p>Package</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu package-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/package" class="nav-link">
+                              <span class="sub-title">All Package</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageAdd" class="nav-link">
+                              <span class="sub-title">Add New Package</span>
+                          </a>
+                      </li>
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageEdit" class="nav-link">
+                              <span class="sub-title">Edit Package</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageType" class="nav-link">
+                              <span class="sub-title">All Package Type</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageTypeAdd" class="nav-link">
+                              <span class="sub-title">Add Package Type</span>
+                          </a>
+                      </li>
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageTypeEdit" class="nav-link">
+                              <span class="sub-title">Edit Package Type</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageCategories" class="nav-link">
+                              <span class="sub-title">All Package Categories</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageCategoriesAdd" class="nav-link">
+                              <span class="sub-title">Add Package Categories</span>
+                          </a>
+                      </li>
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/packageCategoriesEdit" class="nav-link">
+                              <span class="sub-title">Edit Package Categories</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link nav-toggle sub-menu-toggler" data-target=".booking-collapse" data-toggle="collapse">
+                      <i class="material-icons">business_center</i>
+                      <p>Booking</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu booking-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/booking" class="nav-link">
+                              <span class="sub-title">All Booking</span>
+                          </a>
+                      </li>
+                   <!--    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/bookingAdd" class="nav-link">
+                              <span class="sub-title">Add New Booking</span>
+                          </a>
+                      </li> -->
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/bookingEdit" class="nav-link">
+                              <span class="sub-title">Edit Booking</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/clientmsg" class="nav-link nav-toggle sub-menu-toggler" data-target=".clientMsg-collapse" data-toggle="collapse">
+                      <i class="material-icons">message</i>
+                      <p>Client Msg</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu clientMsg-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/clientmsg" class="nav-link">
+                              <span class="sub-title">Inbox</span>
+                          </a>
+                      </li>
+                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/clientMsgView" class="nav-link">
+                              <span class="sub-title">View Message</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/composeClientMsg" class="nav-link">
+                              <span class="sub-title">Compose Message</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/customerReview" class="nav-link nav-toggle sub-menu-toggler" data-target=".customerReview-collapse" data-toggle="collapse">
+                      <i class="material-icons">rate_review</i>
+                      <p>Customer Review</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu customerReview-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/customerReview" class="nav-link">
+                              <span class="sub-title">All Customer</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/customerReviewAdd" class="nav-link">
+                              <span class="sub-title">Add Customer Review</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li>
+             <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a class="nav-link nav-toggle sub-menu-toggler" data-target=".backgroundImage-collapse" data-toggle="collapse">
+                      <i class="material-icons">collections</i>
+                      <p>Background Image</p>
+                      <i class="material-icons arrow-rotate">arrow_right</i>
+                  </a>
+                  <ul class="sub-menu backgroundImage-collapse collapse">
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/backgroundImage" class="nav-link">
+                              <span class="sub-title">All background</span>
+                          </a>
+                      </li>
+                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/backgroundImageAdd" class="nav-link">
+                              <span class="sub-title">Add background</span>
+                          </a>
+                      </li>
+                  </ul>
+              </li> -->
+             <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/login">
+                      <i class="material-icons">account_circle</i>
+                      <p>Login</p>
+                  </a>
+              </li> -->
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/logout" (click)="logout()">
+                      <i class="material-icons">exit_to_app</i>
+                      <p>Logout</p>
+                  </a>
+              </li>
+
+          </ul>
+      </div>
+  </nav>
+</div>
+<!-- <div class="sidebar-wrapper">
+      <div class="logo">
+          <a routerLink="" class="simple-text">
+              Himalaya Vision Treks and Expedition
+          </a>
+      </div>
+      <ul class="nav">
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="">
+                  <i class="material-icons">dashboard</i>
+                  <p>Dashboard</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/siteinfo">
+                  <i class="material-icons">
+                      info
+                      </i>
+                  <i class="material-icons">description</i>
+                  <p>Site Info</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/package">
+                  <i class="material-icons">
+                      card_travel
+                      </i>
+                  <i class="material-icons">list_alt</i>
+                  <p>Package</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/booking">
+                  <i class="material-icons">business_center</i>
+                  <p>Booking</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/clientmsg">
+                  <i class="material-icons">
+                      message
+                      </i>
+                  <p>Client Msg</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/login">
+                  <i class="material-icons">
+                      account_circle
+                      </i>
+                  <p>Login</p>
+              </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+              <a routerLink="/logout">
+                  <i class="material-icons">
+                          exit_to_app
+                          </i>
+                  <p>Logout</p>
+              </a>
+          </li>
+      </ul>
+  </div> -->
+
+<!-- navbar section closed -->

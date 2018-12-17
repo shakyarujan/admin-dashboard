@@ -1,0 +1,70 @@
+<div class="package-type-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card  card-box">
+                        <div class="card-head">
+                            <header>All Packages Type</header>
+                            <div class="tools">
+                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="row p-b-20">
+                                <div class="col-md-6 col-sm-6 col-6">
+                                    <div class="btn-group">
+                                        <a routerLink="/packageTypeAdd" id="addRow" class="btn btn-info"> 
+                                          Add new Packages Type
+                                          <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-wrap">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-30" id="support_table5">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Package Type Name</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>inbound</td>
+                                                <td>
+                                                    <a class="btn btn-tbl-edit btn-xs" routerLink="/packageTypeEdit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <button class="btn btn-tbl-delete btn-xs">
+                                                    <i class="fa fa-trash-o"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>outbound</td>
+                                                <td>
+                                                    <a class="btn btn-tbl-edit btn-xs" routerLink="/packageTypeEdit">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <button class="btn btn-tbl-delete btn-xs">
+                                                    <i class="fa fa-trash-o"></i>
+                                                  </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

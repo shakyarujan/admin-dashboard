@@ -1,0 +1,101 @@
+@import '../../scss/mixin';
+.page-bar {
+    position: relative;
+    // padding: 0 20px;
+    // margin: 0px -20px 15px;
+    margin: 0px 0px 15px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.page-content .row {
+    // padding: 0 20px;
+}
+
+.page-bar:after,
+.page-bar:before {
+    content: " ";
+    display: table;
+}
+
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.page-title {
+    padding: 0;
+    font-size: 28px;
+    letter-spacing: -1px;
+    display: block;
+    color: #666;
+    margin: 0 0 15px;
+}
+
+.page-title,
+.page-title {
+    color: #666;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.page-title {
+    font-size: 24px;
+}
+
+.page-bar .page-breadcrumb {
+    display: inline-block;
+    float: left;
+    padding: 8px;
+    margin: 0;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 50px;
+    background: rgba(220, 208, 208, 0.3);
+    padding-left: 20px !important;
+}
+
+.page-bar .page-breadcrumb {
+    padding: 15px 15px;
+    margin-top: 10px;
+}
+
+.page-bar .page-breadcrumb>li {
+    display: inline-block;
+    font-size: 1.4rem;
+    color: $dark-shade-color;
+}
+
+.page-bar .page-breadcrumb>li>i {
+    color: #aaa;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.page-bar .page-breadcrumb>li>i,
+.page-bar .page-breadcrumb>li>i {
+    color: #aaa;
+}
+
+.page-bar .page-breadcrumb>li>i,
+.page-bar .page-breadcrumb>li>i {
+    color: #aaa;
+}
+
+.page-bar .page-breadcrumb>li>a,
+.page-bar .page-breadcrumb>li>span {
+    color: #888;
+    font-size: 14px;
+    text-shadow: none;
+}
+
+.page-bar .page-breadcrumb>li>a,
+.page-bar .page-breadcrumb>li>span,
+.page-bar .page-breadcrumb>li>a,
+.page-bar .page-breadcrumb>li>span {
+    color: #888;
+    text-decoration: none;
+}

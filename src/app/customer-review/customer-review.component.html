@@ -1,0 +1,62 @@
+<div class="customer-review-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body no-padding height-9">
+                            <div class="inbox">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card-head">
+                                            <header>Customer Review</header>
+                                        </div>
+                                        <div class="inbox-body">
+                                            <div class="inbox-body no-pad table-responsive">
+                                                <table class="table table-inbox table-hover">
+                                                    <tbody *ngFor="let review of dataReview">
+                                                        <tr>
+                                                            <td class="bookingData">
+                                                                <!-- <div class="todo-check pull-left">
+                                                                    <input type="checkbox"  [value]="review.review_id" id="todo-check1">
+                                                                    <label for="todo-check1">{{ review.review_id }}</label>
+                                                                </div> -->
+                                                            </td>
+                                                            <td>
+                                                                <a class="prog-avatar">
+                                                                    <img src="{{ review.reviewer_photo}}" alt="image">
+                                                                </a>
+                                                            </td>
+                                                            <td class="review-title">
+                                                                <div class="details">
+                                                                    <div class="title">
+                                                                        <a routerLink="/customerReviewView" (click)="customerReview(review.review_id)">{{ review.reviewer_name }}</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="view-review">
+                                                                <a [innerHTML]="review.comment"></a>
+                                                            </td>
+                                                            <td>
+                                                              <button class="btn btn-tbl-delete btn-xs" (click)="deleteReview(review.review_id)">
+                                                              <i class="fa fa-trash-o "></i>
+                                                          </button>
+                                                          </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

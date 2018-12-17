@@ -1,0 +1,119 @@
+<div class="page-header navbar navbar-fixed-top">
+    <div class="page-header-inner ">
+        <!-- logo start -->
+        <div class="page-logo">
+            <a [routerLink]="['/index']" routerLinkActive="router-link-active" >
+                <!-- <img alt="" src="../assets/img/logo.png"> -->
+                <span class="logo-default">Smart Holidays
+                    <!-- Treks and Expedition -->
+                </span>
+            </a>
+        </div>
+        <!-- logo end -->
+        <!-- <ul class="nav navbar-nav navbar-left in">
+            <li>
+                <a href="#" class="menu-toggler sidebar-toggler">
+                    <i class="material-icons icon-menu">menu</i>
+                </a>
+            </li>
+        </ul> -->
+        <form class="search-form-opened" action="#" method="GET">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search..." name="query">
+                <span class="input-group-btn search-btn">
+                      <a href="#" class="btn submit">
+                            <i class="material-icons">search</i>
+                       </a>
+                    </span>
+            </div>
+        </form>
+
+        <!-- start mobile menu -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+            <button>
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <!-- <i class="material-icons icon-menu">menu</i> -->
+        </a>
+        <!-- end mobile menu -->
+
+        <!-- start header menu -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <!-- start manage user dropdown -->
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <img alt="" class="img-circle " src="../assets/img/profile.jpg">
+                        <span class="username username-hide-on-mobile">Admin</span>
+                        <!-- <i class="fa fa-angle-down"></i> -->
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default navbar-item-container animated jello">
+                        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/userProfile">
+                                <i class="material-icons">account_circle</i>
+                                <p>Profile</p>
+                            </a>
+
+                        </li>
+                        <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/setting">
+                                <i class="material-icons icon-setting">settings</i>
+                                <p>
+                                    Settings
+                                </p>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/help">
+                                <i class="material-icons icon-help">live_help</i>
+                                <p>
+                                    Help
+                                </p>
+                            </a>
+                        </li> -->
+                        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/usersAdd">
+                                <i class="material-icons">person_add</i>
+                                <p>Add new User</p>
+                            </a>
+                        </li>
+                        <li class="divider"> </li>
+                        <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/lock">
+                                <i class="material-icons icon-lock">lock</i>
+                                <p>
+                                    Lock
+                                </p>
+                            </a>
+                        </li> -->
+
+                        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                            <a routerLink="/login" (click)="logout()">
+                                <!-- <i class="icon-logout"></i>  -->
+                                <i class="material-icons icon-logout"> exit_to_app </i>
+                                <p>Log Out</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- end manage user dropdown -->
+                <!-- <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a id="headerSettingButton" class="mdl-button mdl-js-button mdl-button--icon pull-right" data-upgraded=",MaterialButton">
+                        <i class="material-icons">settings</i>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="flex-container">
+    <div class="box">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="boxTwo">
+        <ng-flash-message></ng-flash-message>
+        <router-outlet></router-outlet>
+    </div>
+</div>

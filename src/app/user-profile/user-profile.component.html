@@ -1,0 +1,93 @@
+<div class="users-profile-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card card-box">
+                        <div class="card-head">
+                            <header>Profile</header>
+                        </div>
+                    </div>
+
+                    <div class="profile-sidebar">
+                        <div class="card card-topline-aqua">
+                            <div class="card-body no-padding height-9">
+                                <div class="row">
+                                    <div class="profile-userpic">
+                                        <img src="../../assets/img/profile.jpg" class="img-responsive" alt=""> </div>
+                                </div>
+                                <div class="profile-usertitle">
+                                    <div class="profile-usertitle-name"> John Deo </div>
+                                    <div class="profile-usertitle-job"> Jr. Professor </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-content">
+                        <div class="row">
+                            <div class="profile-tab-box">
+                                <div class="p-l-20">
+                                    <ul class="nav ">
+                                        <li class="nav-item tab-all"><a class="nav-link active show" href="#tab1" data-toggle="tab">About Me</a></li>
+
+                                        <li class="nav-item tab-all p-l-20"><a class="nav-link" href="#tab3" data-toggle="tab">Settings</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="white-box">
+                                <div class="tab-content">
+                                    <div class="tab-pane fontawesome-demo active show" id="tab1">
+                                        <div id="user-detail" class="user-detail">
+                                            <div class="row">
+                                                <div class="col-md-3 col-6 b-r"> <strong>Full Name</strong>
+                                                    <br>
+                                                    <p class="text-muted">John Deo</p>
+                                                </div>
+                                                <div class="col-md-3 col-6 b-r"> <strong>Mobile</strong>
+                                                    <br>
+                                                    <p class="text-muted">(123) 456 7890</p>
+                                                </div>
+                                                <div class="col-md-3 col-6 b-r"> <strong>Email</strong>
+                                                    <br>
+                                                    <p class="text-muted">johndeo@example.com</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="tab3">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12">
+                                                <div class="card-head">
+                                                    <header>Password Change</header>
+                                                </div>
+                                                <div class="card-body " id="bar-parent1">
+                                                    <form id="userProfileForm" class="userProfileForm" name="userProfileForm" action="" method="POST">
+                                                        <div class="form-group">
+                                                            <label for="userEmail">User Name</label>
+                                                            <input type="email" class="form-control" id="userEmail" placeholder="Enter user name" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="userPassword">Current Password</label>
+                                                            <input type="password" class="form-control" id="userPassword" placeholder="Current Password" required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="newPassword">New Password</label>
+                                                            <input type="password" class="form-control" id="newPassword" placeholder="New Password" required>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

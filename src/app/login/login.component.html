@@ -1,0 +1,37 @@
+
+
+<div class="loginwrapper">
+    <div class="limiter">
+
+        <div class="container-login">
+            <div class="wrap-login">
+                <ng-flash-message></ng-flash-message>
+                <form class="login-form validate-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" #form="ngForm" >
+                    <span class="login-form-title p-b-48">
+                      Welcome
+                    </span>
+
+                    <div class="wrap-input-field validate-input">
+                        <input autofocus="autofocus" class="input-field" type="text" formControlName="username" placeholder="Username" autocomplete="off" required="required">
+                        <span class="focus-input-field" data-placeholder="Username"></span>
+                    </div>
+
+
+                    <div class="wrap-input-field validate-input">
+                        <input class="input-field" type="password" formControlName="password" placeholder="Password"> <!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"-->
+                        <span class="focus-input-field" data-placeholder="Password"></span>
+                    </div>
+
+                    <div class="container-login-form-btn">
+                        <div class="wrap-login-form-btn">
+                            <div class="login-form-bgbtn"></div>
+                            <button class="login-form-btn" [disabled]=!loginForm.valid>
+                              Login
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

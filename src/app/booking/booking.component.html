@@ -1,0 +1,99 @@
+<div class="booking-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card  card-box">
+                        <div class="card-head">
+                            <header>All Booking</header>
+                            <div class="tools">
+                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="row p-b-20">
+                                <div class="col-md-6 col-sm-6 col-6">
+                                    <div class="btn-group">
+                                        <a routerLink="/bookingAdd" id="addRow" class="btn btn-info">
+                                            Add New Booking
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="example4_length">
+                                        <label>
+                                            Show
+                                            <select name="example4_length" aria-controls="example4" class="form-control form-control-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select>
+                                            entries
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="example4_filter" class="dataTables_filter">
+                                        <label>
+                                            Search:
+                                            <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example4">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-wrap">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-30" id="support_table5">
+                                        <thead>
+                                            <tr role="row">
+                                                <th>No</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Arrival</th>
+                                                <th>Departure</th>
+                                                <!-- <th>Status</th> -->
+                                                <th>Phone</th>
+                                                <th>Package Type</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bookingData" *ngFor="let data of data">
+                                            <tr>
+                                                <td></td>
+                                                <td>{{ data.contact_name }}</td>
+                                                <td>{{ data.contact_email }}</td>
+                                                <td>{{ data.desired_start_date }}</td>
+                                                <td>{{ data.desired_end_date}}</td>
+                                                <!-- <td>
+                                                    <div class="status-slider">
+                                                        <input type="checkbox" id="switch" />
+                                                        <label for="switch" class="switch">Toggle</label>
+                                                    </div>
+                                                </td> -->
+                                                <td>{{ data.mobile }}</td>
+                                                <td>{{ data.name }}</td>
+                                                <td>
+                                                    <a routerLink="/bookingEdit" class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">
+                                                    <i class="fa fa-trash-o "></i>
+                                                </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

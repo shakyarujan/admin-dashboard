@@ -1,0 +1,19 @@
+@import '../../scss/mixin';
+.client-title .details .title a {
+    font-weight: 600;
+    color: $primary-color;
+    @include transition;
+}
+
+.client-title .details .title a:hover {
+    color: $text-dark;
+}
+
+.client-message a {
+    color: $text-dark;
+    @include transition;
+}
+
+.client-message a:hover {
+    color: $primary-color;
+}

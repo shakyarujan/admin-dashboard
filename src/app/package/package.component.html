@@ -1,0 +1,89 @@
+<div class="package-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card  card-box">
+                        <div class="card-head">
+                            <header>All Packages</header>
+                            <div class="tools">
+                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="row p-b-20">
+                                <div class="col-md-6 col-sm-6 col-6">
+                                    <div class="btn-group">
+                                        <a routerLink="/packageAdd" id="addRow" class="btn btn-info">
+                                            Add New Package
+                                            <i class="fa fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-sm-12 col-md-6">
+                                  <div class="dataTables_length" id="example4_length">
+                                      <label>
+                                              Show
+                                              <select name="example4_length" aria-controls="example4" class="form-control form-control-sm">
+                                                  <option value="10">10</option>
+                                                  <option value="25">25</option>
+                                                  <option value="50">50</option>
+                                                  <option value="100">100</option>
+                                              </select>
+                                              entries
+                                          </label>
+                                  </div>
+                              </div>
+                              <div class="col-sm-12 col-md-6">
+                                  <div id="example4_filter" class="dataTables_filter">
+                                      <label>
+                                              Search:
+                                              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example4">
+                                          </label>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="table-wrap">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-30" id="support_table5">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Package Name</th>
+                                                <th>duration</th>
+                                                <th>Price</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bookingData" *ngFor="let dataTrip of tripData">
+                                            <tr>
+                                                <td></td>
+                                                <td>{{ dataTrip.name }}</td>
+                                                <td>{{ dataTrip.duration}}</td>
+                                                <td>Rs. {{ dataTrip.price }}/-</td>
+                                                <td>
+                                                    <a routerLink="/packageView" class="btn btn-tbl-view btn-xs"  (click)="viewPackageData(dataTrip.trip_id)">
+                                                      <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a routerLink="/packageEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(dataTrip.trip_id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <button class="btn btn-tbl-delete btn-xs" (click)="deletePackage(dataTrip.trip_id)">
+                                                    <i class="fa fa-trash-o "></i>
+                                                </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

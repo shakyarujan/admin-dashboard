@@ -1,0 +1,126 @@
+<div class="site-info-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="card-box">
+                        <div class="card-head card-topline-aqua">
+                            <header>Site info</header>
+                            <div class="tools" *ngFor="let info of siteInfoData">
+                                <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body no-padding height-9">
+                            <ul class="list-group list-group-unbordered" *ngFor="let info of siteInfoData">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Site name</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.site_name }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Contact No.</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.contact_number}}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>E-Mail </b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.email }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Address</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.address }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Facebook</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.facebook }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Instagram</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.instagram }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Twitter</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.twitter }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>LinkedIn</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="site-info-desc-item">{{ info.linkedin }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>About Us</header>
+                            <div class="tools" *ngFor="let info of siteInfoData">
+                                <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body " *ngFor="let info of siteInfoData">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 about-us">
+                                    <div class="site-info-desc-item" [innerHTML]="info.about_us">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

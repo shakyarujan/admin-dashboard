@@ -1,0 +1,118 @@
+@import '../../scss/mixin';
+// .slimScrollDiv {
+//     position: relative;
+//     overflow: hidden;
+//     width: auto;
+// }
+// .small-slimscroll-style {
+//     overflow: hidden;
+//     width: auto;
+// }
+// ul.docListWindow {
+//     list-style-type: none;
+//     height: auto;
+//     overflow-x: hidden;
+//     overflow-y: auto;
+// }
+// ul.docListWindow::-webkit-scrollbar-track {
+//     background-color: transparent;
+// }
+// ul.docListWindow::-webkit-scrollbar {
+//     width: 4px;
+//     background-color: transparent;
+// }
+// ul.docListWindow::-webkit-scrollbar-thumb {
+//     border-radius: 8px;
+//     background-color: $fill-light-secondary;
+//     opacity: 0;
+//     @include transition;
+//     display: none;
+// }
+// ul.docListWindow:hover::-webkit-scrollbar-thumb {
+//     opacity: 1;
+//     display: block;
+// }
+// ul.docListWindow li {
+//     display: inline-block;
+//     width: 100%;
+//     border-bottom: 1px dashed #dcdcdc;
+//     margin-bottom: 5px;
+//     padding-bottom: 5px;
+// }
+// ul.docListWindow li .prog-avatar {
+//     width: 40px;
+//     height: 40px;
+//     float: left;
+//     margin-right: 25px;
+// }
+// ul.docListWindow li .prog-avatar img {
+//     width: 100%;
+//     border-radius: 50%;
+//     -webkit-border-radius: 50%;
+// }
+// .rating-text {
+//     font-size: 12px;
+//     margin: 0;
+//     color: gray;
+// }
+// .rating-style {
+//     padding-top: 10px;
+// }
+// .empListWindow .title {
+//     margin: 8px 0;
+// }
+// .docListWindow .title a {
+//     color: $primary-color;
+//     @include transition;
+// }
+// .docListWindow .title a:hover {
+//     color: $text-dark;
+// }
+td .prog-avatar {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 25px;
+}
+
+td .prog-avatar img {
+    width: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.review-title .details .title a {
+    font-weight: 600;
+    color: $primary-color;
+    @include transition;
+}
+
+.review-title .details .title a:hover {
+    color: $text-dark;
+}
+
+.view-review a {
+    color: $text-dark;
+    @include transition;
+}
+
+.view-review a:hover {
+    color: $primary-color;
+}
+
+/* Table scss */
+table {
+  counter-reset: rowNumber;
+}
+
+.bookingData {
+  counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 0.5em;
+}
+
+/* end of table scss */

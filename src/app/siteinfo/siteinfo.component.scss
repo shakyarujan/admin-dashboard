@@ -1,0 +1,56 @@
+@import '../../scss/mixin';
+.list-group-unbordered>.list-group-item {
+    border-left: 0px none;
+    border-right: 0px none;
+    border-radius: 0px 0px 0px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    font-size: 1.4rem;
+    color: $primary-color;
+}
+
+.list-group .list-group-item {
+    display: block;
+}
+
+.list-group .list-group-item:first-child {
+    border-top: 0;
+}
+
+.list-group .list-group-item:last-child {
+    border-bottom: 0;
+}
+
+.site-info-desc-item {
+    text-align: left;
+    font-size: 1.4rem;
+    color: #6f6d6d !important;
+    width: 100%;
+}
+
+.about-us {
+    height: 311px;
+    overflow: auto;
+}
+
+.about-us::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.about-us::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+.about-us::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: $fill-light-secondary;
+    opacity: 0;
+    @include transition;
+    display: none;
+}
+
+.about-us:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+    display: block;
+}

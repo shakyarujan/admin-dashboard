@@ -1,0 +1,77 @@
+@import '../../scss/mixin';
+// .mdl-button.collapsed[aria-expanded="false"]{
+//     right: 12px;
+//     top: 34px;
+//     width: 188.469px;
+//     height: 160px;
+// } 
+// .card-head .mdl-menu_container {
+//     right: 12px;
+//     top: 34px;
+//     width: 188.469px;
+//     height: 160px;
+// }
+// .mdl-menu_outline.mdl-menu--bottom-right {
+//     width: 188.469px;
+//     height: 160px;
+// }
+// .mdl-menu_container ul.mdl-menu .mdl-menu_item {
+//     padding: 0 !important;
+//     height: auto;
+// }
+// .mdl-menu_container ul.mdl-menu .mdl-menu_item * {
+//     @include transition;
+// }
+// .mdl-menu_container ul.mdl-menu .mdl-menu_item a {
+//     padding: 10px 25px;
+// }
+// .mdl-menu_container ul.mdl-menu .mdl-menu_item a p {
+//     margin: 0;
+// }
+// .mdl-menu.collapse.show,
+// .collapse.show {
+//     z-index: 9;
+//     visibility: visible;
+// }
+// .mdl-menu.collapse {
+//     // clip: rect(0px, 188.469px, 0px, 188.469px);
+//     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+// }
+// .mdl-menu.collapse.show {
+//     opacity: 1;
+//     z-index: 9;
+//     // clip: rect(0px, 188.469px, 160px, 0px);
+//     background: $white-color;
+// }
+// .mdl-menu.collapse.show .mdl-menu_item {
+//     opacity: 1;
+// }
+// .mdl-menu.collapse.show .mdl-menu_item:nth-child(1) {
+//     transition-delay: 0.012s;
+// }
+// .mdl-menu.collapse.show .mdl-menu_item:nth-child(2) {
+//     transition-delay: 0.084s;
+// }
+// .mdl-menu.collapse.show .mdl-menu_item:nth-child(3) {
+//     transition-delay: 0.156s;
+// }
+// .mdl-menu_item:hover {
+//     background-color: $fill-light;
+// }
+// ul.mdl-menu .nav-item a.nav-link {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: nowrap;
+//     justify-content: flex-start;
+//     align-items: end;
+// }
+// ul.mdl-menu li.active>a {
+//     color: $light-accent-color;
+// }
+// ul.mdl-menu li:hover i,
+// ul.mdl-menu li:hover p {
+//     color: $text-primary;
+// }
+// .mdl-menu_item:hover p {
+//     transform: translateX(5px);
+// }

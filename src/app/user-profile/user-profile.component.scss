@@ -1,0 +1,117 @@
+@import '../../scss/mixin';
+.users-profile-page .card .card-head {
+    border-bottom: 0;
+}
+
+.profile-sidebar {
+    float: left;
+    width: 350px;
+    margin-right: 20px;
+}
+
+.card-topline-aqua {
+    border-top: 3px solid $primary-color;
+}
+
+.profile-userpic {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.profile-userpic img {
+    margin: 0px auto;
+    width: 130px;
+    padding: 3px;
+    border: 3px solid rgb(210, 214, 222);
+    border-radius: 50% 50% 50% 50%;
+}
+
+.profile-usertitle {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-usertitle-name {
+    font-size: 20px;
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: #3a405b;
+}
+
+.profile-usertitle-job {
+    color: #b7b6b6;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.profile-content {
+    overflow: hidden;
+}
+
+.profile-tab-box {
+    background: $white-color;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.tab-all a {
+    color: #948f8f;
+    @include transition;
+}
+
+.tab-all a:hover {
+    color: #e91e63;
+}
+
+.tab-all a.active {
+    background-color: #e91e63 !important;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .2), 0 13px 24px -11px rgba(233, 30, 99, .6);
+    color: $white-color;
+    border-radius: 30px;
+}
+
+.white-box {
+    background: $white-color;
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.user-detail {
+    padding: 0 20px;
+}
+
+.user-detail strong {
+    font-size: 15px;
+    color: $text-dark;
+}
+
+.text-muted {
+    color: #919aa3 !important;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.users-profile-page .profile-content .card-body form {
+    display: block;
+}
+
+.users-profile-page .profile-content .card-body form input:focus {
+    border: 1px solid $primary-color !important;
+}
+
+.users-profile-page .profile-content .card-body form label {
+    font-size: 1.4rem;
+    color: $text-dark;
+}

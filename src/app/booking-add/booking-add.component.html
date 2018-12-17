@@ -1,0 +1,126 @@
+<div class="booking-add-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-9 col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <a routerLink="/booking" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                              <i class="material-icons">arrow_back_ios</i>
+                            </a>
+                            <header>Add New Package Booking</header>
+                            <button id="panel-button" class="mdl-button mdl-js-button mdl-button--icon pull-right collapsed" data-target=".mdl-button-collapse" data-toggle="collapse" aria-expanded="false">
+                                         <!-- <i class="material-icons">more_vert</i> -->
+                                      </button>
+                            <!-- <div class="mdl-menu_container mdl-button-collapse collapse">
+                                <div class="mdl-menu_outline mdl-menu--bottom-right"></div>
+                                <ul class="navbar-item-container mdl-button-collapse collapse mdl-menu mdl-menu--bottom-right mdl-js-menu  --ignore-events" data-mdl-for="panel-button">
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">assistant_photo</i>
+                                            <p>Action</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">print</i>
+                                            <p>Another action</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">favorite</i>
+                                            <p>Something else here</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div> -->
+                        </div>
+                        <div class="card-body row">
+                          <form id="bookingEditForm" class="bookingEditForm" name="bookingEditForm" [formGroup]="createForm">
+                            <input type="hidden" value="" name="id" />
+                            <div class="col-lg-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="contact_name" #contact_name type="text" id="txtFirstName" >
+                                    <label class="mdl-textfield_label">Full Name</label>
+                                </div>
+                            </div>
+                            <!-- <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="lastname" type="text" id="txtLasttName">
+                                    <label class="mdl-textfield_label">Last Name</label>
+                                </div>
+                            </div> -->
+                            <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="mobile" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="mobileNumber" #mobile>
+                                    <label class="mdl-textfield_label" for="text5">Mobile Number</label>
+                                    <span class="mdl-textfield_error">Number required!</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-t-20">
+                              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                  <input class="mdl-textfield_input" formControlName="contact_email" type="email" id="txtemail" #contact_email >
+                                  <label class="mdl-textfield_label">Email</label>
+                                  <span class="mdl-textfield_error">Enter Valid Email Address!</span>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="no_of_adult" type="number" pattern="-?[0-9]*(\.[0-9]+)?"  id="adultNo" #no_of_adult >
+                                    <label class="mdl-textfield_label">Adult</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="no_of_children" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="childrenNo" #no_of_children >
+                                    <label class="mdl-textfield_label">Children</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="desired_start_date" type="date"  id="dateArrive" #desired_start_date>
+                                    <label class="mdl-textfield_label">Arrive</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
+                                    <input class="mdl-textfield_input" formControlName="desired_end_date" type="date" id="dateDepart" #desired_end_date>
+                                    <label class="mdl-textfield_label">Depart</label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select_fix-height txt-full-width is-upgraded" data-upgraded=",MaterialTextfield" style="width: 124px;">
+                                    <label for="list3" class="mdl-textfield_label floating-label">Package Name</label>
+                                    <select class="custom-select mdl-textfield_input" id="inputGroupSelect01" formControlName="name" #name placeholder="Choose">
+                                        <option [ngValue]="null" disabled>Choose...</option>
+                                        <option *ngFor="let item of tripData" [value]="item.name" selected>{{ item.name }}</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-lg-6 p-t-20">
+                                <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select_fix-height txt-full-width is-upgraded" data-upgraded=",MaterialTextfield" style="width: 124px;">
+                                    <label for="list4" class="mdl-textfield_label floating-label">Change Status</label>
+                                    <select class="custom-select mdl-textfield_input" id="inputGroupSelect02" formControlName="status" #status>
+                                        <option selected>Choose...</option>
+                                        <option *ngFor="let item of changeState" [value]="item">{{ item }}</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                            <pre><h3>{{ createForm.value | json }}</h3></pre>
+                            <div class="col-lg-12 p-t-20 text-center">
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple" [disabled]="!createForm.valid"
+                                (click)="addbooking(contact_name.value, contact_email.value, mobile.value, no_of_adult.value, no_of_children.value, desired_start_date.value, desired_end_date.value)"
+                                >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" [routerLink]="['/booking']" routerLinkActive="router-link-active" >Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                            </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

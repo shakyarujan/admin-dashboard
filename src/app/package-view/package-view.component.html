@@ -1,0 +1,134 @@
+<div class="package-view-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card-box" *ngFor="let trip of packageinfoData">
+                        <div class="card-head card-topline-aqua">
+                            <a routerLink="/package" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                                <i class="material-icons">arrow_back_ios</i>
+                            </a>
+                            <header>Package Detail</header>
+                            <div class="tools"  *ngFor="let trip of packageinfoData">
+                                <a routerLink="/packageEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(trip.trip_id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body no-padding height-9">
+                            <!-- <div class="row">
+                                <div class="profile-userpic">
+                                    <img src="../../assets/img/profile.jpg" class="img-responsive" alt="">
+                                </div>
+                            </div> -->
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>package Name</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.name }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>price</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">Rs. {{ trip.price }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Duration</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.duration }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>package type</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.type }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>altitude</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.altitude }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>Season</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.season }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>difficulty</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.difficulty }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>rating</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.rating }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>keyword</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item">{{ trip.keyword }}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4">
+                                            <b>overview</b>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="info-desc-item" [innerHtml]="trip.overview"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

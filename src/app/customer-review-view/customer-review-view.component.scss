@@ -1,0 +1,73 @@
+@import '../../scss/mixin';
+.inbox .card-head header {
+    padding: 0;
+}
+
+.review-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: $white-color;
+    color: $text-dark;
+}
+
+.review-sender {
+    border-bottom: 1px solid #EFF2F7;
+    padding: 20px;
+}
+
+.review-heading {
+    padding: 10px 0px 0px 0px;
+}
+
+.vew-review-header {
+    color: #666f7b;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h4.vew-review-header b {
+    font-weight: 700;
+}
+
+.text-muted {
+    color: $text-dark !important;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.rating {
+    display: block;
+    font-size: 14px;
+}
+
+.view-review {
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.inbox .compose-btn {
+    padding: 8px 14px;
+}
+
+.btn.btn-sm {
+    font-size: 11px;
+    padding: 6px 18px;
+}
+
+.hr-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 0;
+    margin: 20px 0;
+}
+
+.inbox-body .media-body {
+    font-size: 14px;
+}
+
+.inbox-body .media-body h4 {
+    font-size: 18px;
+}

@@ -1,0 +1,110 @@
+<div class="site-info-edit-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <a routerLink="/siteinfo" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                              <i class="material-icons">arrow_back_ios</i>
+                            </a>
+                            <header>Edit Site info</header>
+                            <button id="panel-button" class="mdl-button mdl-js-button mdl-button--icon pull-right collapsed" data-target=".mdl-button-collapse" data-toggle="collapse" aria-expanded="false">
+                          </button>
+                        </div>
+                        <div class="card-body row">
+                            <form id="bookingEditForm" class="bookingEditForm" name="bookingEditForm" [formGroup]="updateForm">
+                                <input type="hidden" value="" name="id" />
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="site_name" #site_name  type="text" id="siteName">
+                                        <label class="mdl-textfield_label">Site Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="email" #email type="email" id="email">
+                                        <label class="mdl-textfield_label">Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="contact_number" #contact_number  type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="mobileNumber">
+                                        <label class="mdl-textfield_label" for="text5">Contact No.</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="address" #address type="text" id="address">
+                                        <label class="mdl-textfield_label">Address</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="facebook" #facebook type="text" id="facebook">
+                                        <label class="mdl-textfield_label">Facebook</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="instagram" #instagram type="text" id="instagram">
+                                        <label class="mdl-textfield_label">Instagram</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="twitter" #twitter type="text"  id="twitter">
+                                        <label class="mdl-textfield_label">Twitter</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="linkedin" #linkedin type="text"  id="twitter">
+                                        <label class="mdl-textfield_label">Linkedin</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20">
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">About-Us Description</label>
+                                      <ckeditor  id="pacakgeDescription" formControlName="about_us" #about_us required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
+                                    </ckeditor>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20">
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">Cover Photo</label>
+                                      <input type="file" (change)="coverPhotoUpload($event)" accept=".jpg,.jpeg,.png" >
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20">
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">Homepage text</label>
+                                      <ckeditor  id="pacakgeDescription" formControlName="homepage_text" #homepage_text required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
+                                    </ckeditor>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20">
+                                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                      <label class="mdl-textfield_label floating-label" for="text7">What we do</label>
+                                      <ckeditor  id="pacakgeDescription" formControlName="what_we_do" #what_we_do required required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
+                                    </ckeditor>
+                                  </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20 text-center">
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" (click)="updateSiteInfo(this.id,  site_name.value, contact_number.value, email.value, facebook.value, instagram.value,
+                                    twitter.value, linkedin.value, address.value, about_us.value, homepage_text.value, what_we_do.value)">
+                                      Submit
+                                    </button>
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" routerLink="/siteinfo">
+                                      Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

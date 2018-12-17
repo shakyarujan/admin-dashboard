@@ -1,0 +1,98 @@
+<div class="user-edit-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>Edit User Details</header>
+                            <button id="panel-button" class="mdl-button mdl-js-button mdl-button--icon pull-right collapsed" data-target=".mdl-button-collapse" data-toggle="collapse" aria-expanded="false">
+                                             <i class="material-icons">more_vert</i>
+                                          </button>
+                            <div class="mdl-menu_container mdl-button-collapse collapse">
+                                <div class="mdl-menu_outline mdl-menu--bottom-right"></div>
+                                <ul class="navbar-item-container mdl-button-collapse collapse mdl-menu mdl-menu--bottom-right mdl-js-menu  --ignore-events" data-mdl-for="panel-button">
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">assistant_photo</i>
+                                            <p>Action</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">print</i>
+                                            <p>Another action</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item mdl-menu_item " [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                                        <a class="nav-link" routerlink="/#">
+                                            <i class="material-icons">favorite</i>
+                                            <p>Something else here</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body row">
+                            <form id="adminuserAddForm" class="adminuserAddForm" name="adminuserAddForm" action="" method="POST">
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="" value="John" type="text" id="firstName" required>
+                                        <label class="mdl-textfield_label">First Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="" value="Smith" type="text" id="lasttName" required>
+                                        <label class="mdl-textfield_label">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="" value="john@gmail.com" type="email" id="email" required>
+                                        <label class="mdl-textfield_label">Email</label>
+                                        <span class="mdl-textfield_error">Enter Valid Email Address!</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="" type="number" value="9813133103" pattern="-?[0-9]*(\.[0-9]+)?" id="mobileNumber" required>
+                                        <label class="mdl-textfield_label" for="text5">Mobile Number</label>
+                                        <span class="mdl-textfield_error">Number required!</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="password" type="password" value="john" id="password" required>
+                                        <label class="mdl-textfield_label">Password</label>
+                                        <span class="mdl-textfield_error">Enter Correct Password!</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" name="confirmPassword" type="password" value="john" id="confirmPassword" required>
+                                        <label class="mdl-textfield_label">Confirm Password</label>
+                                        <span class="mdl-textfield_error">Password doesnot match!</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 p-t-20">
+                                    <label class="control-label col-md-3">Upload Photo</label>
+                                    <form id="profilePhotoForm" class="fileUploadForm">
+                                        <div class="fileUploadForm-conatiner">
+                                            <input type="file" class="profilePhoto" id="profilePhoto" required>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-lg-12 p-t-20 text-center">
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple">Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
