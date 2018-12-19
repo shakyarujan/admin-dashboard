@@ -1,6 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'mixin';
+/* start pagination */
+pagination-controls {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+li.pagination-next, li.pagination-previous {
+    color: $default-color !important;
+    cursor: pointer;
+}
+
+/* end pagination */
 .hidden {
     display: none !important;
 }
@@ -285,10 +297,10 @@ a.box-refresh:hover i {
     color: $white-color;
 }
 
-.customer-review-page .card-body .row .btn-group a i,
+/*.customer-review-page .card-body .row .btn-group a i,
 .client-msg-page .card-body .row .btn-group a i {
     color: $text-dark;
-}
+}*/
 
 .btn-sm {
     margin-right: 8px;

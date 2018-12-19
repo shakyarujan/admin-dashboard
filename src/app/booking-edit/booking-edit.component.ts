@@ -17,6 +17,8 @@ export class BookingEditComponent implements OnInit {
   updateForm: FormGroup;
   changeState: string[];
   tripname: any = [];
+  name;
+  booking_status;
 
   constructor(
     private bookingService: BookingService,
@@ -42,7 +44,7 @@ export class BookingEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.changeState = ['Confirmed', 'Pending', 'Canceled'];
+    this.changeState = ['Confirmed', 'Review Pending', 'Canceled'];
 
     // Get form data to update
     this.route.params.subscribe(params => {
@@ -51,8 +53,12 @@ export class BookingEditComponent implements OnInit {
       console.log(this.id);
       this.bookingService.getBookingId(this.id).subscribe(res => {
         this.booking = res;
+
         console.log(this.booking[0].name);
         this.trip_id = this.booking[0].trip_id;
+        this.name = this.booking[0].name;
+        this.booking_status = this.booking[0].booking_status;
+
         this.updateForm.get('contact_name').setValue(this.booking[0].contact_name);
         // this.updateForm.get('lastname').setValue(this.booking.lastname);
         this.updateForm.get('contact_email').setValue(this.booking[0].contact_email);
@@ -61,8 +67,8 @@ export class BookingEditComponent implements OnInit {
         this.updateForm.get('no_of_children').setValue(this.booking[0].no_of_children);
         this.updateForm.get('desired_start_date').setValue(this.booking[0].desired_start_date);
         this.updateForm.get('desired_end_date').setValue(this.booking[0].desired_end_date);
-        this.updateForm.get('name').setValue(this.booking[0].name);
-        this.updateForm.get('status').setValue(this.booking[0].status);
+        this.updateForm.get('name').setValue(this.booking[0].trip_id);
+        this.updateForm.get('status').setValue(this.booking[0].booking_status);
       });
     });
 
@@ -75,8 +81,23 @@ export class BookingEditComponent implements OnInit {
   }
 
   updatebooking(contact_name, contact_email, mobile, no_of_adult, no_of_children, desired_start_date, desired_end_date, name, status) {
-    this.bookingService.updateBooking(this.id, this.trip_id, contact_name, contact_email, mobile, no_of_adult, no_of_children,
-       desired_start_date, desired_end_date, name, status).subscribe( () => {
+
+     const booking = {
+      booking_id: this.id,
+      trip_id: name,
+      contact_name: contact_name,
+      contact_email: contact_email,
+      mobile: mobile,
+      no_of_adult: no_of_adult,
+      no_of_children: no_of_children,
+      desired_start_date: desired_start_date,
+      desired_end_date: desired_end_date,
+      booking_status: status
+    };
+
+    console.log(booking);
+
+    this.bookingService.updateBooking(booking).subscribe( () => {
         this.router.navigate(['/index']);
     });
   }

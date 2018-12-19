@@ -17,7 +17,9 @@ export class BookingComponent implements OnInit {
     this.getBookingData();
   }
 
-  // Get Booking Data
+  /*
+    Get Booking Data from Booking Service
+   */
   getBookingData() {
     this.bookingService.getBookingData().subscribe( res => {
       console.log(res);
@@ -25,12 +27,16 @@ export class BookingComponent implements OnInit {
     });
   }
 
-  // Get Booking Id
+  /*
+    Get Booking ID 
+   */
   getBookingId(booking_id) {
     return this.router.navigate(['/bookingEdit/' + booking_id]);
   }
 
-  // Delete the booking contents
+  /*
+    Delete function 
+   */
   deletebooking(booking_id) {
     const confirmation = confirm('Are you sure? ' );
     if (confirmation == true ) {

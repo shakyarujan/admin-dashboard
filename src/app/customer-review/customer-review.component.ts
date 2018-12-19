@@ -41,4 +41,9 @@ export class CustomerReviewComponent implements OnInit {
     this.router.navigate(['/customerReviewView/' + review_id]);
   }
 
+  // edit review
+  editReview(review_id){
+    this.router.navigate(['/customerReviewEdit/' + review_id]);
+  }
+
 }

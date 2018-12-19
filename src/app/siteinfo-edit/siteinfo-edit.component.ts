@@ -77,9 +77,7 @@ export class SiteinfoEditComponent implements OnInit {
     });
   }
 
-  onSubmit(fb: FormGroup) {
-    console.log(fb);
-  }
+  
 
   updateSiteInfo(id, site_name, contact_number, email, facebook, instagram,
     twitter, linkedin, address, about_us, homepage_text, what_we_do) {
@@ -116,6 +114,10 @@ export class SiteinfoEditComponent implements OnInit {
     });
 
   }
+
+  /*
+    Function for cover photo uploading
+   */
 
   coverPhotoUpload(fileInput: any) {
     this.cover_photoFile = <Array<File>>fileInput.target.files;

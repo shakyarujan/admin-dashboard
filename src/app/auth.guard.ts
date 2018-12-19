@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
 export class AuthGuard implements CanActivate {
 
   constructor(private auth: AuthService, private router: Router) {
-
   }
+
+  /*
+    Guard function to avoid navigate to every pages. 
+   */
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -24,4 +27,7 @@ export class AuthGuard implements CanActivate {
       return this.auth.isLoggedIn;
     }
   }
+  
+  
 }
+

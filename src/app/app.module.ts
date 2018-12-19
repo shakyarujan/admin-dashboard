@@ -5,6 +5,7 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { CKEditorModule } from '../../node_modules/ng2-ckeditor';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ import { SiteinfoService } from './service/siteinfo.service';
 import { PackageService } from './service/package.service';
 import { CategoryService } from './service/category.service';
 import { ItineraryService } from './service/itinerary.service';
+import { CustomerReviewEditComponent } from './customer-review-edit/customer-review-edit.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,8 @@ import { ItineraryService } from './service/itinerary.service';
     PackageViewComponent,
     CustomerReviewAddComponent,
     BackgroundImageComponent,
-    BackgroundImageAddComponent
+    BackgroundImageAddComponent,
+    CustomerReviewEditComponent
   ],
   imports: [
     routes,
@@ -98,6 +101,7 @@ import { ItineraryService } from './service/itinerary.service';
     FormsModule,
     CKEditorModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     NgFlashMessagesModule.forRoot()
   ],
   providers: [

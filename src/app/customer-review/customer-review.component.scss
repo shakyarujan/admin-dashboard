@@ -1,5 +1,5 @@
 @import '../../scss/mixin';
-// .slimScrollDiv {
+/*// .slimScrollDiv {
 //     position: relative;
 //     overflow: hidden;
 //     width: auto;
@@ -67,7 +67,7 @@
 // }
 // .docListWindow .title a:hover {
 //     color: $text-dark;
-// }
+// }*/
 td .prog-avatar {
     width: 40px;
     height: 40px;
@@ -101,7 +101,7 @@ td .prog-avatar img {
 }
 
 /* Table scss */
-table {
+/*table {
   counter-reset: rowNumber;
 }
 
@@ -113,6 +113,6 @@ table tr td:first-child::before {
   content: counter(rowNumber);
   min-width: 1em;
   margin-right: 0.5em;
-}
+}*/
 
 /* end of table scss */

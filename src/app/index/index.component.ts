@@ -59,6 +59,8 @@ export class IndexComponent implements OnInit {
   // get booked detail
   bookedData() {
     this.bookingService.getBookingData().subscribe(res => {
+      console.log('test234');
+      console.log(res);
       return this.data = res;
     });
   }

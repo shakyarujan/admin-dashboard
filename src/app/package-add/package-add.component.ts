@@ -25,6 +25,7 @@ export class PackageAddComponent implements OnInit {
   photoArray: any = [];
   addDescriptionArray;
   categoryService: any = [];
+  featureDeal;
 
 
   constructor(
@@ -62,6 +63,8 @@ export class PackageAddComponent implements OnInit {
     this.difficultyList = ['Easy', 'High', 'Medium', 'Normal', 'Moderate'];
     this.photoArray = [];
     this.addDescriptionArray = [];
+
+    this.featureDeal = '';
 
     this.serviceCategory.getCategoryData().subscribe(res => {
       console.log(res);
@@ -191,6 +194,21 @@ export class PackageAddComponent implements OnInit {
 
   // ---------------------End of Trip Season Checked ------------------ //
 
+
+  // ---------------------- Check Festival Trip -----------------------//
+   checkFeaturedTrip(){
+    this.service.getFeaturedTrip().subscribe((featuredTrips: any) => {
+        if(featuredTrips.length > 0){
+          alert('Featured Trip is already available! Cannot have more than on featured trip.');
+
+          var featureDealNo = <HTMLInputElement>document.getElementById('featureDeal');
+          featureDealNo.checked = true;
+          this.featureDeal = 'No';
+        }
+    });
+  }
+
+  // ---------------------------End Check festival checked --------------------//
 
 
 

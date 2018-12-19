@@ -165,7 +165,7 @@
                                       <label class="mdl-textfield_label floating-label">Special Deal*</label>
                                       <div class="form-check-inline" *ngFor="let item of choose">
                                           <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal (change)="specialDeal(item)">{{ item }}
+                                            <input type="radio" class="form-check-input" id="specialDeal" formControlName="specialDeal" [value]="item" #specialDeal (change)="specialDeal(item)">{{ item }}
                                           </label>
                                       </div>
                                       <!-- <div class="form-check-inline">
@@ -180,7 +180,7 @@
                                       <label class="mdl-textfield_label floating-label">Feature Deal*</label>
                                       <div class="form-check-inline" *ngFor="let item of choose">
                                           <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" formControlName="featuredDeal" [value]="item" #featuredDeal>{{ item }}
+                                            <input type="radio" class="form-check-input" id="featureDeal" formControlName="featuredDeal" [value]="item" #featuredDeal>{{ item }}
                                           </label>
                                       </div>
                                       <!-- <div class="form-check-inline">

@@ -32,6 +32,7 @@ import { WhatWeDoEditComponent } from './what-we-do-edit/what-we-do-edit.compone
 import { UsersViewComponent } from './users-view/users-view.component';
 import { PackageViewComponent } from './package-view/package-view.component';
 import { CustomerReviewAddComponent } from './customer-review-add/customer-review-add.component';
+import { CustomerReviewEditComponent } from './customer-review-edit/customer-review-edit.component';
 import { BackgroundImageComponent } from './background-image/background-image.component';
 import { BackgroundImageAddComponent } from './background-image-add/background-image-add.component';
 
@@ -69,6 +70,7 @@ export const router: Routes = [
     { path: 'usersView', component: UsersViewComponent, canActivate: [AuthGuard] },
     { path: 'packageView/:trip_id', component: PackageViewComponent, canActivate: [AuthGuard] },
     { path: 'customerReviewAdd', component: CustomerReviewAddComponent, canActivate: [AuthGuard] },
+    { path: 'customerReviewEdit/:review_id', component: CustomerReviewEditComponent, canActivate: [AuthGuard] },
     { path: 'backgroundImage', component: BackgroundImageComponent, canActivate: [AuthGuard] },
     { path: 'backgroundImageAdd', component: BackgroundImageAddComponent, canActivate: [AuthGuard] }
 ];

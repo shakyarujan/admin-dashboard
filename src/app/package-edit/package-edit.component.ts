@@ -61,7 +61,7 @@ export class PackageEditComponent implements OnInit {
     private itinerary: ItineraryService,
     private http: HttpClient) {
       this.createForm();
-     }
+    }
 
   ngOnInit() {
     this.choose = ['Yes', 'No'];
@@ -116,6 +116,32 @@ export class PackageEditComponent implements OnInit {
         this.itinerary.getImageByID(this.id).subscribe((image) => {
           this.allPhoto = image;
         });
+
+        // ----------------------- feature Deal checked --------------------------- //
+
+        this.featureDeal = this.packageinfoData[0].featuredDeal;
+        if(this.featureDeal == 'Yes'){
+          var featuredDealYes = <HTMLInputElement>document.getElementById('featurDeal');
+          featuredDealYes.checked = true;
+        }else{ 
+          var featuredDealNo = <HTMLInputElement>document.getElementById('featurDeal');
+          featuredDealNo.checked = true;
+        }
+
+        // ----------------------- feature Deal checked --------------------------- //
+
+        // ----------------------- Special Deal checked --------------------------- //
+
+        this.speDeal = this.packageinfoData[0].specialDeal;
+        if(this.speDeal == 'Yes'){
+          var specialDealYes = <HTMLInputElement>document.getElementById('specialDeal');
+          specialDealYes.checked = true;
+        }else{ 
+          var specialDealNo = <HTMLInputElement>document.getElementById('specialDeal');
+          specialDealNo.checked = true;
+        }
+
+        // ----------------------- Special Deal checked --------------------------- //
 
         this.cover_photoFile = this.cover_photo.split('https://api-sh.paisamanager.com/images/')[1];
         this.updateForm.get('name').setValue(this.packageinfoData[0].name);
@@ -195,9 +221,6 @@ export class PackageEditComponent implements OnInit {
           deleteItinerary: this.deleteItineraryArray
     };
 
-    console.log('...................................test..........');
-    console.log(packageData);
-
     const formData: any = new FormData();
 
     // ----------------photo upload------------------- //
@@ -208,8 +231,9 @@ export class PackageEditComponent implements OnInit {
           map((files: any) => files.json())
           ).subscribe(files => {});
       }
-     // ----------------End photo upload------------------- //
+    // ----------------End photo upload------------------- //
 
+    console.log(packageData);
     this.packageData.updateTrip(packageData).subscribe(res => {
     });
       alert('Updated Successfully');
@@ -217,7 +241,6 @@ export class PackageEditComponent implements OnInit {
       location.reload();
     
 }
-
 
 
   // ---------------------Trip Reviwer Photo Upload ------------------ //
@@ -276,6 +299,18 @@ export class PackageEditComponent implements OnInit {
   }
 
   // ----------------- End of festival price shown ----------------- //
+
+  // ----------------------- special detail ------------------------ //
+  specialDeal(offer){
+    if(offer == 'Yes'){
+      this.speDeal = offer;
+    }if(offer == 'No'){
+      this.speDeal = offer;
+    }
+  }
+
+  // ----------------------- End Special detail ------------------------ //
+
 
 
   // ---------------------Itinerary Adding------------------ //

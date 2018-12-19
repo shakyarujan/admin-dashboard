@@ -128,6 +128,32 @@
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="card-box" *ngFor="let trip of packageinfoData">
+                        <div class="card-head">
+                            <header>cover photo</header>
+                            <div class="tools">
+                                <a routerLink="/packageEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(trip.trip_id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                        <div class="m-b-20">
+                                            <div class="package-profile" >
+                                                <img src={{trip.cover_photo}} class="package-img" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

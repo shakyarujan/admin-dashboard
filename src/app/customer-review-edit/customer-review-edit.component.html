@@ -7,53 +7,47 @@
           <div class="card-box">
             <div class="card-head">
               <a routerLink="/customerReview" id="panel-button" class="mdl-button mdl-button--icon collapsed">
-                <i class="material-icons">arrow_back_ios</i>
-              </a>
-              <header>Add Customer Review</header>
+                                <i class="material-icons">arrow_back_ios</i>
+                            </a>
+              <header>Edit Customer Review</header>
             </div>
             <div class="card-body row">
-              <form id="adminuserAddForm" class="adminuserAddForm" name="adminuserAddForm" [formGroup]="createForm">
+              <form id="adminuserEditForm" class="adminuserEditForm" [formGroup]="updateForm">
                 <div class="col-lg-12 p-t-20">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                    <input class="mdl-textfield_input"  #reviewer_name type="text" id="firstName"
-                      required>
+                    <input class="mdl-textfield_input" formControlName="reviewer_name" type="text" id="firstName" required #reviewer_name>
                     <label class="mdl-textfield_label">First Name</label>
                   </div>
                 </div>
-                <!-- <div class="col-lg-6 p-t-20">
+                <!--   <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="review_title" #review_title type="text" id="lasttName" required>
+                                        <input class="mdl-textfield_input" name="" type="text" id="lasttName" required>
                                         <label class="mdl-textfield_label">Last Name</label>
                                     </div>
                                 </div> -->
                 <div class="col-lg-12 p-t-20">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                    <input class="mdl-textfield_input" #review_title type="text" id="heading"
-                      required>
+                    <input class="mdl-textfield_input" formControlName="review_title" type="text" id="heading" required #review_title>
                     <label class="mdl-textfield_label">Heading</label>
                   </div>
                 </div>
                 <div class="col-lg-12 p-t-20">
                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
                     <label class="mdl-textfield_label floating-label" for="text7">Description</label>
-                    <ckeditor id="reviewAddDescription" #comment required [config]="{uiColor: '#F8F8F8'}"
-                      [readonly]="false" debounce="500">
+                    <ckeditor id="reviewDescription" formControlName="comment" #comment required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
                     </ckeditor>
                   </div>
                 </div>
-
                 <div class="col-lg-12 p-t-20">
                   <label class="control-label col-md-3">Upload Photo</label>
                   <form id="profilePhotoForm" class="fileUploadForm">
                     <div class="fileUploadForm-conatiner">
-                      <input type="file" (change)="reviwerPhotoUpload($event)" accept=".jpg,.jpeg,.png">
+                      <input type="file" (change)="reviwerEditPhotoUpload($event)" accept=".jpg,.jpeg,.png">
                     </div>
                   </form>
                 </div>
                 <div class="col-lg-12 p-t-20 text-center">
-                  <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary"
-                    (click)="addCustomerReview(reviewer_name.value, review_title.value, comment.value)"
-                    >
+                  <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" (click)="editCustomerReview(reviewer_name.value, review_title.value, comment.value)">
                     Submit
                   </button>
                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" [routerLink]="['/customerReview']">

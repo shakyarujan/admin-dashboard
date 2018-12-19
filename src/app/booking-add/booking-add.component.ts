@@ -69,8 +69,24 @@ export class BookingAddComponent implements OnInit {
 
   // Adding Booking content
   addbooking(contact_name, contact_email, mobile, no_of_adult, no_of_children, desired_start_date, desired_end_date) {
+
+    const booking = {
+      trip_id: '1',
+      contact_name: contact_name,
+      contact_email: contact_email,
+      mobile: mobile,
+      no_of_adult: no_of_adult,
+      no_of_children: no_of_children,
+      desired_start_date: desired_start_date,
+      desired_end_date: desired_end_date,
+      name: name,
+      booking_status: 'Confirmed'
+    };
+
+
     this.bookingService.addBooking(contact_name, contact_email, mobile, no_of_adult, no_of_children,
        desired_start_date, desired_end_date, name).subscribe( () => {
+
          console.log('added');
         this.router.navigate(['/booking']);
     });
