@@ -1,0 +1,103 @@
+<div class="package-page page-content-wrapper">
+    <div class="page-content">
+        <div class="container">
+            <app-page-top-bar></app-page-top-bar>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="card  card-box">
+                        <div class="card-head">
+                        	<a routerLink="/booking" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                              <i class="material-icons">arrow_back_ios</i>
+                            </a>
+                            <header>All Pending Bookings</header>
+                            <!-- <div class="tools">
+                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                            </div> -->
+                        </div>
+                        <div class="card-body ">
+                      <!--       <div class="row p-b-20">
+                                <div class="col-md-3 col-sm-12 m-b-10">
+                                  <form class="search-form-opened" action="#" method="GET">
+                                      <div class="input-group">
+                                          <input type="text" class="form-control" placeholder="Search..." name="query">
+                                          <span class="input-group-btn search-btn">
+                                            <a [routerLink]="['/package']" class="btn submit">
+                                              <i class="material-icons">search</i>
+                                            </a>
+                                          </span>
+                                      </div>
+                                  </form>
+                              </div>
+                            </div> -->
+                <!--       <div class="row">
+                              <div class="col-sm-12 col-md-6">
+                                  <div class="dataTables_length" id="example4_length">
+                                      <label>
+                                              Show
+                                              <select name="example4_length" aria-controls="example4" class="form-control form-control-sm">
+                                                  <option value="10">10</option>
+                                                  <option value="25">25</option>
+                                                  <option value="50">50</option>
+                                                  <option value="100">100</option>
+                                              </select>
+                                              entries
+                                          </label>
+                                  </div>
+                              </div>
+                              <div class="col-md-6 col-sm-12">
+                                  <div id="example4_filter" class="dataTables_filter">
+                                      <label>
+                                              Search:
+                                              <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="example4">
+                                          </label>
+                                  </div>
+                              </div>
+                            </div> -->
+                            <div class="table-wrap">
+                                <div class="table-responsive">
+                                    <table class="table table-hover mb-30" id="support_table5">
+                                        <thead>
+                                            <tr>
+                                                <!-- <th>No</th> -->
+                                                <th>Name</th>
+                                                <th>Check In</th>
+                                                <th>Check Out</th>
+                                                <th>Status</th>
+                                                <th>Package Type</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bookingData" *ngFor="let data of data | paginate: { itemsPerPage: 10, currentPage: p }">
+                                            <tr *ngIf="data.booking_status === 'Review Pending'">
+                                               <td>{{ data.contact_name }}</td>
+                                                <td>{{ data.desired_start_date }}</td>
+                                                <td>{{ data.desired_end_date }}</td>
+                                                <td><span class="label label-sm label-warning">{{ data.booking_status }}</span></td>
+                                                <!-- <td>
+                                                    <div class="status-slider">
+                                                        <input type="checkbox" id="switch" />
+                                                        <label for="switch" class="switch">Toggle</label>
+                                                    </div>
+                                                </td> -->
+                                                <td>{{ data.name }}</td>
+                                                <td>
+                                                    <a routerLink="/bookingEdit" class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">
+                                                    <i class="fa fa-trash-o "></i>
+                                                </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                     <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
