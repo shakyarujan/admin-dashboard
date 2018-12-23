@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SiteinfoService } from '../service/siteinfo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-what-we-do',
@@ -9,12 +10,18 @@ import { SiteinfoService } from '../service/siteinfo.service';
 export class WhatWeDoComponent implements OnInit {
 
   info: any = [];
-  constructor(private siteinfo: SiteinfoService) { }
+  constructor(private siteinfo: SiteinfoService,
+    private route: Router
+    ) { }
 
   ngOnInit() {
     this.siteinfo.getSiteInfo().subscribe(res => {
       return this.info = res;
     });
+  }
+
+  siteInfo(site_info_id) {
+    this.route.navigate(['/siteinfoEdit/', site_info_id]);
   }
 
 }

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../service/category.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+
+import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'app-package-categories-edit',
@@ -17,6 +19,7 @@ export class PackageCategoriesEditComponent implements OnInit {
 
   constructor(private categoryInfo: CategoryService, private fb: FormBuilder, private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService,
     private http: HttpClient) {
       this.createForm();
      }
@@ -52,9 +55,22 @@ export class PackageCategoriesEditComponent implements OnInit {
     };
 
     this.categoryInfo.updateingCategory(category).subscribe(res => {
+      this.showSuccess();
       this.router.navigate(['/packageCategories']);
     });
   }
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Category has been updated successfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 
 

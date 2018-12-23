@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'mixin';
+
+/* Toaster */
+.toast-top-center {
+    top: 0;
+    right: 0;
+    width: 100%;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+/* toaster */
+
+/*  pagination */
+.ngx-pagination li {
+    display: inline-block;
+    align-items: center;
+    font-size: 1.5rem;
+}
+/*end of pagination*/
+
 .hidden {
     display: none !important;
 }

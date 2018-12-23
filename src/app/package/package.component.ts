@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PackageService } from '../service/package.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { PackageService } from '../service/package.service';
 
 @Component({
   selector: 'app-package',
@@ -12,7 +14,9 @@ export class PackageComponent implements OnInit {
   tripData: any =  [];
   data: any = [];
 
-  constructor(private service: PackageService, private router: Router) { }
+  constructor(private service: PackageService,
+   private toastr: ToastrService, 
+    private router: Router) { }
 
   ngOnInit() {
     this.getPackageData();
@@ -20,8 +24,8 @@ export class PackageComponent implements OnInit {
 
   // Get All package Data
   getPackageData() {
-    this.service.gettripData().subscribe(res => {
-      return this.tripData = res;
+    this.service.gettripData().subscribe((res: any) => {
+      return this.tripData = res.reverse();
     });
   }
 
@@ -39,13 +43,27 @@ export class PackageComponent implements OnInit {
 
   // Delete Pakage
   deletePackage(trip_id) {
-    const confirmation = confirm('Are you sure? ' );
+    const confirmation = confirm('Are you sure want to remove this Package trip?' );
     if (confirmation == true ) {
       this.service.deletePackage(trip_id).subscribe((data) => {
+          this.showSuccess();   
           this.tripData = data;
       });
     } else {
       //nothing
     }
   }
+
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Package has been sucessfully deleted!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 }

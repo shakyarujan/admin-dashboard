@@ -34,4 +34,9 @@ export class CategoryService {
     return this.http.delete(environment.appConfig.apiUrl + '/delete/category/' + category_id);
   }
 
+  // Checking category for delete
+  checkingCategory(category_id) {
+    return this.http.get(environment.appConfig.apiUrl + '/category/check/dependency/' + category_id);
+  }
+
 }

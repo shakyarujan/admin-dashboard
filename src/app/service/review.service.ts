@@ -25,14 +25,7 @@ export class ReviewService {
   }
 
   // Update Review
-  updateReview(reviewer_name, review_title, comment, reviewer_photo) {
-    const updatereview = {
-      reviewer_name: reviewer_name,
-      review_title: review_title,
-      comment: comment,
-      reviewer_photo: reviewer_photo
-    };
-
+  updateReview(updatereview) {
     return this.http.put(environment.appConfig.apiUrl + '/update/review', updatereview);
   }
 

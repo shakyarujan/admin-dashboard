@@ -156,7 +156,7 @@
                               </div>
                               <div class="col-lg-5 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width" id="festivalPrice" >
-                                      <input class="mdl-textfield_input" formControlName="festivalPrice" type="text" #festivalPrice>
+                                      <input class="mdl-textfield_input" id="festivalPrice" formControlName="festivalPrice" type="text" #festivalPrice>
                                       <label class="mdl-textfield_label">Festival Price*</label>
                                   </div>
                               </div>
@@ -165,7 +165,7 @@
                                       <label class="mdl-textfield_label floating-label">Special Deal*</label>
                                       <div class="form-check-inline" *ngFor="let item of choose">
                                           <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal (change)="specialDeal(item)">{{ item }}
+                                            <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal (change)="specialDealTest(item)">{{ item }}
                                           </label>
                                       </div>
                                       <!-- <div class="form-check-inline">
@@ -180,7 +180,7 @@
                                       <label class="mdl-textfield_label floating-label">Feature Deal*</label>
                                       <div class="form-check-inline" *ngFor="let item of choose">
                                           <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" formControlName="featuredDeal" [value]="item" #featuredDeal>{{ item }}
+                                            <input type="radio" class="form-check-input" formControlName="featuredDeal" [value]="item" #featuredDeal (change)="checkFeaturedTrip(item)">{{ item }}
                                           </label>
                                       </div>
                                       <!-- <div class="form-check-inline">
@@ -284,7 +284,7 @@
                                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple"
                                  (click)="updatePackage(name.value,type.value,category.value,price.value,duration.value,difficulty.value,altitude.value,rating.value,keyword.value,festivalPrice.value,overview.value)"
 
-                                  >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                  >Update<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
                                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
                               </div>
                           </form>

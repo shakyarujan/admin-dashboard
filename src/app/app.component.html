@@ -17,7 +17,7 @@
                 </a>
             </li>
         </ul> -->
-        <form class="search-form-opened" action="#" method="GET">
+    <!--     <form class="search-form-opened" action="#" method="GET">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search..." name="query">
                 <span class="input-group-btn search-btn">
@@ -26,7 +26,7 @@
                        </a>
                     </span>
             </div>
-        </form>
+        </form> -->
 
         <!-- start mobile menu -->
         <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
@@ -50,13 +50,13 @@
                         <!-- <i class="fa fa-angle-down"></i> -->
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default navbar-item-container animated jello">
-                        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                        <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                             <a routerLink="/userProfile">
                                 <i class="material-icons">account_circle</i>
                                 <p>Profile</p>
                             </a>
 
-                        </li>
+                        </li> -->
                         <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                             <a routerLink="/setting">
                                 <i class="material-icons icon-setting">settings</i>
@@ -73,13 +73,13 @@
                                 </p>
                             </a>
                         </li> -->
-                        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                       <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                             <a routerLink="/usersAdd">
                                 <i class="material-icons">person_add</i>
                                 <p>Add new User</p>
                             </a>
                         </li>
-                        <li class="divider"> </li>
+                        <li class="divider"> </li> -->
                         <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                             <a routerLink="/lock">
                                 <i class="material-icons icon-lock">lock</i>
@@ -113,7 +113,6 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="boxTwo">
-        <ng-flash-message></ng-flash-message>
         <router-outlet></router-outlet>
     </div>
 </div>

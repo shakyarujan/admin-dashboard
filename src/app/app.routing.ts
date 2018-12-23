@@ -2,6 +2,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 
+
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { PackageComponent } from './package/package.component';
@@ -10,6 +11,7 @@ import { ClientMsgComponent } from './client-msg/client-msg.component';
 import { BookingComponent } from './booking/booking.component';
 import { BookingAddComponent } from './booking-add/booking-add.component';
 import { BookingEditComponent } from './booking-edit/booking-edit.component';
+import { BookingReviewPendingComponent } from './booking-review-pending/booking-review-pending.component';
 import { PackageAddComponent } from './package-add/package-add.component';
 import { PackageEditComponent } from './package-edit/package-edit.component';
 import { ClientMsgViewComponent } from './client-msg-view/client-msg-view.component';
@@ -22,6 +24,7 @@ import { PackageCategoriesEditComponent } from './package-categories-edit/packag
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { CustomerReviewComponent } from './customer-review/customer-review.component';
 import { CustomerReviewViewComponent } from './customer-review-view/customer-review-view.component';
+import { CustomerReviewEditComponent } from './customer-review-edit/customer-review-edit.component';
 import { PackageTypeComponent } from './package-type/package-type.component';
 import { PackageTypeAddComponent } from './package-type-add/package-type-add.component';
 import { PackageTypeEditComponent } from './package-type-edit/package-type-edit.component';
@@ -47,6 +50,7 @@ export const router: Routes = [
     { path: 'booking', component: BookingComponent, canActivate: [AuthGuard] },
     { path: 'bookingAdd', component: BookingAddComponent, canActivate: [AuthGuard] },
     { path: 'bookingEdit/:booking_id', component: BookingEditComponent, canActivate: [AuthGuard] },
+    { path: 'bookingReviewPending', component: BookingReviewPendingComponent, canActivate: [AuthGuard] },
     { path: 'packageAdd', component: PackageAddComponent, canActivate: [AuthGuard] },
     { path: 'packageEdit/:trip_id', component: PackageEditComponent, canActivate: [AuthGuard] },
     { path: 'clientMsgView', component: ClientMsgViewComponent, canActivate: [AuthGuard] },
@@ -59,6 +63,7 @@ export const router: Routes = [
     { path: 'userProfile', component: UserProfileComponent, canActivate: [AuthGuard] },
     { path: 'customerReview', component: CustomerReviewComponent, canActivate: [AuthGuard] },
     { path: 'customerReviewView/:review_id', component: CustomerReviewViewComponent, canActivate: [AuthGuard] },
+    { path: 'customerReviewEdit/:review_id', component: CustomerReviewEditComponent, canActivate: [AuthGuard] },
     { path: 'packageType', component: PackageTypeComponent, canActivate: [AuthGuard] },
     { path: 'packageTypeAdd', component: PackageTypeAddComponent, canActivate: [AuthGuard] },
     { path: 'packageTypeEdit', component: PackageTypeEditComponent, canActivate: [AuthGuard] },

@@ -36,32 +36,9 @@ export class BookingService {
     return this.http.get(environment.appConfig.apiUrl + '/booking/all');
   }
 
-  // addBooking(booking: any) {
-  //   console.log('......sinside service......' + booking);
-  // }
-
-
   // Update the booking records
-  updateBooking(id, trip_id, contact_name, contact_email, mobile, no_of_adult,
-    no_of_children, desired_start_date, desired_end_date, name, status) {
-    const booking = {
-      booking_id: id,
-      trip_id: trip_id,
-      contact_name: contact_name,
-      contact_email: contact_email,
-      mobile: mobile,
-      no_of_adult: no_of_adult,
-      no_of_children: no_of_children,
-      desired_start_date: desired_start_date,
-      desired_end_date: desired_end_date,
-      name: name,
-      status: status
-    };
-
-    console.log('........inside service......');
-    console.log(id);
-
-    return this.http.put(environment.appConfig.apiUrl + '/update/booking', booking );
+  updateBooking(bookingData) {
+    return this.http.put(environment.appConfig.apiUrl + '/update/booking', bookingData );
   }
 
   // Deleting the records

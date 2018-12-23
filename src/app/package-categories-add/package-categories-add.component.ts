@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../service/category.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+
+import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'app-package-categories-add',
@@ -15,6 +17,7 @@ export class PackageCategoriesAddComponent implements OnInit {
 
   constructor(private categoryInfo: CategoryService, private fb: FormBuilder, private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService,
     private http: HttpClient) {
       this.createForm = this.fb.group({
         name: ['', Validators.required],
@@ -31,9 +34,21 @@ export class PackageCategoriesAddComponent implements OnInit {
       description: description
     };
     this.categoryInfo.addingCategory(newCategory).subscribe( () => {
-         console.log('added');
+         this.showSuccess();
         this.router.navigate(['/packageCategories']);
     });
   }
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Category has been added successfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

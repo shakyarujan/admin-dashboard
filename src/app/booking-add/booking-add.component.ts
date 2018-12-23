@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingService } from '../service/booking.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 import {PackageService } from '../service/package.service';
+import { BookingService } from '../service/booking.service';
 
 @Component({
   selector: 'app-booking-add',
@@ -20,6 +22,7 @@ export class BookingAddComponent implements OnInit {
   constructor(
     private bookingService: BookingService,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private router: Router,
     private servicePackage: PackageService) {
     this.createForm = this.fb.group({
@@ -75,4 +78,17 @@ export class BookingAddComponent implements OnInit {
         this.router.navigate(['/booking']);
     });
   }
+
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Booking Information has been added successfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 }

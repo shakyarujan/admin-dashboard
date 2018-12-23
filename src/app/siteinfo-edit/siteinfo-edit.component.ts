@@ -4,6 +4,9 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-siteinfo-edit',
@@ -21,6 +24,7 @@ export class SiteinfoEditComponent implements OnInit {
 
   constructor(private siteInfo: SiteinfoService, private fb: FormBuilder, private router: Router,
     private route: ActivatedRoute,
+    private toastr: ToastrService,
     private http: HttpClient) {
     this.createForm();
   }
@@ -45,23 +49,16 @@ export class SiteinfoEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.site_info_id;
-      console.log(this.id);
       this.siteInfo.getSiteInfoId(this.id).subscribe(res => {
         this.siteinfoData = res;
-        console.log(this.siteinfoData);
 
         this.about_us = this.siteinfoData[0].about_us;
         this.cover_photo = this.siteinfoData[0].cover_photo;
-
-        console.log('ajsdfghjasgdfjhasg---------sdfadf');
-        console.log(this.siteinfoData[0].cover_photo);
-
         this.cover_photoFile = this.cover_photo.split('https://api-sh.paisamanager.com/cover/')[1];
 
 
         this.updateForm.get('site_name').setValue(this.siteinfoData[0].site_name);
 
-        // this.updateForm.get('cover_photo').setValue(this.siteinfoData[0].cover_photo);
 
         this.updateForm.get('contact_number').setValue(this.siteinfoData[0].contact_number);
         this.updateForm.get('email').setValue(this.siteinfoData[0].email);
@@ -111,7 +108,7 @@ export class SiteinfoEditComponent implements OnInit {
       ).subscribe(file => {});
 
     this.siteInfo.updateSiteInfo(siteInfo).subscribe(() => {
-      console.log('adding site informatio');
+      this.showSuccess();
       this.router.navigate(['/siteinfo']);
     });
 
@@ -121,6 +118,18 @@ export class SiteinfoEditComponent implements OnInit {
     this.cover_photoFile = <Array<File>>fileInput.target.files;
     this.cover_photo = 'https://api-sh.paisamanager.com/cover/' + fileInput.target.files[0]['name'];
   }
+
+    // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Sucessfully Updated!', 'Update!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the Form Credential', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }
  
