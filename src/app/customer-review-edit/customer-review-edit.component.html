@@ -1,0 +1,69 @@
+<div class="customer-review-add-page page-content-wrapper">
+  <div class="page-content">
+    <div class="container">
+      <app-page-top-bar></app-page-top-bar>
+      <div class="row">
+        <div class="col-md-8 col-sm-12">
+          <div class="card-box">
+            <div class="card-head">
+              <a routerLink="/customerReview" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                <i class="material-icons">arrow_back_ios</i>
+              </a>
+              <header>Edit Customer Review</header>
+            </div>
+            <div class="card-body row">
+              <form id="adminuserAddForm" class="adminuserAddForm" name="adminuserAddForm" [formGroup]="updateForm">
+                <div class="col-lg-12 p-t-20">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                    <input class="mdl-textfield_input" formControlName="reviewer_name" #reviewer_name type="text" id="reviewer_name"
+                      required>
+                    <label class="mdl-textfield_label">Customer Name</label>
+                  </div>
+                </div>
+                <!-- <div class="col-lg-6 p-t-20">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                                        <input class="mdl-textfield_input" formControlName="review_title" #review_title type="text" id="lasttName" required>
+                                        <label class="mdl-textfield_label">Last Name</label>
+                                    </div>
+                                </div> -->
+                <div class="col-lg-12 p-t-20">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                    <input class="mdl-textfield_input" formControlName="review_title" #review_title type="text" id="review_title"
+                      required>
+                    <label class="mdl-textfield_label">Heading</label>
+                  </div>
+                </div>
+                <div class="col-lg-12 p-t-20">
+                  <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                    <label class="mdl-textfield_label floating-label" for="text7">Description</label>
+                    <ckeditor id="comment" formControlName="comment" #comment required [config]="{uiColor: '#F8F8F8'}"
+                      [readonly]="false" debounce="500">
+                    </ckeditor>
+                  </div>
+                </div>
+
+                <div class="col-lg-12 p-t-20">
+                  <label class="control-label col-md-3">Customer Photo</label>
+                  <form id="profilePhotoForm" class="fileUploadForm">
+                    <div class="fileUploadForm-conatiner">
+                      <input type="file" #reviewer_photo (change)="reviwerPhotoUpload($event)" accept=".jpg,.jpeg,.png">
+                    </div>
+                  </form>
+                </div>
+                <div class="col-lg-12 p-t-20 text-center">
+                  <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary"
+                    (click)="updateCustomerReview(reviewer_name.value, review_title.value, comment.value)">
+                    Update
+                  </button>
+                  <button type="button" routerLink="/customerReview" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default">
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
