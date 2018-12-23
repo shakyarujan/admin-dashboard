@@ -70,10 +70,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="what-we-do-description">
-                                                We are specialized in a complete range of travel-related services and adventure activities, from five-star to budget class range. In providing this full range of travel- and adventure-related activities, Smart Holidays continues to promote responsible
-                                                tourism, sustainable development of the country and preservation of local cultures and traditions.
+                                        <div class="m-b-20" *ngFor="let item of info">
+                                            <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs pull-right" (click)="siteInfo(item.site_info_id)">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <div class="what-we-do-description" [innerHtml]=item.what_we_do>
                                             </div>
                                         </div>
                                     </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewService } from '../service/review.service';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+
+import { ReviewService } from '../service/review.service';
 
 @Component({
   selector: 'app-customer-review',
@@ -11,7 +13,9 @@ export class CustomerReviewComponent implements OnInit {
 
   dataReview: any = [];
 
-  constructor(private review: ReviewService, private router: Router) { }
+  constructor(private review: ReviewService,
+  private toastr: ToastrService, 
+  private router: Router) { }
 
   ngOnInit() {
     this.getReview();
@@ -26,9 +30,10 @@ export class CustomerReviewComponent implements OnInit {
 
   // Get Review Id and delete
   deleteReview(review_id) {
-    const confirmation = confirm('Are you sure? ' );
+    const confirmation = confirm('Are you sure, you want to remove this review?' );
     if (confirmation == true ) {
       this.review.deleteReview(review_id).subscribe((data) => {
+        this.showSuccess();
         this.dataReview = data;
     });
     } else {
@@ -40,5 +45,22 @@ export class CustomerReviewComponent implements OnInit {
   customerReview(review_id) {
     this.router.navigate(['/customerReviewView/' + review_id]);
   }
+
+  // Get Customer Id
+  getCustomerId(review_id) {
+    this.router.navigate(['/customerReviewEdit/' + review_id]);
+  }
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Package has been sucessfully deleted!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

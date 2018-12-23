@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ReviewService } from '../service/review.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
+import { ReviewService } from '../service/review.service';
 
 @Component({
   selector: 'app-customer-review-add',
@@ -18,6 +20,7 @@ export class CustomerReviewAddComponent implements OnInit {
 
   constructor(private review: ReviewService, private fb: FormBuilder, private router: Router,
     private route: ActivatedRoute,
+     private toastr: ToastrService,
     private http: HttpClient) {
       this.createForm = this.fb.group({
         reviewer_name: ['', Validators.required],
@@ -38,9 +41,6 @@ export class CustomerReviewAddComponent implements OnInit {
       reviewer_photo: this.reviewer_photo
   };
 
-  console.log('asdfasdf----------asdfasdf');
-  console.log(addReview);
-
   const formData: any = new FormData();
 
   // photo upload
@@ -52,6 +52,7 @@ export class CustomerReviewAddComponent implements OnInit {
   // photo upload
 
     this.review.addReview(addReview).subscribe(res => {
+      this.showSuccess();
       this.router.navigate(['/customerReview']);
     });
 
@@ -61,5 +62,17 @@ export class CustomerReviewAddComponent implements OnInit {
     this.reviewerPhotoFile = <Array<File>>fileInput.target.files;
     this.reviewer_photo = 'https://api-sh.paisamanager.com/reviews/' + fileInput.target.files[0]['name'];
   }
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Customer review has been added Sucessfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

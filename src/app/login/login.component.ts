@@ -3,8 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Md5} from 'ts-md5/dist/md5';
-import { NgFlashMessageService } from 'ng-flash-messages';
-
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private route: ActivatedRoute,
     private router: Router,
-    private ngFlashMessageService: NgFlashMessageService
+    private toastr: ToastrService
     ) { }
 
   ngOnInit() {
@@ -49,12 +48,12 @@ export class LoginComponent implements OnInit {
       this.authService.loginUser(credentials).subscribe( res => {
 
         if (typeof res[0] == 'undefined') {
-          console.log('error in message');
-          alert('Please enter a valid email username and password');
+          this.showDanger();
+          //alert('Please enter a valid email username and password');
           this.router.navigateByUrl('/login');
 
         } else {
-          console.log('login in');
+          this.showSuccess();
           localStorage.setItem('currentUser', JSON.stringify(res[0].username));
           this.router.navigate(['/index']);
           this.authService.setLoggedIn(true);
@@ -65,5 +64,17 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('You are Sucessfully login!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

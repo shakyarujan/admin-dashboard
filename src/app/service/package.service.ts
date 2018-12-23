@@ -31,29 +31,13 @@ export class PackageService {
   }
 
   // update Trip Package
-    updateTrip(packageData) {
-  //     const packageData = {
-  //       name: name,
-  //       price: price,
-  //       cover_photo: cover_photo,
-  //       duration: duration,
-  //       type: type,
-  //       difficulty: difficulty,
-  //       season: season,
-  //       overview: overview,
-  //       altitude: altitude,
-  //       rating: rating,
-  //       keyword: keyword,
-  //       festivalOffer: festivalOffer,
-  //       festivalPrice: festivalPrice,
-  //       specialDeal: specialDeal,
-  //       featureDeal: featureDeal,
-  //       status: status
-  //     };
-        console.log(packageData);
-       return this.http.put(environment.appConfig.apiUrl + '/update/trip', packageData);
+  updateTrip(packageData) {
+    return this.http.put(environment.appConfig.apiUrl + '/update/trip', packageData);
   }
 
-
+  // Checking the feature trip
+  getFeaturedTrip() {
+    return this.http.get(environment.appConfig.apiUrl + '/trip/featured');
+  }
 
 }

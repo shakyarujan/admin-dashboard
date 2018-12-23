@@ -11,6 +11,16 @@
                                     <div class="col-md-12">
                                         <div class="card-head">
                                             <header>Customer Review</header>
+                                        </div><br/>
+                                        <div class="row p-b-20">
+                                            <div class="col-md-6 col-sm-6 col-6">
+                                                <div class="btn-group">
+                                                    <a routerLink="/customerReviewAdd" id="addRow" class="btn btn-info">
+                                                        Add Customer Review
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="inbox-body">
                                             <div class="inbox-body no-pad table-responsive">
@@ -39,9 +49,13 @@
                                                                 <a [innerHTML]="review.comment"></a>
                                                             </td>
                                                             <td>
-                                                              <button class="btn btn-tbl-delete btn-xs" (click)="deleteReview(review.review_id)">
-                                                              <i class="fa fa-trash-o "></i>
-                                                          </button>
+                                                                <a routerLink="/customerReviewEdit" class="btn btn-tbl-edit btn-xs" (click)="getCustomerId(review.review_id)">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                                <button class="btn btn-tbl-delete btn-xs" (click)="deleteReview(review.review_id)">
+                                                                  <i class=
+                                                                  "fa fa-trash-o "></i>
+                                                              </button>
                                                           </td>
                                                         </tr>
                                                     </tbody>

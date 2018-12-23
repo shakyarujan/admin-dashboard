@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../service/category.service';
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+
+import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'app-package-categories',
@@ -10,8 +12,11 @@ import { Router } from '@angular/router';
 export class PackageCategoriesComponent implements OnInit {
 
   categoryData: any = [];
+  categoryCheckData: any = [];
 
-  constructor(private category: CategoryService, private router: Router) { }
+  constructor(private category: CategoryService,
+   private toastr: ToastrService, 
+   private router: Router) { }
 
   ngOnInit() {
     this.getCategory();
@@ -32,14 +37,35 @@ export class PackageCategoriesComponent implements OnInit {
 
  // Delete the booking contents
   deletebooking(category_id) {
-    const confirmation = confirm('Are you sure? ' );
+    const confirmation = confirm('Are you sure want to remove this category?' );
     if (confirmation == true ) {
-      this.category.deletingCategory(category_id).subscribe((data) => {
-        this.categoryData = data;
-      });
+      this.category.checkingCategory(category_id).subscribe( res => {
+        this.categoryCheckData = res;
+        if(!this.categoryCheckData.length) {
+
+          this.category.deletingCategory(category_id).subscribe((data) => {
+            this.showSuccess();
+            this.categoryData = data;
+          });
+        }  else {
+           alert('Category cannot be deleted, Some trips are dependent on this category.');
+        }
+
+      });       
     } else {
       //nothing
     }
  }
+ // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Package has been sucessfully deleted!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

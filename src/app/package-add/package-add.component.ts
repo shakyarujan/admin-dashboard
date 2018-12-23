@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PackageService } from '../service/package.service';
 import { FormGroup, FormBuilder, Validators, FormArray} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
 import { CategoryService } from '../service/category.service';
+import { PackageService } from '../service/package.service';
+
 
 @Component({
   selector: 'app-package-add',
@@ -25,6 +27,7 @@ export class PackageAddComponent implements OnInit {
   photoArray: any = [];
   addDescriptionArray;
   categoryService: any = [];
+  featuredDeal;
 
 
   constructor(
@@ -32,6 +35,7 @@ export class PackageAddComponent implements OnInit {
     private route: ActivatedRoute,
     private http: HttpClient,
     private fb: FormBuilder,
+    private toastr: ToastrService,
     private serviceCategory: CategoryService,
     private router: Router) {
 
@@ -85,10 +89,16 @@ export class PackageAddComponent implements OnInit {
     const festivalOffer = fg.value.festivalOffer;
     var festivalPrice = fg.value.festivalPrice;
     const specialDeal = fg.value.specialDeal;
-    const featuredDeal = fg.value.featureDeal;
+    // const featuredDeal = fg.value.featureDeal;
     const status = 'Active';
     const itinerary = this.addDescriptionArray;
     const photos = this.photoArray;
+
+    if(this.featuredDeal == ''){
+      var featuredDeal = fg.value.featureDeal;
+    }else{
+      var featuredDeal = this.featuredDeal;
+    }
 
     if(festivalPrice == null || festivalOffer == 'no' || festivalOffer == 'No'){
       festivalPrice = 0;
@@ -142,9 +152,9 @@ export class PackageAddComponent implements OnInit {
 
     this.service.addPackage(newTrip).subscribe( res => {
     });
-    alert('New Trip Information has been added successfully');
-    this.router.navigate(['/package']);
-    location.reload();
+    this.showSuccess();
+    // this.router.navigate(['/package']);
+    // location.reload();
 }
 
 
@@ -271,5 +281,41 @@ export class PackageAddComponent implements OnInit {
   }
 
   // --------------------- Show festival Offer price --------------------- //
+
+
+  // --------------------- Checked featured trip -----------------------------//
+  checkFeaturedTrip(item){
+    console.log(item);
+
+    if (item == 'Yes') {
+    this.service.getFeaturedTrip().subscribe((featuredTrips: any) => {
+        if(featuredTrips.length > 0){
+          alert('Featured Trip is already available! Cannot have more than on featured trip.');
+          }
+          this.featuredDeal = 'No';
+    });
+
+    } else {
+      // nothing
+    }
+          
+        
+  }
+
+ // -------------------------- End of Checked featured trip -------------------- //
+
+
+
+  // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('New Trip Information has been added successfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 }

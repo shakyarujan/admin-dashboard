@@ -7,9 +7,9 @@
                     <div class="card  card-box">
                         <div class="card-head">
                             <header>All Packages Categories</header>
-                            <div class="tools">
+                           <!--  <div class="tools">
                                 <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="card-body ">
                             <div class="row p-b-20">
@@ -27,7 +27,6 @@
                                     <table class="table table-hover mb-30" id="support_table5">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
                                                 <th>Categories Name</th>
                                                 <th>Description</th>
                                                 <th>Action</th>
@@ -35,7 +34,6 @@
                                         </thead>
                                         <tbody class="bookingData" *ngFor="let category of categoryData">
                                             <tr>
-                                                <td></td>
                                                 <td>{{ category.name}}</td>
                                                 <td class="categories-description" [innerHTML]="category.description"></td>
                                                 <td>

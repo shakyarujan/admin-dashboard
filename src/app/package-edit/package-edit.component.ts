@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { PackageService } from '../service/package.service';
-import { CategoryService } from '../service/category.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
+
 import { ItineraryService } from '../service/itinerary.service';
+import { PackageService } from '../service/package.service';
+import { CategoryService } from '../service/category.service';
 
 @Component({
   selector: 'app-package-edit',
@@ -59,6 +61,7 @@ export class PackageEditComponent implements OnInit {
     private route: ActivatedRoute,
     private serviceCategory: CategoryService,
     private itinerary: ItineraryService,
+    private toastr: ToastrService,
     private http: HttpClient) {
       this.createForm();
      }
@@ -77,7 +80,6 @@ export class PackageEditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.id = params.trip_id;
-      console.log('..........');
 
       this.packageData.gettripDataId(this.id).subscribe(res => {
         this.packageinfoData = res;
@@ -117,13 +119,23 @@ export class PackageEditComponent implements OnInit {
           this.allPhoto = image;
         });
 
+        // Festival price shown or not at first 
+
+        if(this.fesOffer == 'Yes'){
+          var festiveOffer = <HTMLInputElement>document.getElementById('festivalPrice');
+          festiveOffer.style.display = '';
+        }else{ 
+          var festiveOffer = <HTMLInputElement>document.getElementById('festivalPrice');
+          festiveOffer.style.display = 'none';
+        }
+
+        // Festival price shown or not at first 
+
         this.cover_photoFile = this.cover_photo.split('https://api-sh.paisamanager.com/images/')[1];
         this.updateForm.get('name').setValue(this.packageinfoData[0].name);
         this.updateForm.get('price').setValue(this.packageinfoData[0].price);
-        // this.updateForm.get('cover_photo').setValue(this.packageinfoData[0].cover_photo);
         this.updateForm.get('duration').setValue(this.packageinfoData[0].duration);
         this.updateForm.get('difficulty').setValue(this.packageinfoData[0].difficulty);
-        // this.updateForm.get('season').setValue(this.packageinfoData[0].season);
         this.updateForm.get('type').setValue(this.packageinfoData[0].type);
         this.updateForm.get('overview').setValue(this.packageinfoData[0].overview);
         this.updateForm.get('altitude').setValue(this.packageinfoData[0].altitude);
@@ -164,6 +176,8 @@ export class PackageEditComponent implements OnInit {
   updatePackage(name, type, category, price, duration, difficulty, altitude, rating, keyword,
     festivalPrice, overview) {
 
+    console.log(festivalPrice);
+
   if (festivalPrice == null || this.fesOffer == 'no' || this.fesOffer == 'No') {
         festivalPrice = 0;
     }
@@ -195,9 +209,6 @@ export class PackageEditComponent implements OnInit {
           deleteItinerary: this.deleteItineraryArray
     };
 
-    console.log('...................................test..........');
-    console.log(packageData);
-
     const formData: any = new FormData();
 
     // ----------------photo upload------------------- //
@@ -210,11 +221,15 @@ export class PackageEditComponent implements OnInit {
       }
      // ----------------End photo upload------------------- //
 
+
+     console.log(packageData);
+
     this.packageData.updateTrip(packageData).subscribe(res => {
     });
-      alert('Updated Successfully');
-      this.router.navigate(['/package']);
-      location.reload();
+    this.showSuccess();
+      // alert('Updated Successfully');
+      // this.router.navigate(['/package']);
+      // location.reload();
     
 }
 
@@ -269,8 +284,10 @@ export class PackageEditComponent implements OnInit {
   festivalPriceShow(offer) {
     const festivaloffer = document.getElementById('festivalPrice');
     if (offer == 'Yes' || offer == 'yes') {
+      this.fesOffer = offer;
       festivaloffer.style.display = '';
     } if (offer == 'No' || offer == 'no') {
+      this.fesOffer = offer;
       festivaloffer.style.display = 'none';
     }
   }
@@ -278,11 +295,48 @@ export class PackageEditComponent implements OnInit {
   // ----------------- End of festival price shown ----------------- //
 
 
+
+  // ----------------- Special Deal -------------------------------- //
+  specialDealTest(offer){
+    console.log(offer);
+    if(offer == 'Yes'){
+      this.speDeal = offer;
+    }if(offer == 'No'){
+      this.speDeal = offer;
+    }
+  }
+
+  // ------------------- end of special deal ------------------------ //
+
+
+
+  // ---------------------------- checked Feature deal ------------------------ //
+  checkFeaturedTrip(offer){
+    if(offer == 'Yes'){
+      this.featureDeal = offer;
+    }if(offer == 'No'){
+      this.featureDeal = offer;
+    }
+
+    this.packageData.getFeaturedTrip().subscribe((featuredTrips: any) => {
+      if(this.id != featuredTrips[0].trip_id){
+        if(featuredTrips.length > 0){
+          alert('Featured Trip is already available! Cannot have more than on featured trip.');
+
+          this.updateForm.get('featuredDeal').setValue(this.packageinfoData[0].featuredDeal);
+          this.featureDeal = 'No';
+        }
+      }else{
+        //nothing
+      }
+    });
+  }
+
+// --------------------------- checked featured deal ------------------------------------- //
+
+
   // ---------------------Itinerary Adding------------------ //
   addDescriptionField(day, description) {
-    console.log('...........................');
-      console.log(day);
-      console.log(description);
     if (day == '' || description == '') {
       alert(' Please fill-up the form before submitting ');
     } else {
@@ -482,6 +536,17 @@ export class PackageEditComponent implements OnInit {
 
   // ---------------------------- End of Update Itinerary------------------------------//
 
+   // ------------ Toast message ------------------------------//
+  showSuccess() {
+    this.toastr.success('Trip Information has been updated successfully!', 'Success!');
+  }
+
+  showDanger() {
+    this.toastr.warning('Please enter the valid username and password', 'Alert!');
+  }
+
+
+  // ------------ End Toast message ------------------------------//
 
 
 }

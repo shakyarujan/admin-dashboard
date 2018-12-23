@@ -5,7 +5,11 @@ import { ReactiveFormsModule , FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { CKEditorModule } from '../../node_modules/ng2-ckeditor';
-import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { GrdFilterPipe } from './grd-filter.pipe';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -18,6 +22,7 @@ import { BookingComponent } from './booking/booking.component';
 import { PageTopBarComponent } from './page-top-bar/page-top-bar.component';
 import { BookingEditComponent } from './booking-edit/booking-edit.component';
 import { BookingAddComponent } from './booking-add/booking-add.component';
+import { BookingReviewPendingComponent } from './booking-review-pending/booking-review-pending.component';
 import { PackageAddComponent } from './package-add/package-add.component';
 import { PackageEditComponent } from './package-edit/package-edit.component';
 import { ClientMsgViewComponent } from './client-msg-view/client-msg-view.component';
@@ -51,10 +56,12 @@ import { SiteinfoService } from './service/siteinfo.service';
 import { PackageService } from './service/package.service';
 import { CategoryService } from './service/category.service';
 import { ItineraryService } from './service/itinerary.service';
+import { CustomerReviewEditComponent } from './customer-review-edit/customer-review-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    GrdFilterPipe,
     IndexComponent,
     SidebarComponent,
     LoginComponent,
@@ -65,6 +72,7 @@ import { ItineraryService } from './service/itinerary.service';
     PageTopBarComponent,
     BookingEditComponent,
     BookingAddComponent,
+    BookingReviewPendingComponent,
     PackageAddComponent,
     PackageEditComponent,
     ClientMsgViewComponent,
@@ -88,17 +96,24 @@ import { ItineraryService } from './service/itinerary.service';
     PackageViewComponent,
     CustomerReviewAddComponent,
     BackgroundImageComponent,
-    BackgroundImageAddComponent
+    BackgroundImageAddComponent,
+    CustomerReviewEditComponent
   ],
   imports: [
     routes,
     BrowserModule,
+    NgxPaginationModule,
     HttpModule,
     HttpClientModule,
     FormsModule,
     CKEditorModule,
     ReactiveFormsModule,
-    NgFlashMessagesModule.forRoot()
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+    timeOut: 2000,
+    positionClass: 'toast-top-center',
+    preventDuplicates: true,
+    }),
   ],
   providers: [
     AuthService,
