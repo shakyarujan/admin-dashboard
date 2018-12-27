@@ -12,6 +12,24 @@ export class AppComponent {
   constructor(private auth: AuthService) {}
 
   logout() {
+  	
     this.auth.logout();
   }
+
+//  // Greeting 
+// greeting() {
+// var d = new Date();
+// var time = d.getHours();
+
+// if (time < 12) {
+//   document.write("<b>Good morning!</b>");
+// }
+// if (time > 12) {
+//   document.write("<b>Good afternoon!</b>");
+// }
+// if (time == 12) {
+//   document.write("<b>Go eat lunch!</b>");
+// }
+
+// }
 }

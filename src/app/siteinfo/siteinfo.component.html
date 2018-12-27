@@ -5,10 +5,10 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="card-box">
-                        <div class="card-head card-topline-aqua">
+                        <div class="card-head">
                             <header>Site info</header>
                             <div class="tools" *ngFor="let info of siteInfoData">
-                                <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
+                                <a  class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                             </div>
@@ -96,23 +96,9 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                    <div class="card-box">
-                        <div class="card-head">
-                            <header>Homepage Text</header>
-                            <div class="tools" *ngFor="let info of siteInfoData">
-                                <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body " *ngFor="let info of siteInfoData">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 about-us">
+                             <div class="row m-t-30">
+                                <div class="col-md-12 col-sm-12 about-us" *ngFor="let info of siteInfoData">
+                                    <header class="header m-b-10">Homepage Text</header>
                                     <div class="site-info-desc-item" [innerHTML]="info.homepage_text">
                                     </div>
                                 </div>
@@ -120,6 +106,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

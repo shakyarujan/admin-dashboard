@@ -31,14 +31,12 @@ export class PackageComponent implements OnInit {
 
   // Edit Package
   editPackageData(trip_id) {
-    console.log(trip_id);
-    this.router.navigate(['/packageEdit/' + trip_id]);
+    this.router.navigate(['/package/edit/' + trip_id]);
   }
 
   // Edit Package
   viewPackageData(trip_id) {
-    console.log(trip_id);
-    this.router.navigate(['/packageView/' + trip_id]);
+    this.router.navigate(['/package/view/' + trip_id]);
   }
 
   // Delete Pakage

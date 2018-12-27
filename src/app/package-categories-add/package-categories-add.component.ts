@@ -35,7 +35,7 @@ export class PackageCategoriesAddComponent implements OnInit {
     };
     this.categoryInfo.addingCategory(newCategory).subscribe( () => {
          this.showSuccess();
-        this.router.navigate(['/packageCategories']);
+        this.router.navigate(['/package/categories']);
     });
   }
 

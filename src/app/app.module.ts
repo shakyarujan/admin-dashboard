@@ -57,6 +57,7 @@ import { PackageService } from './service/package.service';
 import { CategoryService } from './service/category.service';
 import { ItineraryService } from './service/itinerary.service';
 import { CustomerReviewEditComponent } from './customer-review-edit/customer-review-edit.component';
+import { WhatWeDoAddComponent } from './what-we-do-add/what-we-do-add.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { CustomerReviewEditComponent } from './customer-review-edit/customer-rev
     CustomerReviewAddComponent,
     BackgroundImageComponent,
     BackgroundImageAddComponent,
-    CustomerReviewEditComponent
+    CustomerReviewEditComponent,
+    WhatWeDoAddComponent
   ],
   imports: [
     routes,

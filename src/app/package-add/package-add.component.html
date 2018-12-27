@@ -1,237 +1,308 @@
 <div class="package-add-page page-content-wrapper">
     <div class="page-content">
         <div class="container">
-            <app-page-top-bar></app-page-top-bar>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="card-box">
-                        <div class="card-head">
-                            <a routerLink="/package" id="panel-button" class="mdl-button mdl-button--icon collapsed">
-                                <i class="material-icons">arrow_back_ios</i>
-                            </a>
-                            <header>Add New Package</header>
+        <app-page-top-bar></app-page-top-bar>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="card-box">
+                    <div class="card-head">
+                        <a routerLink="/package" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                            <i class="material-icons">arrow_back_ios</i>
+                        </a>
+                    <header>Add New Package</header>
+                </div>
+                <div class="card-body row">
+                    <form id="packageAddForm" class="packageAddForm" name="packageAddForm" [formGroup]="createForm">
+                       <div class="col-lg-6 p-t-20">
+                            <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label for="list3" class="mdl-textfield_label floating-label">Category*</label>
+                                <select class="form-control" id="packageType" formControlName="category" #category
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('category').touched && createForm.get('category').invalid,
+                                'is-valid' : createForm.get('category').touched && createForm.get('category').valid
+                                }"
+                                >
+                                    <option [ngValue]=null disabled>---Select Category---</option>
+                                    <option *ngFor="let item of categoryService" [value]=item.category_id>{{ item.name }}</option>
+                                </select>
+                                <div class="invalid-feedback">Package category is required</div>
+                            </div>
                         </div>
-                        <div class="card-body row">
-                            <form id="packageAddForm" class="packageAddForm" name="packageAddForm" [formGroup]="createForm">
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" formControlName="name" type="text" id="Package Name" #name autofocus="">
-                                        <label class="mdl-textfield_label">Package Name*</label>
-                                    </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" formControlName="name" type="text" id="Package Name" #name autofocus="" [ngClass]="{
+                                'is-invalid' : createForm.get('name').touched && createForm.get('name').invalid,
+                                'is-valid' : createForm.get('name').touched && createForm.get('name').valid
+                                }">
+                                <label class="mdl-textfield_label">Package Name*</label>
+                                <div class="invalid-feedback">Package name is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" formControlName="price" type="number" id="Price" #price
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('price').touched && createForm.get('price').invalid,
+                                'is-valid' : createForm.get('price').touched && createForm.get('price').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Price*</label>
+                                <div class="invalid-feedback">Trip Price is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" formControlName="duration" type="text" id="duration" #duration
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('duration').touched && createForm.get('duration').invalid,
+                                'is-valid' : createForm.get('duration').touched && createForm.get('duration').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Duration (eg. 14 days 13 nights)*</label>
+                                <div class="invalid-feedback">Trip duration is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" formControlName="altitude" type="number" id="altitude" #altitude
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('altitude').touched && createForm.get('altitude').invalid,
+                                'is-valid' : createForm.get('altitude').touched && createForm.get('altitude').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Maximum Altitude (in meter: 3000)*</label>
+                                <div class="invalid-feedback">Trip altitude is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-t-20">
+                            <div class="checkbox-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label class="mdl-textfield_label floating-label">Season*</label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="summer" #season (change)="checkSeason('summer')">
+                                    <label class="form-check-label">Summer</label>
                                 </div>
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" formControlName="price" type="number" id="Price" #price>
-                                        <label class="mdl-textfield_label">Price*</label>
-                                    </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="winter" #season (change)="checkSeason('winter')">
+                                    <label class="form-check-label">Winter</label>
                                 </div>
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" formControlName="duration" type="text" id="duration" #duration>
-                                        <label class="mdl-textfield_label">Duration (eg. 14 days 13 nights)*</label>
-                                    </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="spring" #season (change)="checkSeason('spring')">
+                                    <label class="form-check-label">Spring</label>
                                 </div>
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" formControlName="altitude" type="number" id="altitude" #altitude>
-                                        <label class="mdl-textfield_label">Maximum Altitude (in meter: 3000)*</label>
-                                    </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="autumn" #season (change)="checkSeason('autumn')">
+                                    <label class="form-check-label">Autumn</label>
                                 </div>
-                                <div class="col-lg-4 p-t-20">
-                                    <div class="checkbox-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label class="mdl-textfield_label floating-label">Season*</label>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="summer" #season  (change) = "checkSeason('summer')">
-                                            <label class="form-check-label">Summer</label>
-                                        </div>
-                                        <div class="form-check form-check-inline" >
-                                          <input class="form-check-input" type="checkbox" id="winter" #season (change) = "checkSeason('winter')">
-                                          <label class="form-check-label">Winter</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" id="spring"  #season (change) = "checkSeason('spring')">
-                                          <label class="form-check-label">Spring</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                          <input class="form-check-input" type="checkbox" id="autumn" #season (change) = "checkSeason('autumn')">
-                                          <label class="form-check-label">Autumn</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 p-t-20">
-                                    <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label for="list3" class="mdl-textfield_label floating-label">Package Type</label>
-                                        <select class="custom-select mdl-textfield_input" id="packageType" formControlName="type" #type>
-                                            <option [value]=null disabled selected="selected">---Select Package Type---</option>
-                                            <option *ngFor="let item of typeList" [value]="item">{{ item }}</option>
-                                            <!-- <option value="Outbound">Outbound</option> -->
-                                          </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 p-t-20">
-                                    <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label for="list3" class="mdl-textfield_label floating-label">Difficulty</label>
-                                        <select class="custom-select mdl-textfield_input" id="difficulty" formControlName="difficulty" #difficulty>
-                                            <option [ngValue]=null disabled>---Select Difficulty level---</option>
-                                                <option *ngFor="let item of difficultyList" [value]="item">{{ item }}</option>
-                                                <!-- <option value="Medium">Medium</option>
-                                                <option value="High">High</option> -->
-                                          </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" type="text" id="rating" formControlName="rating" #rating>
-                                        <label class="mdl-textfield_label">Rating*</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input" formControlName="keyword" type="text" id="keyword" #keyword>
-                                        <label class="mdl-textfield_label">Keyword*</label>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-t-20">
+                            <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label for="list3" class="mdl-textfield_label floating-label">Package Type</label>
+                                <select class=" form-control" id="packageType" formControlName="type" #type
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('type').touched && createForm.get('type').invalid,
+                                'is-valid' : createForm.get('type').touched && createForm.get('type').valid
+                                }"
+                                >
+                                    <option [value]=null selected="selected" disabled>---Select Package Type---</option>
+                                    <option *ngFor="let item of typeList" [value]="item">{{ item }}</option>
+                                    <!-- <option value="Outbound">Outbound</option> -->
+                                </select>
+                                <div class="invalid-feedback">Package type is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-t-20">
+                            <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label for="list3" class="mdl-textfield_label floating-label">Difficulty</label>
+                                <select class="form-control" id="difficulty" formControlName="difficulty" #difficulty
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('difficulty').touched && createForm.get('difficulty').invalid,
+                                'is-valid' : createForm.get('difficulty').touched && createForm.get('difficulty').valid
+                                }"
+                                >
+                                    <option [ngValue]=null disabled>---Select Difficulty level---</option>
+                                    <option *ngFor="let item of difficultyList" [value]="item">{{ item }}</option>
+                                    <!-- <option value="Medium">Medium</option>
+                                    <option value="High">High</option> -->
+                                </select>
+                                <div class="invalid-feedback">Trip difficulty level detail is required</div>
+                            </div>
+                        </div>
+                      <div class="col-lg-4 p-t-20">
+                            <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label for="list3" class="mdl-textfield_label floating-label">Rating*</label>
+                                <!-- <input class="form-control" type="text" id="rating" formControlName="rating" #rating
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('rating').touched && createForm.get('rating').invalid,
+                                'is-valid' : createForm.get('rating').touched && createForm.get('rating').valid
+                                }"
+                                >
 
-                                <div class="col-lg-4 p-t-20">
-                                  <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <label for="list3" class="mdl-textfield_label floating-label">Category*</label>
-                                      <select class="custom-select mdl-textfield_input" id="packageType" formControlName="category" #category>
-                                          <option [ngValue]=null disabled>---Select Category---</option>
-                                          <option *ngFor="let item of categoryService" [value]=item.category_id>{{ item.name }}</option>
-                                          <!-- <option value="Outbound">Outbound</option> -->
-                                        </select>
-                                  </div>
-                                </div>
-
-                                <div class="col-lg-12 p-t-20 p-b-20">
-                                  <label class="control-label col-md-3">Upload Photo*</label>
-                                  <form id="coverPhotoForm" class="fileUploadForm">
-                                      <div class="fileUploadForm-conatiner">
-                                        <input type="file" (change)="tripPhotoUpload($event)" accept=".jpg,.jpeg,.png">
-                                      </div>
-                                  </form>
-                                </div>
-                                <div class="col-lg-12 p-t-20 p-b-20">
-                                  <label class="control-label col-md-3">Multiple Photo Upload*</label>
-                                  <form id="multiPhotoForm" class="fileUploadForm">
-                                      <div class="fileUploadForm-conatiner">
-                                        <input type="file" multiple (change)="onChange($event)" accept=".jpg,.jpeg,.png">
-                                      </div>
-                                  </form>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-t-20">
-                                    <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label class="mdl-textfield_label floating-label">Festival Offer*</label>
-                                        <div class="form-check-inline" id="festivalOffer" *ngFor="let item of choose">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" [value]="item" formControlName="festivalOffer" #festivalOffer (change)="festivalPriceShow(item)">{{ item }}
-                                            </label>
-                                        </div>
-                                        <!-- <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" name="festivalOffer">No
-                                            </label>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width" id="festivalPrice" >
-                                        <input class="mdl-textfield_input" formControlName="festivalPrice" type="text" id="festivalPrice" #festivalPrice>
-                                        <label class="mdl-textfield_label">Festival Price*</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-t-20">
-                                    <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label class="mdl-textfield_label floating-label">Special Deal*</label>
-                                        <div class="form-check-inline" *ngFor="let item of choose">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal>{{ item }}
-                                            </label>
-                                        </div>
-                                        <!-- <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" name="specialDeal">No
-                                            </label>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-t-20">
-                                    <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <label class="mdl-textfield_label floating-label">Feature Deal*</label>
-                                        <div class="form-check-inline" *ngFor="let item of choose">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" formControlName="featureDeal" [value]="item" #featureDeal (change)="checkFeaturedTrip(item)">{{ item }}
-                                            </label>
-                                        </div>
-                                        <!-- <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" name="featureDeal">No
-                                            </label>
-                                        </div> -->
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 p-t-20">
-                                    <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                        <label class="mdl-textfield_label floating-label" for="text7">Overview*</label>
-                                        <ckeditor id="overview" formControlName="overview" #overview
-                                          [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
-                                        </ckeditor>
-                                    </div>
-                                </div>
-
-                                <div class="dashed-divider p-t-20"></div>
-                                <div class="col-lg-8 p-t-20">
-
-                                  <!-- ADD Fields -->
-                                    <button  class="btn btn-tbl-add btn-xs pull-right" (click)="addDescriptionField(day.value,description.value)">
-                                      <i class="fa fa-plus"></i>
-                                    </button>
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                        <input class="mdl-textfield_input"  type="number" id="day" #day>
-                                        <label class="mdl-textfield_label">Day*</label>
-                                    </div>
-                                    <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                        <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
-                                        <ckeditor id="description" #description
-                                        [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
-                                    </div>
-                                </div>
-                                <div class="col-lg-8 p-t-20" id="itineraryTable">
-                                    <table class="table table-bordered" id="descriptionTable" style="display: none">
-                                        <thead>
-                                            <tr>
-                                                <th>Day</th>
-                                                <th>Description</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody *ngFor="let item of addDescriptionArray">
-                                            <tr>
-                                                <td>{{ item.trip_day}}</td>
-                                                <td>
-                                                    <p [innerHTML]=item.description>
-                                                    </p>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-tbl-minus btn-xs" (click)="deleteDescription(item)">
-                                                        <i class="fa fa-minus"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-lg-12 p-t-20 text-center">
-                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple"
-                                    (click)="addPackageTest(createForm)"
-                                    >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
-                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                                <label class="mdl-textfield_label">Rating*</label>
+                                <div class="invalid-feedback">Rating is required</div> -->
+                                
+                                <select class="form-control" id="rating" formControlName="rating" #rating
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('rating').touched && createForm.get('rating').invalid,
+                                'is-valid' : createForm.get('rating').touched && createForm.get('rating').valid
+                                }"
+                                >
+                                    <option [ngValue]=null disabled>---Select Category---</option>
+                                    <option  [value]=1>1</option>
+                                    <option  [value]=2>2</option>
+                                    <option  [value]=3>3</option>
+                                    <option  [value]=4>4</option>
+                                    <option  [value]=5>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" formControlName="keyword" type="text" id="keyword" #keyword
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('keyword').touched && createForm.get('keyword').invalid,
+                                'is-valid' : createForm.get('keyword').touched && createForm.get('keyword').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Keyword (eg. long trek, short trek)*</label>
+                                <div class="invalid-feedback">Package keyword is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 p-t-20 p-b-20">
+                            <label class="control-label col-md-3">Package Photo*</label>
+                            <form id="coverPhotoForm" class="fileUploadForm">
+                                <div class="fileUploadForm-conatiner">
+                                    <input type="file" (change)="tripPhotoUpload($event)" accept=".jpg,.jpeg,.png">
                                 </div>
                             </form>
                         </div>
-                    </div>
+                        <div class="col-lg-12 p-t-20 p-b-20">
+                            <label class="control-label col-md-3">Multiple photos*</label>
+                            <form id="multiPhotoForm" class="fileUploadForm">
+                                <div class="fileUploadForm-conatiner">
+                                    <input type="file" multiple (change)="onChange($event)" accept=".jpg,.jpeg,.png">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-t-20">
+                            <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label class="mdl-textfield_label floating-label">Festival Offer*</label>
+                                <div class="form-check-inline" id="festivalOffer" *ngFor="let item of choose">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" [value]="item" formControlName="festivalOffer" #festivalOffer (change)="festivalPriceShow(item)">{{ item }}
+                                    </label>
+                                </div>
+                                <!-- <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="festivalOffer">No
+                                    </label>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-6 p-t-20">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width" id="festivalPrice">
+                                <input class="form-control" formControlName="festivalPrice" type="text" id="festivalPrice" #festivalPrice
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('festivalPrice').touched && createForm.get('festivalPrice').invalid,
+                                'is-valid' : createForm.get('festivalPrice').touched && createForm.get('festivalPrice').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Festival Price*</label>
+                                <div class="invalid-feedback">Package festival price is required</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 p-t-20">
+                            <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label class="mdl-textfield_label floating-label">Special Deal*</label>
+                                <div class="form-check-inline" *ngFor="let item of choose">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="specialDeal" [value]="item" #specialDeal>{{ item }}
+                                    </label>
+                                </div>
+                                <!-- <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="specialDeal">No
+                                    </label>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 p-t-20">
+                            <div class="radio-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label class="mdl-textfield_label floating-label">Feature Deal*</label>
+                                <div class="form-check-inline" *ngFor="let item of choose">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" formControlName="featureDeal" [value]="item" #featureDeal (change)="checkFeaturedTrip(item)">{{ item }}
+                                    </label>
+                                </div>
+                                <!-- <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="featureDeal">No
+                                    </label>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-12 p-t-20">
+                            <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                <label class="mdl-textfield_label floating-label" for="text7">Overview*</label>
+                                <ckeditor id="overview" formControlName="overview" #overview [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('overview').touched && createForm.get('overview').invalid,
+                                'is-valid' : createForm.get('overview').touched && createForm.get('overview').valid
+                                }"
+                                >
+                                </ckeditor>
+                            </div>
+                            <div class="invalid-feedback">Package overview is required</div>
+                        </div>
+                        <div class="dashed-divider p-t-20"></div>
+                        <div class="col-lg-8 p-t-20">
+                            <!-- ADD Fields -->
+                            <button class="btn btn-tbl-add btn-xs pull-right" (click)="addDescriptionField(day.value,description.value)">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <input class="form-control" type="number" id="day" #day>
+                                <label class="mdl-textfield_label">Day*</label>
+                            </div>
+                            <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
+                                <ckeditor id="description" #description [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 p-t-20" id="itineraryTable">
+                            <table class="table table-bordered" id="descriptionTable" style="display: none">
+                                <thead>
+                                    <tr>
+                                        <th>Day</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let item of addDescriptionArray">
+                                    <tr>
+                                        <td>{{ item.trip_day}}</td>
+                                        <td>
+                                            <p [innerHTML]=item.description>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-tbl-minus btn-xs" (click)="deleteDescription(item)">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-12 p-t-20 text-center">
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple" (click)="addPackageTest(createForm)" >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>

@@ -53,15 +53,16 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/login');
 
         } else {
-          this.showSuccess();
           localStorage.setItem('currentUser', JSON.stringify(res[0].username));
-          this.router.navigate(['/index']);
+          this.router.navigate(['/dashboard']);
           this.authService.setLoggedIn(true);
         }
 
       }, error => {
         console.log(error);
       });
+    } else {
+      alert('Please fill the login credential');
     }
   }
 

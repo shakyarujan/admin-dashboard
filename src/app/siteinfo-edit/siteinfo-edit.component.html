@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="card-box">
                         <div class="card-head">
-                            <a routerLink="/siteinfo" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                            <a routerLink="/site/info/" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                               <i class="material-icons">arrow_back_ios</i>
                             </a>
                             <header>Edit Site info</header>
@@ -18,49 +18,64 @@
                                 <input type="hidden" value="" name="id" />
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="site_name" #site_name  type="text" id="siteName">
+                                        <input class="form-control" formControlName="site_name" #site_name  type="text" id="siteName"
+                                        [ngClass]="{
+                                        'is-invalid' : updateForm.get('site_name').touched && updateForm.get('site_name').invalid,
+                                        'is-valid' : updateForm.get('site_name').touched && updateForm.get('site_name').valid
+                                        }">
                                         <label class="mdl-textfield_label">Site Name</label>
+                                        <div class="invalid-feedback">Site name is required</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="email" #email type="email" id="email">
+                                        <input class="form-control" formControlName="email" #email type="email" id="email"
+                                        [ngClass]="{
+                                        'is-invalid' : updateForm.get('email').touched && updateForm.get('email').invalid,
+                                        'is-valid' : updateForm.get('email').touched && updateForm.get('email').valid
+                                        }">
                                         <label class="mdl-textfield_label">Email</label>
+                                        <div class="invalid-feedback">Email address is required</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="contact_number" #contact_number  type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="mobileNumber">
+                                        <input class="form-control" formControlName="contact_number" #contact_number  type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="mobileNumber" [ngClass]="{
+                                        'is-invalid' : updateForm.get('contact_number').touched && updateForm.get('contact_number').invalid,
+                                        'is-valid' : updateForm.get('contact_number').touched && updateForm.get('contact_number').valid
+                                        }">
                                         <label class="mdl-textfield_label" for="text5">Contact No.</label>
+                                        <div class="invalid-feedback">Contact number is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="textarea mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
+                            <!--             <textarea  class="form-control" formControlName="address" #address rows="4" cols="50" id="address">Enter address......</textarea> -->
+                                        <label class="mdl-textfield_label floating-label">Address</label>
+                                        <textarea  type="text" class="form-control" formControlName="address" #address></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="address" #address type="text" id="address">
-                                        <label class="mdl-textfield_label">Address</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 p-t-20">
-                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="facebook" #facebook type="text" id="facebook">
+                                        <input class="form-control" formControlName="facebook" #facebook type="text" id="facebook">
                                         <label class="mdl-textfield_label">Facebook</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="instagram" #instagram type="text" id="instagram">
+                                        <input class="form-control" formControlName="instagram" #instagram type="text" id="instagram">
                                         <label class="mdl-textfield_label">Instagram</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="twitter" #twitter type="text"  id="twitter">
+                                        <input class="form-control" formControlName="twitter" #twitter type="text"  id="twitter">
                                         <label class="mdl-textfield_label">Twitter</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                        <input class="mdl-textfield_input" formControlName="linkedin" #linkedin type="text"  id="twitter">
+                                        <input class="form-control" formControlName="linkedin" #linkedin type="text"  id="twitter">
                                         <label class="mdl-textfield_label">Linkedin</label>
                                     </div>
                                 </div>
@@ -93,10 +108,10 @@
                                 </div>
                                 <div class="col-lg-12 p-t-20 text-center">
                                     <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" (click)="updateSiteInfo(this.id,  site_name.value, contact_number.value, email.value, facebook.value, instagram.value,
-                                    twitter.value, linkedin.value, address.value, about_us.value, homepage_text.value, what_we_do.value)">
+                                    twitter.value, linkedin.value, address.value, about_us.value, homepage_text.value, what_we_do.value)" >
                                       Update
                                     </button>
-                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" routerLink="/siteinfo">
+                                    <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" routerLink="/site/info/">
                                       Cancel
                                     </button>
                                 </div>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SiteinfoService } from '../service/siteinfo.service';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 
-
+import { SiteinfoService } from '../service/siteinfo.service';
 
 @Component({
   selector: 'app-siteinfo-edit',
@@ -81,7 +80,12 @@ export class SiteinfoEditComponent implements OnInit {
   updateSiteInfo(id, site_name, contact_number, email, facebook, instagram,
     twitter, linkedin, address, about_us, homepage_text, what_we_do) {
 
-      const siteInfo = {
+
+    if ( homepage_text == '' || what_we_do == '') {
+      alert('Please fill homepage_text and what_we_do');
+    } else {
+
+       const siteInfo = {
         site_info_id: id,
         site_name: site_name,
         contact_number: contact_number,
@@ -89,13 +93,16 @@ export class SiteinfoEditComponent implements OnInit {
         facebook: facebook,
         instagram: instagram,
         twitter: twitter,
-        linkedin: linkedin,
+        linkedin: linkedin, 
         address: address,
         about_us: about_us,
         cover_photo: this.cover_photo,
         homepage_text: homepage_text,
         what_we_do: what_we_do
       };
+
+  
+      
 
       console.log(siteInfo);
 
@@ -111,6 +118,9 @@ export class SiteinfoEditComponent implements OnInit {
       this.showSuccess();
       this.router.navigate(['/siteinfo']);
     });
+
+    }
+   
 
   }
 

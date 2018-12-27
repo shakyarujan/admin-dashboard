@@ -46,7 +46,7 @@
                                                                 </div>
                                                             </td>
                                                             <td class="view-review">
-                                                                <a [innerHTML]="review.comment"></a>
+                                                                <span>{{ review.review_title}}</span>
                                                             </td>
                                                             <td>
                                                                 <a routerLink="/customerReviewEdit" class="btn btn-tbl-edit btn-xs" (click)="getCustomerId(review.review_id)">

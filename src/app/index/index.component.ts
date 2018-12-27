@@ -101,4 +101,11 @@ export class IndexComponent implements OnInit {
     });
   }
 
+  // Edit booking
+  editbooking(booking_id) {
+    console.log(booking_id);
+    this.router.navigate(['/bookingEdit/' + booking_id]);
+  }
+
+
 }

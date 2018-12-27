@@ -63,7 +63,7 @@ export class PackageAddComponent implements OnInit {
   ngOnInit() {
     this.choose = ['Yes', 'No'];
     this.typeList = ['Inbound', 'Outbound'];
-    this.difficultyList = ['Easy', 'High', 'Medium', 'Normal', 'Moderate'];
+    this.difficultyList = ['Easy', 'Moderate', 'High'];
     this.photoArray = [];
     this.addDescriptionArray = [];
 

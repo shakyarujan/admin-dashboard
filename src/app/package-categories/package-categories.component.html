@@ -15,7 +15,7 @@
                             <div class="row p-b-20">
                                 <div class="col-md-6 col-sm-6 col-6">
                                     <div class="btn-group">
-                                        <a routerLink="/packageCategoriesAdd" id="addRow" class="btn btn-info">
+                                        <a routerLink="/package/categories/add" id="addRow" class="btn btn-info">
                                           Add new Packages Categories
                                           <i class="fa fa-plus"></i>
                                         </a>
@@ -37,7 +37,7 @@
                                                 <td>{{ category.name}}</td>
                                                 <td class="categories-description" [innerHTML]="category.description"></td>
                                                 <td>
-                                                    <a class="btn btn-tbl-edit btn-xs" routerLink="/packageCategoriesEdit" (click)="editbooking(category.category_id)">
+                                                    <a class="btn btn-tbl-edit btn-xs" (click)="editbooking(category.category_id)">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                     <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(category.category_id)">

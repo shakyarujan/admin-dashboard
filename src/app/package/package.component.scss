@@ -14,3 +14,14 @@ table tr td:first-child::before {
 }
 */
 /* end of table scss */
+
+.package-page .search-form-opened{
+	margin-left: auto !important;
+}
+
+@media (max-width: 768px){
+	.package-page .search-form-opened{
+	    margin-left: 0 !important;
+		margin-right: auto !important;
+	}
+}

@@ -32,7 +32,7 @@ export class PackageCategoriesComponent implements OnInit {
 
   // update the booking content
   editbooking(category_id) {
-  this.router.navigate(['/packageCategoriesEdit/' + category_id]);
+  this.router.navigate(['/package/categories/edit/' + category_id]);
   }
 
  // Delete the booking contents

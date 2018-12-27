@@ -1,4 +1,21 @@
 @import '../scss/mixin';
+
+/* start greeting text */
+
+ul.greeting{
+    margin: 0 5px 0 40px;
+}
+
+.greeting li{
+    font-size: 14px;
+}
+
+.greeting li span{
+    font-weight: 600;
+}
+
+/* end greeting text */
+
 .flex-container {
     display: flex;
     flex-direction: row;
@@ -283,7 +300,7 @@ li [class^=icon-] {
     transform: translateY(-6px) rotate(135deg);
 }
 
-// .page-header.navbar .menu-toggler>span {
+/*// .page-header.navbar .menu-toggler>span {
 //     display: inline-block;
 //     width: 19px;
 //     height: 1px;
@@ -322,10 +339,26 @@ li [class^=icon-] {
 // }
 // .page-header.navbar .menu-toggler>span:after {
 //     top: -6px;
-// }
+// }*/
 
 /* start mobile menu closed*/
 
+.top-menu li a {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    color: $default-color;
+    @include transition;
+}
+
+.top-menu li a p{
+    margin: 0;
+}
+
+.top-menu li a:hover {
+    color: $primary-color;
+}
 .page-header.navbar .top-menu {
     margin: 0;
     padding: 0;
@@ -335,6 +368,7 @@ li [class^=icon-] {
 .page-header.navbar .top-menu {
     float: none;
     margin-left: auto !important;
+    margin-right: 10px;
 }
 
 .page-header.navbar .top-menu .navbar-nav {
@@ -400,7 +434,7 @@ li [class^=icon-] {
 }
 
 .dropdown-toggle::after {
-    // display: none;
+    /*display: none;*/
 }
 
 .btn-group>.dropdown-menu,

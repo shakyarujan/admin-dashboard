@@ -1,313 +1,299 @@
 <div class="dashboard-page page-content-wrapper">
     <div class="page-content">
         <div class="container">
-            <app-page-top-bar></app-page-top-bar>
-            <div class="row">
-                <div class="col-xl-3 col-md-6 col-12">
-                    <div class="info-box bg-blue">
-                        <span class="info-box-icon push-bottom">
-                            <i class="material-icons">style</i>
-                        </span>
-                        <div class="info-box-content">
-                            <span class="info-box-text">Total Active Trips</span>
-                            <span class="info-box-number">{{ count }}</span>
-                        </div>
-                        <!-- /.info-box-content -->
+        <app-page-top-bar></app-page-top-bar>
+        <div class="row">
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="info-box bg-blue">
+                    <div class="info-box-number">{{ count }}</div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Active Trips</span>
                     </div>
-                    <!-- /.info-box -->
+                    <!-- /.info-box-content -->
                 </div>
-                <!-- /.col -->
-                <div class="col-xl-3 col-md-6 col-12">
-                    <div class="info-box bg-orange">
-                        <span class="info-box-icon push-bottom">
-                            <i class="material-icons">card_travel</i>
-                        </span>
-                        <div class="info-box-content" *ngFor="let count of totalBookingData">
-                            <span class="info-box-text">Total Bookings</span>
-                            <span class="info-box-number">{{ count.numberOfBooking }}</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class="col-xl-3 col-md-6 col-12">
-                    <div class="info-box bg-success">
-                        <span class="info-box-icon push-bottom">
-                            <i class="material-icons">playlist_add_check</i>
-                        </span>
-                        <div class="info-box-content" *ngFor="let count of confirmBookingData">
-                            <span class="info-box-text">Confirmed Bookings</span>
-                            <span class="info-box-number">{{ count.numberOfConfirmedBooking }}</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
-                <div class="col-xl-3 col-md-6 col-12">
-                    <div class="info-box bg-danger">
-                        <span class="info-box-icon push-bottom">
-                            <i class="material-icons">info</i>
-                        </span>
-                        <div class="info-box-content" *ngFor="let count of pendingBookingData">
-                            <span class="info-box-text">Pending bookings</span>
-                            <span class="info-box-number">{{ count.numberOfPendingBooking }}</span>
-                        </div>
-                        <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                </div>
-                <!-- /.col -->
+                <!-- /.info-box -->
             </div>
-
-            <!-- booking detail -->
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="card  card-box">
-                        <div class="card-head">
-                            <header>Booking Details</header>
-                            <!-- <div class="tools">
-                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                            </div> -->
-                        </div>
-                        <div class="card-body ">
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table class="table table-hover mb-30" id="support_table5">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Check In</th>
-                                                <th>Check Out</th>
-                                                <th>Status</th>
-                                                <th>Mobile</th>
-                                                <th>Package Type</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="bookingData" *ngFor="let data of data | paginate: { itemsPerPage: 10, currentPage: p }">
-                                            <tr>
-                                                <td>{{ data.contact_name }}</td>
-                                                <td>{{ data.desired_start_date }}</td>
-                                                <td>{{ data.desired_end_date }}</td>
-
-                                                <td>
-                                                    <div *ngIf="data.booking_status === 'Confirmed'">
-                                                        <span class="label label-sm label-sucess">Confirmed</span>
-                                                    </div>
-                                                    <div *ngIf="data.booking_status === 'Review Pending'">
-                                                        <span class="label label-sm label-warning">Review Pending</span>
-                                                    </div>
-                                                    <div *ngIf="data.booking_status === 'Canceled'">
-                                                        <span class="label label-sm label-danger">Canceled</span>
-                                                    </div>
-                                                    <!-- <label class="toggle">
-                                                            <input type="checkbox">
-                                                            <div class="slide-toggle"></div>
-                                                        </label> -->
-                                                </td>
-                                                <td>{{ data.mobile }}</td>
-                                                <td>{{ data.name }}</td>
-                                                <!-- <td>
-                                                    <a class="btn btn-tbl-edit btn-xs" routerLink="/bookingEdit/" (click)="editbooking(data.booking_id)" >
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">
-                                                        <i class="fa fa-trash-o "></i>
-                                                    </button>
-                                                </td>
-                                            </tr> -->
-                                        </tbody>
-                                    </table>
-                                    <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
-                                </div>
-                            </div>
-                        </div>
+            <!-- /.col -->
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="info-box bg-orange">
+                    <div class="info-box-number" *ngFor="let count of totalBookingData">{{ count.numberOfBooking }}</div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Bookings</span>
                     </div>
+                    <!-- /.info-box-content -->
                 </div>
+                <!-- /.info-box -->
             </div>
-            <!-- booking detail closed -->
-            <!-- customer review and admin user -->
-           <!--  <div class="row">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
-                    <div class="card-box">
-                        <div class="card-head">
-                            <header>Guest Review</header>
-                            <div class="tools">
-                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                            </div>
-                        </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="slimScrollDiv">
-                                    <ul class="col-12 docListWindow small-slimscroll-style">
-                                        <li *ngFor="let dataReview of dataReview">
-                                            <div class="row">
-                                                <div class="col-md-10 col-sm-10">
-                                                    <div class="prog-avatar">
-                                                        <img src="{{ dataReview.reviewer_photo }}" alt="">
-                                                    </div>
-                                                    <div class="details">
-                                                        <div class="title">
-                                                            <a>{{ dataReview.reviewer_name }}</a>
-                                                            <p class="rating-text" [innerHTML]="dataReview.comment"></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-2 col-sm-2 rating-style">
-                                                    <p class="rating-text">
-                                                        4.5
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="full-width text-center p-t-10">
-                                    <a [routerLink]="['/customerReview']" routerLinkActive="router-link-active"  class="btn purple btn-outline btn-circle margin-0">View All</a>
-                                </div>
-                            </div>
-                        </div>
+            <!-- /.col -->
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="info-box bg-success">
+                    <div class="info-box-number" *ngFor="let count of confirmBookingData">{{ count.numberOfConfirmedBooking }}</div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Confirmed Bookings</span>
                     </div>
+                    <!-- /.info-box-content -->
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                    <div class="card-box">
-                        <div class="card-head">
-                            <header>Admin User List</header>
-                        </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="slimScrollDiv">
-                                    <ul class="col-12 empListWindow small-slimscroll-style">
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Rajesh Pandya</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsAvailable">Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Sarah Smith</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsAvailable">Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">John Deo</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsNotAvailable">Not Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Jay Soni</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsOnLeave">On Leave</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Jacob Ryan</a>
-                                                </div>
-                                                <div>
-                                                    <span class="clsNotAvailable">Not Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Megha Trivedi</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsAvailable">Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Sarah Smith</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsAvailable">Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">John Deo</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsNotAvailable">Not Available</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="prog-avatar">
-                                                <img src="../../assets/img/profile.jpg" alt="">
-                                            </div>
-                                            <div class="details">
-                                                <div class="title">
-                                                    <a href="#">Jay Soni</a>
-                                                </div>
-                                                 <div>
-                                                    <span class="clsOnLeave">On Leave</span>
-                                                </div> 
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="full-width text-center p-t-10">
-                                    <a href="#" class="btn purple btn-outline btn-circle margin-0">View All</a>
-                                </div>
-                            </div>
-                        </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="info-box bg-danger">
+                    <div class="info-box-number" *ngFor="let count of pendingBookingData">{{ count.numberOfPendingBooking }}</div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Pending bookings</span>
                     </div>
+                    <!-- /.info-box-content -->
                 </div>
-            </div> -->
-            <!-- customer review and admin user -->
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
         </div>
-
+        <!-- booking detail -->
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="card  card-box">
+                    <div class="card-head">
+                    <header>Booking Details</header>
+                    <!-- <div class="tools">
+                        <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                    </div> -->
+                </div>
+                <div class="card-body ">
+                    <div class="table-wrap">
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-30" id="support_table5">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Arrival</th>
+                                        <th>Departure</th>
+                                        <th>Mobile</th>
+                                        <th>Package Name</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bookingData">
+                                    <tr (click)="editbooking(data.booking_id)" style="cursor: pointer"  *ngFor="let data of data | paginate: { itemsPerPage: 10, currentPage: p }">
+                                        <td>{{ data.contact_name }}
+                                        </td>
+                                        <td>{{ data.desired_start_date }}</td>
+                                        <td>{{ data.desired_end_date }}</td>
+                                        <td>{{ data.mobile }}</td>
+                                        <td>{{ data.name }}</td>
+                                        <td>
+                                            <div *ngIf="data.booking_status === 'Confirmed'">
+                                                <span class="label label-sm label-sucess">Confirmed</span>
+                                            </div>
+                                            <div *ngIf="data.booking_status === 'Review Pending'">
+                                                <span class="label label-sm label-warning">Review Pending</span>
+                                            </div>
+                                            <div *ngIf="data.booking_status === 'Canceled'">
+                                                <span class="label label-sm label-danger">Canceled</span>
+                                            </div>
+                                            <!-- <label class="toggle">
+                                                <input type="checkbox">
+                                                <div class="slide-toggle"></div>
+                                            </label> -->
+                                        </td>
+                                        <!-- <td>
+                                            <a class="btn btn-tbl-edit btn-xs" routerLink="/bookingEdit/" (click)="editbooking(data.booking_id)" >
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">
+                                            <i class="fa fa-trash-o "></i>
+                                            </button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<!-- booking detail closed -->
+<!-- customer review and admin user -->
+<!--  <div class="row">
+    <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+        <div class="card-box">
+            <div class="card-head">
+            <header>Guest Review</header>
+            <div class="tools">
+                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+            </div>
+        </div>
+        <div class="card-body ">
+            <div class="row">
+                <div class="slimScrollDiv">
+                    <ul class="col-12 docListWindow small-slimscroll-style">
+                        <li *ngFor="let dataReview of dataReview">
+                            <div class="row">
+                                <div class="col-md-10 col-sm-10">
+                                    <div class="prog-avatar">
+                                        <img src="{{ dataReview.reviewer_photo }}" alt="">
+                                    </div>
+                                    <div class="details">
+                                        <div class="title">
+                                            <a>{{ dataReview.reviewer_name }}</a>
+                                            <p class="rating-text" [innerHTML]="dataReview.comment"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 rating-style">
+                                    <p class="rating-text">
+                                        4.5
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="full-width text-center p-t-10">
+                    <a [routerLink]="['/customerReview']" routerLinkActive="router-link-active"  class="btn purple btn-outline btn-circle margin-0">View All</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-4 col-md-12 col-sm-12 col-12">
+    <div class="card-box">
+        <div class="card-head">
+        <header>Admin User List</header>
+    </div>
+    <div class="card-body ">
+        <div class="row">
+            <div class="slimScrollDiv">
+                <ul class="col-12 empListWindow small-slimscroll-style">
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Rajesh Pandya</a>
+                            </div>
+                            <div>
+                                <span class="clsAvailable">Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Sarah Smith</a>
+                            </div>
+                            <div>
+                                <span class="clsAvailable">Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">John Deo</a>
+                            </div>
+                            <div>
+                                <span class="clsNotAvailable">Not Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Jay Soni</a>
+                            </div>
+                            <div>
+                                <span class="clsOnLeave">On Leave</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Jacob Ryan</a>
+                            </div>
+                            <div>
+                                <span class="clsNotAvailable">Not Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Megha Trivedi</a>
+                            </div>
+                            <div>
+                                <span class="clsAvailable">Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Sarah Smith</a>
+                            </div>
+                            <div>
+                                <span class="clsAvailable">Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">John Deo</a>
+                            </div>
+                            <div>
+                                <span class="clsNotAvailable">Not Available</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="prog-avatar">
+                            <img src="../../assets/img/profile.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <div class="title">
+                                <a href="#">Jay Soni</a>
+                            </div>
+                            <div>
+                                <span class="clsOnLeave">On Leave</span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="full-width text-center p-t-10">
+                <a href="#" class="btn purple btn-outline btn-circle margin-0">View All</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div> -->
+<!-- customer review and admin user -->
+</div>
+</div>
 </div>

@@ -1,93 +1,103 @@
 <div class="package-page page-content-wrapper">
-    <div class="page-content">
-        <div class="container">
-            <app-page-top-bar></app-page-top-bar>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="card  card-box">
-                        <div class="card-head">
-                            <header>All Packages</header>
-                            <!-- <div class="tools">
-                                <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-                            </div> -->
-                        </div>
-                        <div class="card-body ">
-                            <div class="row p-b-20">
-                                <div class="col-md-6 col-sm-6 col-6">
-                                    <div class="btn-group">
-                                        <a routerLink="/packageAdd" id="addRow" class="btn btn-info">
-                                            Add New Package
-                                            <i class="fa fa-plus"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                              </div>
-                            <div class="row">
-                             <!--  <div class="col-sm-12 col-md-6">
-                                  <div class="dataTables_length" id="example4_length">
-                                      <label>
-                                              Show
-                                              <select name="example4_length" aria-controls="example4" class="form-control form-control-sm">
-                                                  <option value="10">10</option>
-                                                  <option value="25">25</option>
-                                                  <option value="50">50</option>
-                                                  <option value="100">100</option>
-                                              </select>
-                                              entries
-                                          </label>
-                                  </div>
-                              </div> -->
-                              <div class="col-md-6 col-sm-6 col-6">
-                                <div class="input-group">
-                                  <input type="text" class="form-control" placeholder="Search..." name="query" [(ngModel)]="searchText">
-                                  <span class="input-group-btn search-btn">
-                                    <a href="#" class="btn submit">
-                                      <i class="material-icons">search</i>
-                                    </a>
-                                  </span>
-                                </div>
-                              </div>
-
-                            </div>
-
-                            
-                            <div class="table-wrap">
-                                <div class="table-responsive">
-                                    <table class="table table-hover mb-30" id="support_table5">
-                                        <thead>
-                                            <tr>
-                                                <th>Package Name</th>
-                                                <th>duration</th>
-                                                <th>Price</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="bookingData" *ngFor="let dataTrip of tripData | paginate: { itemsPerPage: 10, currentPage: p } | grdFilter: { name: searchText };">
-                                            <tr>
-                                                <td>{{ dataTrip.name }}</td>
-                                                <td>{{ dataTrip.duration}}</td>
-                                                <td>Rs. {{ dataTrip.price }}/-</td>
-                                                <td>
-                                                    <a routerLink="/packageView" class="btn btn-tbl-view btn-xs"  (click)="viewPackageData(dataTrip.trip_id)">
-                                                      <i class="fa fa-eye"></i>
-                                                    </a>
-                                                    <a routerLink="/packageEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(dataTrip.trip_id)">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <button class="btn btn-tbl-delete btn-xs" (click)="deletePackage(dataTrip.trip_id)">
-                                                    <i class="fa fa-trash-o "></i>
-                                                </button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="page-content">
+    <div class="container">
+    <app-page-top-bar></app-page-top-bar>
+    <div class="row">
+      <div class="col-md-12 col-sm-12">
+        <div class="card  card-box">
+          <div class="card-head">
+          <header>All Packages</header>
+          <!-- <div class="tools">
+            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+          </div> -->
         </div>
+        <div class="card-body ">
+          <div class="row p-b-20">
+            <div class="col-md-6 col-sm-12 col-12 m-b-10">
+              <div class="btn-group">
+                <a routerLink="/package/add" id="addRow" class="btn btn-info">
+                  Add New Package
+                  <i class="fa fa-plus"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 col-12 m-b-10">
+              <form class="search-form-opened" action="#" method="GET">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search Package Name" name="query"  [(ngModel)]="searchText">
+                  <span class="input-group-btn search-btn">
+                    <a href="javascript:;" class="btn submit">
+                      <i class="material-icons">search</i>
+                    </a>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <!--  <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="example4_length">
+                <label>
+                  Show
+                  <select name="example4_length" aria-controls="example4" class="form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select>
+                  entries
+                </label>
+              </div>
+            </div> -->
+            <div class="col-md-6 col-sm-6 col-6">
+              <!-- <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search..." name="query" [(ngModel)]="searchText">
+                <span class="input-group-btn search-btn">
+                  <a href="#" class="btn submit">
+                    <i class="material-icons">search</i>
+                  </a>
+                </span>
+              </div> -->
+            </div>
+          </div>
+          
+          <div class="table-wrap">
+            <div class="table-responsive">
+              <table class="table table-hover mb-30" id="support_table5">
+                <thead>
+                  <tr>
+                    <th>Package Name</th>
+                    <th>duration</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody class="bookingData" *ngFor="let dataTrip of tripData | paginate: { itemsPerPage: 10, currentPage: p } | grdFilter: { name: searchText };">
+                  <tr>
+                    <td>{{ dataTrip.name }}</td>
+                    <td>{{ dataTrip.duration}}</td>
+                    <td>Rs. {{ dataTrip.price }}/-</td>
+                    <td>
+                      <a class="btn btn-tbl-view btn-xs"  (click)="viewPackageData(dataTrip.trip_id)">
+                        <i class="fa fa-eye"></i>
+                      </a>
+                      <a class="btn btn-tbl-edit btn-xs" (click)="editPackageData(dataTrip.trip_id)">
+                        <i class="fa fa-pencil"></i>
+                      </a>
+                      <button class="btn btn-tbl-delete btn-xs" (click)="deletePackage(dataTrip.trip_id)">
+                      <i class="fa fa-trash-o "></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
+</div>
+</div>
 </div>
