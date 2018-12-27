@@ -6,7 +6,7 @@
         <div class="col-md-8 col-sm-12">
           <div class="card-box">
             <div class="card-head">
-              <a routerLink="/customerReview" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+              <a routerLink="/customer/review" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                 <i class="material-icons">arrow_back_ios</i>
               </a>
               <header>Edit Customer Review</header>
@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="col-lg-12 p-t-20">
-                  <label class="control-label col-md-3">Customer Photo</label>
+                  <label class="control-label col-md-3">Customer Photo <br> (.jpg, .jpeg, .png)</label>
                   <form id="profilePhotoForm" class="fileUploadForm">
                     <div class="fileUploadForm-conatiner">
                       <input type="file" #reviewer_photo (change)="reviwerPhotoUpload($event)" accept=".jpg,.jpeg,.png">
@@ -59,7 +59,7 @@
                     (click)="updateCustomerReview(reviewer_name.value, review_title.value, comment.value)" >
                     Update
                   </button>
-                  <button type="button" routerLink="/customerReview" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default">
+                  <button type="button" routerLink="/customer/review" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default">
                     Cancel
                   </button>
                 </div>

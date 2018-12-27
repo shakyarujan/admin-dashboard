@@ -38,7 +38,7 @@ export class PackageViewComponent implements OnInit {
   // Edit Package
   editPackageData(trip_id) {
     console.log(trip_id);
-    this.router.navigate(['/packageEdit/' + trip_id]);
+    this.router.navigate(['/package/edit/' + trip_id]);
   }
 
 }

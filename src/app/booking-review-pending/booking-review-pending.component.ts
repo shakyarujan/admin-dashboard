@@ -31,7 +31,7 @@ export class BookingReviewPendingComponent implements OnInit {
     Get Booking ID 
    */
   getBookingId(booking_id) {
-    return this.router.navigate(['/bookingEdit/' + booking_id]);
+    return this.router.navigate(['/booking/edit/' + booking_id]);
   }
 
   /*

@@ -12,16 +12,16 @@
                             </div> -->
                         </div>
                         <div class="card-body ">
-                            <div class="row p-b-20">
+                         <!--    <div class="row p-b-20">
                                 <div class="col-md-6 col-sm-6 col-6">
                                     <div class="btn-group">
-                                        <a routerLink="/bookingAdd" id="addRow" class="btn btn-info">
+                                        <a routerLink="/booking/add" id="addRow" class="btn btn-info">
                                             Add New Booking
                                             <i class="fa fa-plus"></i>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                            <!--  <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="dataTables_length" id="example4_length">
@@ -75,7 +75,7 @@
                                                 <td>{{ data.mobile }}</td>
                                                 <td>{{ data.name }}</td>
                                                 <td>
-                                                    <a routerLink="/bookingEdit" class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
+                                                    <a class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                     <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">

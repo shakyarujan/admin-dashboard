@@ -29,6 +29,10 @@ export class PackageCategoriesAddComponent implements OnInit {
   }
 
   addCategory(name, description) {
+
+    if (name == "" || description == "") {
+      alert("Some mandatory fields are empty!");
+    } else {
     const newCategory = {
       name: name,
       description: description
@@ -37,6 +41,7 @@ export class PackageCategoriesAddComponent implements OnInit {
          this.showSuccess();
         this.router.navigate(['/package/categories']);
     });
+    }
   }
 
   // ------------ Toast message ------------------------------//

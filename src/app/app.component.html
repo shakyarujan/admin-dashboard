@@ -12,7 +12,7 @@
         <!-- logo end -->
         <ul class="greeting hidden-phone">
             <li class="nav-item text-success">
-                Good Afternoon, <span class="text-dark">Admin</span>
+                {{ this.greet }},<span class="text-dark"> Admin</span>
             </li>
         </ul>
     <!--     <form class="search-form-opened" action="#" method="GET">
@@ -41,7 +41,7 @@
         <div class="top-menu">
             <ul class="nav navbar-nav pull-right">
                 <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                    <a routerLink="/login" (click)="logout()">
+                    <a (click)="logout()">
                         <!-- <i class="icon-logout"></i>  -->
                         <i class="material-icons icon-logout"> exit_to_app </i>
                         <p>Log Out</p>

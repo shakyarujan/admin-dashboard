@@ -34,27 +34,34 @@ export class CustomerReviewAddComponent implements OnInit {
   }
 
   addCustomerReview(reviewer_name, review_title, comment) {
+
+ if( reviewer_name == "" || review_title == "" || comment == "" ) {
+   alert('Some mandatory fields are empty!');
+ } else {
     const addReview = {
       reviewer_name: reviewer_name,
       review_title: review_title,
       comment: comment,
       reviewer_photo: this.reviewer_photo
-  };
+    };
 
   const formData: any = new FormData();
 
   // photo upload
   const file1: Array<File> = this.reviewerPhotoFile;
   formData.append('reviewers[]', file1[0], file1[0]['name']);
-  this.http.post('https://api-sh.paisamanager.com/upload/reviewer', formData).pipe(
-    map((files: any) => files.json())
-    ).subscribe(files => {});
+  this.http.post('https://api-sh.paisamanager.com/upload/reviewer', formData).subscribe(files => {});
+  // .pipe(
+  //   map((files: any) => files.json())
+  //   ).subscribe(files => {});
   // photo upload
 
     this.review.addReview(addReview).subscribe(res => {
       this.showSuccess();
-      this.router.navigate(['/customerReview']);
+      this.router.navigate(['/customer/review']);
     });
+
+  }
 
   }
 

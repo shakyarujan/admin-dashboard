@@ -3,7 +3,7 @@
         <div class="container">
             <app-page-top-bar></app-page-top-bar>
             <div class="row">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="col-lg-7 col-md-12 col-sm-12 col-12">
                     <div class="card-box">
                         <div class="card-head">
                             <header>Site info</header>
@@ -106,8 +106,31 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                    <div class="card-box">
+                        <div class="card-head">
+                            <header>Cover Photo</header>
+                            <div class="tools" *ngFor="let info of siteInfoData">
+                                <a class="btn btn-tbl-edit btn-xs" (click)="getSiteDataId(info.site_info_id)">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body " *ngFor="let info of siteInfoData">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 about-us">
+                                    <div class="site-info-desc-item">
+                                        <img src="{{ info.cover_photo }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>        
+    
 
-            </div>
+            </div>  
         </div>
     </div>
 </div>
