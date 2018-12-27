@@ -2,6 +2,10 @@
 
 @import 'mixin';
 
+.day{
+    padding: 10px 20px !important;
+}
+
 .header {
     font-size: 1.6rem;
     color: $text-dark;
@@ -96,7 +100,7 @@ pagination-controls{
 form.search-form-opened {
     float: left;
     width: 100%;
-    max-width: 200px;
+    max-width: 230px;
     background-color: transparent;
     color: $white-color;
     border-radius: 30px;
@@ -1422,7 +1426,7 @@ ul.mdl-menu li:hover p {
 }
 
 .form-control+.mdl-textfield_label::after {
-    bottom: -7px !important;
+    bottom: -8px !important;
 }
 
 .form-control:focus+.mdl-textfield_label::after {
@@ -1652,7 +1656,7 @@ button.btn-default:hover {
 
 .inbox .inbox-body,
 .inbox .inbox-sidebar {
-    border: 1px solid $border-light-color-secondary;
+    // border: 1px solid $border-light-color-secondary;
     border-radius: 4px;
     margin-top: 14px;
     // border-top: 0;
