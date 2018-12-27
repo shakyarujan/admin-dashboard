@@ -56,30 +56,34 @@ export class CustomerReviewEditComponent implements OnInit {
   }
 
   updateCustomerReview(reviewer_name, review_title, comment) {
-  	const customerData = {
-  		review_id: this.id,
-  		reviewer_name: reviewer_name,
-  		review_title: review_title,
-  		comment: comment,
-  		reviewer_photo: this.reviewer_photo
-  	};
+     if( reviewer_name == "" || review_title == "" || comment == "" ) {
+       alert('Some mandatory fields are empty!');
+     } else {
+       const customerData = {
+         review_id: this.id,
+         reviewer_name: reviewer_name,
+         review_title: review_title,
+         comment: comment,
+         reviewer_photo: this.reviewer_photo
+       };
 
-  	const formData: any = new FormData();
+      	const formData: any = new FormData();
 
-  	// photo upload
-  	const file1: Array<File> = this.reviewerPhotoFile;
-  	formData.append('reviewers[]', file1[0], file1[0]['name']);
-  	this.http.post('https://api-sh.paisamanager.com/upload/reviewer', formData).subscribe(files => {});
+      	// photo upload
+      	const file1: Array<File> = this.reviewerPhotoFile;
+      	formData.append('reviewers[]', file1[0], file1[0]['name']);
+      	this.http.post('https://api-sh.paisamanager.com/upload/reviewer', formData).subscribe(files => {});
   	// .pipe(
   	// 	map((files: any) => files.json())
   	// 	).subscribe(files => {});
   	// photo upload
 	
 
-  	this.review.updateReview(customerData).subscribe(res => {
-      this.showSuccess();
-  		this.router.navigate(['/customerReview']);
-  	});
+    	this.review.updateReview(customerData).subscribe(res => {
+        this.showSuccess();
+    		this.router.navigate(['/customer/review']);
+    	});
+    }
 
   }
 

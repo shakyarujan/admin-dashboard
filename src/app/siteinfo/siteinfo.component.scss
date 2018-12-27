@@ -1,4 +1,14 @@
 @import '../../scss/mixin';
+
+/* cover-photo*/
+/*.site-info-desc-item img {
+    vertical-align: middle;
+    border-style: none;
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}*/
+
 .list-group-unbordered>.list-group-item {
     border-left: 0px none;
     border-right: 0px none;

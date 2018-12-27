@@ -11,6 +11,9 @@ export class CustomerReviewViewComponent implements OnInit {
 
   dataReview: any = [];
   id: String;
+  // name;
+  // trip_name;
+  // comment;
 
   constructor(private review: ReviewService,
     private router: Router,
@@ -24,8 +27,10 @@ export class CustomerReviewViewComponent implements OnInit {
   getReview() {
     this.route.params.subscribe(params => {
       this.id = params.review_id;
-      console.log(this.id);
       this.review.getReivewId(this.id).subscribe(res => {
+        // this.name = res[0].reviewer_name;
+        // this.trip_name = res[0].reviewer_title;
+        // this.comment = res[0].comment;
         return this.dataReview = res;
       });
     });

@@ -23,7 +23,7 @@
                                         'is-invalid' : updateForm.get('site_name').touched && updateForm.get('site_name').invalid,
                                         'is-valid' : updateForm.get('site_name').touched && updateForm.get('site_name').valid
                                         }">
-                                        <label class="mdl-textfield_label">Site Name</label>
+                                        <label class="mdl-textfield_label">Site Name*</label>
                                         <div class="invalid-feedback">Site name is required</div>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                         'is-invalid' : updateForm.get('email').touched && updateForm.get('email').invalid,
                                         'is-valid' : updateForm.get('email').touched && updateForm.get('email').valid
                                         }">
-                                        <label class="mdl-textfield_label">Email</label>
+                                        <label class="mdl-textfield_label">Email*</label>
                                         <div class="invalid-feedback">Email address is required</div>
                                     </div>
                                 </div>
@@ -44,27 +44,27 @@
                                         'is-invalid' : updateForm.get('contact_number').touched && updateForm.get('contact_number').invalid,
                                         'is-valid' : updateForm.get('contact_number').touched && updateForm.get('contact_number').valid
                                         }">
-                                        <label class="mdl-textfield_label" for="text5">Contact No.</label>
+                                        <label class="mdl-textfield_label" for="text5">Contact No.*</label>
                                         <div class="invalid-feedback">Contact number is required</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="textarea mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
                             <!--             <textarea  class="form-control" formControlName="address" #address rows="4" cols="50" id="address">Enter address......</textarea> -->
-                                        <label class="mdl-textfield_label floating-label">Address</label>
+                                        <label class="mdl-textfield_label floating-label">Address*</label>
                                         <textarea  type="text" class="form-control" formControlName="address" #address></textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
                                         <input class="form-control" formControlName="facebook" #facebook type="text" id="facebook">
-                                        <label class="mdl-textfield_label">Facebook</label>
+                                        <label class="mdl-textfield_label">Facebook*</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
                                         <input class="form-control" formControlName="instagram" #instagram type="text" id="instagram">
-                                        <label class="mdl-textfield_label">Instagram</label>
+                                        <label class="mdl-textfield_label">Instagram*</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 p-t-20">
@@ -81,27 +81,27 @@
                                 </div>
                                 <div class="col-lg-12 p-t-20" style="display: none;">
                                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                      <label class="mdl-textfield_label floating-label" for="text7">About-Us Description</label>
+                                      <label class="mdl-textfield_label floating-label" for="text7">About-Us Description*</label>
                                       <ckeditor  id="pacakgeDescription" formControlName="about_us" #about_us required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
                                     </ckeditor>
                                   </div>
                                 </div>
                                 <div class="col-lg-12 p-t-20">
                                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                      <label class="mdl-textfield_label floating-label" for="text7">Cover Photo</label>
+                                      <label class="mdl-textfield_label floating-label" for="text7">Cover Photo*</label>
                                       <input type="file" (change)="coverPhotoUpload($event)" accept=".jpg,.jpeg,.png" >
                                   </div>
                                 </div>
                                 <div class="col-lg-12 p-t-20">
                                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                      <label class="mdl-textfield_label floating-label" for="text7">Homepage text</label>
+                                      <label class="mdl-textfield_label floating-label" for="text7">Homepage text*</label>
                                       <ckeditor  id="pacakgeDescription" formControlName="homepage_text" #homepage_text required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
                                     </ckeditor>
                                   </div>
                                 </div>
                                 <div class="col-lg-12 p-t-20">
                                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                      <label class="mdl-textfield_label floating-label" for="text7">What we do</label>
+                                      <label class="mdl-textfield_label floating-label" for="text7">What we do*</label>
                                       <ckeditor  id="pacakgeDescription" formControlName="what_we_do" #what_we_do required required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
                                     </ckeditor>
                                   </div>

@@ -6,9 +6,9 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="card  card-box">
                         <div class="card-head">
-                        	<a routerLink="/booking" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                        	<!-- <a routerLink="/booking" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                               <i class="material-icons">arrow_back_ios</i>
-                            </a>
+                            </a> -->
                             <header>All Pending Bookings</header>
                             <!-- <div class="tools">
                                 <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
@@ -81,7 +81,7 @@
                                                 <td>{{ data.name }}</td>
                                                 <td><span class="label label-sm label-warning">{{ data.booking_status }}</span></td>
                                                 <td>
-                                                    <a routerLink="/bookingEdit" class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
+                                                    <a class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
                                                         <i class="fa fa-pencil"></i>
                                                     </a>
                                                     <button class="btn btn-tbl-delete btn-xs" (click)="deletebooking(data.booking_id)">

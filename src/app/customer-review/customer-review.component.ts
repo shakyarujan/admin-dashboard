@@ -43,12 +43,12 @@ export class CustomerReviewComponent implements OnInit {
 
   // Get the customer review
   customerReview(review_id) {
-    this.router.navigate(['/customerReviewView/' + review_id]);
+    this.router.navigate(['/customer/review/view/' + review_id]);
   }
 
   // Get Customer Id
   getCustomerId(review_id) {
-    this.router.navigate(['/customerReviewEdit/' + review_id]);
+    this.router.navigate(['/customer/review/edit/' + review_id]);
   }
 
   // ------------ Toast message ------------------------------//
