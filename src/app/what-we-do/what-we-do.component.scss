@@ -1,7 +1,8 @@
 @import '../../scss/mixin';
-// .what-we-do-page {
-//     color: $text-dark;
-// }
+
+ /*.what-we-do-page {
+     color: $text-dark;
+}*/
 .service-profile {
     width: 100%;
     font-size: 1.4rem;
@@ -20,4 +21,24 @@
 .what-we-do-description {
     padding: 20px;
     font-size: 1.4rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.what-we-do-page .tools {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.what-we-do-page .tools a{
+    margin: 5px;
+}
+
+.what-we-do-description {
+    color: $text-dark;
+}
+
+.what-we-do-description > a {
+    color: $primary-color !important;
+
 }

@@ -60,10 +60,10 @@
                                             <tr>
                                                 <!-- <th>No</th> -->
                                                 <th>Name</th>
-                                                <th>Check In</th>
-                                                <th>Check Out</th>
+                                                <th>Arrival</th>
+                                                <th>Departure</th>
+                                                <th>Package Name</th>
                                                 <th>Status</th>
-                                                <th>Package Type</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -72,7 +72,6 @@
                                                <td>{{ data.contact_name }}</td>
                                                 <td>{{ data.desired_start_date }}</td>
                                                 <td>{{ data.desired_end_date }}</td>
-                                                <td><span class="label label-sm label-warning">{{ data.booking_status }}</span></td>
                                                 <!-- <td>
                                                     <div class="status-slider">
                                                         <input type="checkbox" id="switch" />
@@ -80,6 +79,7 @@
                                                     </div>
                                                 </td> -->
                                                 <td>{{ data.name }}</td>
+                                                <td><span class="label label-sm label-warning">{{ data.booking_status }}</span></td>
                                                 <td>
                                                     <a routerLink="/bookingEdit" class="btn btn-tbl-edit btn-xs" (click)="getBookingId(data.booking_id)">
                                                         <i class="fa fa-pencil"></i>

@@ -27,7 +27,7 @@
                   </form> -->
               </li>
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                  <a [routerLink]="['/index']" routerLinkActive="router-link-active">
+                  <a [routerLink]="['/dashboard']" routerLinkActive="router-link-active">
                       <i class="material-icons">dashboard</i>
                       <p>Dashboard</p>
                   </a>
@@ -65,23 +65,33 @@
                   </a>
                   <ul class="sub-menu siteinfo-collapse collapse">
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/siteinfo" class="nav-link">
+                          <a routerLink="/site/info" class="nav-link">
                               <span class="sub-title">Site Info</span>
                           </a>
                       </li>
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/whatWeDo" class="nav-link">
+                          <a routerLink="/site/whatwedo/icon" class="nav-link">
                               <span class="sub-title">What We Do</span>
                           </a>
                       </li>
+                     <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <a routerLink="/whatWeDoAdd" class="nav-link">
+                              <span class="sub-title">Add Icon</span>
+                          </a>
+                      </li> -->
                   </ul>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                  <a routerLink="/packageCategories" class="nav-link">
+                      <i class="material-icons">list_alt</i>
+                      <p>All Categories</p>
+                  </a>
               </li>
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a class="nav-link nav-toggle sub-menu-toggler" data-target=".package-collapse" data-toggle="collapse">
                       <!-- <i class="material-icons">list_alt</i> -->
                       <i class="material-icons">card_travel</i>
                       <p>Package</p>
-                      <i class="material-icons arrow-rotate">arrow_right</i>
                   </a>
                   <ul class="sub-menu package-collapse collapse">
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -89,7 +99,7 @@
                               <span class="sub-title">All Package</span>
                           </a>
                       </li>
-                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <!--   <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/packageAdd" class="nav-link">
                               <span class="sub-title">Add New Package</span>
                           </a>
@@ -98,7 +108,7 @@
                           <a routerLink="/packageEdit" class="nav-link">
                               <span class="sub-title">Edit Package</span>
                           </a>
-                      </li>
+                      </li> -->
                      <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/packageType" class="nav-link">
                               <span class="sub-title">All Package Type</span>
@@ -114,21 +124,16 @@
                               <span class="sub-title">Edit Package Type</span>
                           </a>
                       </li> -->
-                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/packageCategories" class="nav-link">
-                              <span class="sub-title">All Package Categories</span>
-                          </a>
-                      </li>
-                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <!--   <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/packageCategoriesAdd" class="nav-link">
                               <span class="sub-title">Add Package Categories</span>
                           </a>
-                      </li>
-                      <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                      </li> -->
+                <!--       <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/packageCategoriesEdit" class="nav-link">
                               <span class="sub-title">Edit Package Categories</span>
                           </a>
-                      </li>
+                      </li> -->
                   </ul>
               </li>
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -145,7 +150,7 @@
                       </li>
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/bookingReviewPending" class="nav-link">
-                              <span class="sub-title">Review Pending</span>
+                              <span class="sub-title">All Pending Bookings</span>
                           </a>
                       </li>
                    <!--    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -196,11 +201,11 @@
                               <span class="sub-title">All Customer</span>
                           </a>
                       </li>
-                      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                      <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/customerReviewAdd" class="nav-link">
                               <span class="sub-title">Add Customer Review</span>
                           </a>
-                      </li>
+                      </li> -->
                   </ul>
               </li>
              <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
@@ -229,7 +234,7 @@
                   </a>
               </li> -->
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                  <a routerLink="/login" (click)="logout()">
+                  <a (click)="logout()">
                       <i class="material-icons">exit_to_app</i>
                       <p>Logout</p>
                   </a>

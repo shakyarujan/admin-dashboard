@@ -45,5 +45,34 @@ export class SiteinfoService {
   }
 
 
+  // ---------------------------- Icon Service ----------------------------------------------- //
+
+  // Add icon information
+  addIcon(addIconDetail) {
+    return this.http.post(environment.appConfig.apiUrl + '/add/icon', addIconDetail);
+  }
+
+  // Upadte icon information
+  updateIcon(addIconDetail) {
+    return this.http.put(environment.appConfig.apiUrl + '/update/icon', addIconDetail);
+  }
+
+  // Upadte icon information
+  deleteIcon(site_icon_id) {
+    return this.http.delete(environment.appConfig.apiUrl + '/delete/icon/' + site_icon_id);
+  }
+
+  // Upadte icon information
+  getIcon() {
+    return this.http.get(environment.appConfig.apiUrl + '/icon/get/all');
+  }
+
+  // Upadte icon information
+  getIconById(site_icon_id) {
+    return this.http.get(environment.appConfig.apiUrl + '/icon/id/' + site_icon_id);
+  }
+
+  
+  // ---------------------------- Icon Service ----------------------------------------------- //
 
 }

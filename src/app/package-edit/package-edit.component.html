@@ -12,29 +12,40 @@
                           <header>Edit Package</header>
                       </div>
                       <div class="card-body row">
-                          <form id="packageAddForm" class="packageAddForm" name="packageAddForm" [formGroup]="updateForm"
-                          >
+                          <form id="packageAddForm" class="packageAddForm" name="packageAddForm" [formGroup]="updateForm">
+
+                              <div class="col-lg-6 p-t-10">
+                                <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <label for="list3" class="mdl-textfield_label floating-label">Category*</label>
+                                    <select class="form-control" id="packageType" #category placeholder="choose" [value]="this.category">
+                                      <option [value]=null disabled selected="selected">---Select Category---</option>
+                                      <option *ngFor="let item of categoryService" [value]=item.category_id>{{ item.name }}</option>
+                                      <!-- <option value="Outbound">Outbound</option> -->
+                                    </select>
+                                </div>
+                              </div>
+
                               <div class="col-lg-6 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" formControlName="name" type="text" id="Package Name" #name>
+                                      <input class="form-control" formControlName="name" type="text" id="Package Name" #name>
                                       <label class="mdl-textfield_label">Package Name*</label>
                                   </div>
                               </div>
                               <div class="col-lg-6 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" formControlName="price" type="number" id="Price" #price>
+                                      <input class="form-control" formControlName="price" type="number" id="Price" #price>
                                       <label class="mdl-textfield_label">Price*</label>
                                   </div>
                               </div>
                               <div class="col-lg-6 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" formControlName="duration" type="text" id="duration" #duration>
+                                      <input class="form-control" formControlName="duration" type="text" id="duration" #duration>
                                       <label class="mdl-textfield_label">Duration(eg: 4 days 3 nights)*</label>
                                   </div>
                               </div>
                               <div class="col-lg-6 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" formControlName="altitude" type="number" id="altitude" #altitude>
+                                      <input class="form-control" formControlName="altitude" type="number" id="altitude" #altitude>
                                       <label class="mdl-textfield_label">Altitude(in meter: 3000)*</label>
                                   </div>
                               </div>
@@ -62,7 +73,7 @@
                               <div class="col-lg-4 p-t-20">
                                   <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                       <label for="list3" class="mdl-textfield_label floating-label">Package Type*</label>
-                                      <select class="custom-select mdl-textfield_input" id="packageType" formControlName="type" #type>
+                                      <select class="form-control" id="packageType" formControlName="type" #type>
                                           <option [value]=null disabled selected="selected">---Select Package Type---</option>
                                           <option *ngFor="let item of typeList" [value]="item">{{ item }}</option>
                                           <!-- <option value="Outbound">Outbound</option> -->
@@ -72,7 +83,7 @@
                               <div class="col-lg-4 p-t-20">
                                   <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                       <label for="list3" class="mdl-textfield_label floating-label">Difficulty*</label>
-                                      <select class="custom-select mdl-textfield_input" id="difficulty" formControlName="difficulty" #difficulty>
+                                      <select class="form-control" id="difficulty" formControlName="difficulty" #difficulty>
                                               <option [value]=null disabled selected="selected">---Select Difficulty Level---</option>
                                               <option *ngFor="let item of difficultyList" [value]="item">{{ item }}</option>
                                               <!-- <option value="Medium">Medium</option>
@@ -81,31 +92,27 @@
                                   </div>
                               </div>
                               <div class="col-lg-4 p-t-20">
-                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" type="number" id="rating" formControlName="rating" #rating>
-                                      <label class="mdl-textfield_label">Rating*</label>
+                                  <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                      <label for="list3" class="mdl-textfield_label floating-label">Rating*</label>
+                                      <select class="form-control" id="rating" formControlName="rating" #rating>
+                                              <option [value]=null disabled selected="selected">---Select Rating---</option>
+                                              <option value="1">1</option>
+                                              <option value="2">2</option>
+                                              <option value="3">3</option>
+                                              <option value="4">4</option>
+                                              <option value="5">5</option>
+                                        </select>
                                   </div>
                               </div>
                               <div class="col-lg-4 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input" formControlName="keyword" type="text" id="keyword" #keyword>
-                                      <label class="mdl-textfield_label">Keyword*</label>
+                                      <input class="form-control" formControlName="keyword" type="text" id="keyword" #keyword>
+                                      <label class="mdl-textfield_label">Keyword (eg. long trek, short trek)*</label>
                                   </div>
-                              </div>
-
-                              <div class="col-lg-4 p-t-20">
-                                <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                    <label for="list3" class="mdl-textfield_label floating-label">Category*</label>
-                                    <select class="custom-select mdl-textfield_input" id="packageType" #category placeholder="choose" [value]="this.category">
-                                      <option [value]=null disabled selected="selected">---Select Category---</option>
-                                      <option *ngFor="let item of categoryService" [value]=item.category_id>{{ item.name }}</option>
-                                      <!-- <option value="Outbound">Outbound</option> -->
-                                    </select>
-                                </div>
                               </div>
 
                               <div class="col-lg-12 p-t-20 p-b-20">
-                                <label class="control-label col-md-3">Upload Photo*</label>
+                                <label class="control-label col-md-3">Package Photo*</label>
                                 <form id="coverPhotoForm" class="fileUploadForm">
                                     <div class="fileUploadForm-conatiner">
                                       <input type="file" (change)="tripPhotoUpload($event)" accept=".jpg,.jpeg,.png">
@@ -113,7 +120,7 @@
                                 </form>
                               </div>
                               <div class="col-lg-12 p-t-20 p-b-20">
-                                <label class="control-label col-md-3">Multiple Photo Upload*</label>
+                                <label class="control-label col-md-3">Multiple Photos*</label>
                                 <form id="multiPhotoForm" class="fileUploadForm">
                                     <div class="fileUploadForm-conatiner">
                                       <input type="file" multiple (change)="onChange($event)" accept=".jpg,.jpeg,.png">
@@ -156,7 +163,7 @@
                               </div>
                               <div class="col-lg-5 p-t-20">
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width" id="festivalPrice" >
-                                      <input class="mdl-textfield_input" id="festivalPrice" formControlName="festivalPrice" type="text" #festivalPrice>
+                                      <input class="form-control" id="festivalPrice" formControlName="festivalPrice" type="text" #festivalPrice>
                                       <label class="mdl-textfield_label">Festival Price*</label>
                                   </div>
                               </div>
@@ -200,14 +207,14 @@
                               </div>
 
                               <div class="dashed-divider p-t-20"></div>
-                              <div class="col-lg-8 p-t-20" id="itinerary">
+                              <div class="col-lg-12 p-t-20" id="itinerary">
 
                                 <!-- ADD Fields -->
                                   <button  class="btn btn-tbl-add btn-xs pull-right" (click)="addDescriptionField(day.value,description.value)">
                                     <i class="fa fa-plus"></i>
                                   </button>
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input"  type="number" id="day" #day >
+                                      <input class="form-control"  type="number" id="day" #day >
                                       <label class="mdl-textfield_label">Day*</label>
                                   </div>
                                   <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
@@ -217,14 +224,14 @@
                                   </div>
                               </div>
 
-                              <div class="col-lg-8 p-t-20" id="edit-itinerary">
+                              <div class="col-lg-12 p-t-20" id="edit-itinerary">
 
                                 <!-- Update Fields -->
                                   <button  class="btn btn-tbl-add btn-xs pull-right" (click)="updateItinerary(editDay.value, editDescription.value)">
                                     <i class="fa fa-edit"></i>
                                   </button>
                                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                      <input class="mdl-textfield_input"  type="number" id="editDay" #editDay formControlNane="editDay" #editDay [value]=this.editItineraryDay 
+                                      <input class="form-control"  type="number" id="editDay" #editDay formControlNane="editDay" #editDay [value]=this.editItineraryDay 
                                       >
                                       <label class="mdl-textfield_label" for="editDay">Day*</label>
                                   </div>
@@ -236,7 +243,7 @@
                                   </div>
 
                               </div>
-                              <div class="col-lg-8 p-t-20" id="itineraryTable">
+                              <div class="col-lg-12 p-t-20" id="itineraryTable">
                                   <table class="table table-bordered" id="descriptionTable">
                                       <thead>
                                           <tr>
@@ -283,7 +290,6 @@
                               <div class="col-lg-12 p-t-20 text-center">
                                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple"
                                  (click)="updatePackage(name.value,type.value,category.value,price.value,duration.value,difficulty.value,altitude.value,rating.value,keyword.value,festivalPrice.value,overview.value)"
-
                                   >Update<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
                                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
                               </div>

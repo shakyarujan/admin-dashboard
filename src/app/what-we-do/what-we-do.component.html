@@ -1,82 +1,112 @@
 <div class="what-we-do-page page-content-wrapper">
     <div class="page-content">
         <div class="container">
-            <app-page-top-bar></app-page-top-bar>
-            <div class="row">
-                <div class="col-md-12 col-sm-12">
-                    <div class="card card-box">
-                        <div class="card-head">
-                            <header>What we do?
-                            </header>
-                            <div class="tools">
-                                <a routerLink="/whatWeDoEdit" class="btn btn-tbl-edit btn-xs">
-                                    <i class="fa fa-pencil"></i>
-                                </a>
+        <app-page-top-bar></app-page-top-bar>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="card card-box">
+                    <div class="card-head">
+                        <header>Icon - What we do?
+                        </header>
+                        <div class="tools">
+                            <!-- <a routerLink="/whatWeDoEdit" class="btn btn-tbl-edit btn-xs">
+                                <i class="fa fa-pencil"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row p-b-20">
+                            <div class="col-md-6 col-sm-6 col-6">
+                                <div class="btn-group">
+                                    <a routerLink="/site/whatwedo/icon/add" id="addRow" class="btn btn-info">
+                                        Add Icon
+                                        <i class="fa fa-plus"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="card-body ">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="service-profile">
-                                                <img src="../../assets/img/profile.jpg" class="service-img" alt="">
-                                                <p>filghts</p>
-                                            </div>
+                        <div class="row">
+                            <div class="col-md-4" *ngFor="let item of iconData">
+                                <div class="card">
+                                    <div class="m-b-20">
+                                        <div class="service-profile">
+                                            <img src="{{ item.icon_path }}" class="service-img" alt="">
+                                            <p>{{ item.icon_name }}</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="service-profile">
-                                                <img src="../../assets/img/profile.jpg" class="service-img" alt="">
-                                                <p>holidays</p>
-                                            </div>
-                                        </div>
+                                    <div class="tools">
+                                        <!-- <a routerLink="/whatWeDoEdit" class="btn btn-tbl-edit btn-xs">
+                                            <i class="fa fa-pencil"></i>
+                                        </a> -->
+                                        <a class="btn btn-tbl-edit btn-xs" (click)="editIconData(item.site_icon_id)">
+                                            <i class="fa fa-pencil"></i>
+                                        </a>
+                                        <button class="btn btn-tbl-delete btn-xs" (click)="deleteIcon(item.site_icon_id)">
+                                          <i class="fa fa-trash-o "></i>
+                                      </button>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="service-profile">
-                                                <img src="../../assets/img/profile.jpg" class="service-img" alt="">
-                                                <p>hotels </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="service-profile">
-                                                <img src="../../assets/img/profile.jpg" class="service-img" alt="">
-                                                <p>car rental </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card">
-                                        <div class="m-b-20">
-                                            <div class="service-profile">
-                                                <img src="../../assets/img/profile.jpg" class="service-img" alt="">
-                                                <p>visa assitance</p>
-                                            </div>
+                            </div>
+                    <!--         <div class="col-md-4">
+                                <div class="card">
+                                    <div class="m-b-20">
+                                        <div class="service-profile">
+                                            <img src="../../assets/img/profile.jpg" class="service-img" alt="">
+                                            <p>holidays</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="card">
-                                        <div class="m-b-20" *ngFor="let item of info">
-                                            <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs pull-right" (click)="siteInfo(item.site_info_id)">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                            <div class="what-we-do-description" [innerHtml]=item.what_we_do>
-                                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="m-b-20">
+                                        <div class="service-profile">
+                                            <img src="../../assets/img/profile.jpg" class="service-img" alt="">
+                                            <p>hotels </p>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="m-b-20">
+                                        <div class="service-profile">
+                                            <img src="../../assets/img/profile.jpg" class="service-img" alt="">
+                                            <p>car rental </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="m-b-20">
+                                        <div class="service-profile">
+                                            <img src="../../assets/img/profile.jpg" class="service-img" alt="">
+                                            <p>visa assitance</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="card card-box">
+                    <div class="card-head">
+                        <header>Description - What we do?
+                        </header>
+                        <div class="tools"  *ngFor="let item of info">
+                            <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs pull-right" (click)="siteInfo(item.site_info_id)">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="m-b-20" *ngFor="let item of info">
+                                    <div class="what-we-do-description" [innerHtml]=item.what_we_do>
                                     </div>
                                 </div>
                             </div>
@@ -86,4 +116,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

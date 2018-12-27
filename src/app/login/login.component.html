@@ -11,20 +11,31 @@
                     </span>
 
                     <div class="wrap-input-field validate-input">
-                        <input autofocus="autofocus" class="input-field" type="text" formControlName="username" placeholder="Username" autocomplete="off" required="required">
+                        <input autofocus="autofocus" class="input-field" type="text" formControlName="username" #username placeholder="Username" autocomplete="off" required="required" 
+                        [ngClass]="{
+                                'is-invalid' : loginForm.get('username').touched && loginForm.get('username').invalid,
+                                'is-valid' : loginForm.get('username').touched && loginForm.get('username').valid
+                                }"
+                        >
                         <span class="focus-input-field" data-placeholder="Username"></span>
+                        <div class="invalid-feedback">Username is required</div>
                     </div>
 
 
                     <div class="wrap-input-field validate-input">
-                        <input class="input-field" type="password" formControlName="password" placeholder="Password"> <!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"-->
+                        <input class="input-field" type="password" formControlName="password" #password placeholder="Password"
+                        [ngClass]="{
+                                'is-invalid' : loginForm.get('password').touched && loginForm.get('password').invalid,
+                                'is-valid' : loginForm.get('password').touched && loginForm.get('password').valid
+                                }"> <!--pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"-->
                         <span class="focus-input-field" data-placeholder="Password"></span>
+                        <div class="invalid-feedback">Password is required</div>
                     </div>
 
                     <div class="container-login-form-btn">
                         <div class="wrap-login-form-btn">
                             <div class="login-form-bgbtn"></div>
-                            <button class="login-form-btn" [disabled]=!loginForm.valid>
+                            <button class="login-form-btn" >
                               Login
                             </button>
                         </div>

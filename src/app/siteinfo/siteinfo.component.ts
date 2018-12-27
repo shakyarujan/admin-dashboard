@@ -42,7 +42,7 @@ export class SiteinfoComponent implements OnInit {
 
   // Get site info id
   getSiteDataId(site_info_id) {
-      this.router.navigate(['/siteinfoEdit/' + site_info_id]);
+      this.router.navigate(['/site/info/edit/' + site_info_id]);
   }
 
   // Add site info
@@ -50,7 +50,7 @@ export class SiteinfoComponent implements OnInit {
     twitter, linkedin, address, about_us) {
     this.siteInfo.addSiteInfo(site_name, cover_photo, contact_number, email, facebook, instagram,
       twitter, linkedin, address, about_us).subscribe(() => {
-        this.router.navigate(['/siteinfo']);
+        this.router.navigate(['/site/info']);
         console.log('adding site informatio');
       });
   }

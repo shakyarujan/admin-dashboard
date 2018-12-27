@@ -127,9 +127,9 @@ li [class^=icon-] {
 }
 
 .info-box {
-    min-height: 140px;
+    min-height: 100px;
     width: 100%;
-    height: 140px;
+    height: auto;
     box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
     -webkit-box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
     margin-bottom: 20px;
@@ -149,12 +149,11 @@ li [class^=icon-] {
 }
 
 .info-box-icon.push-bottom {
-    // margin-top: 20px;
+    /*// margin-top: 20px;*/
 }
 
 .info-box-content {
     padding: 10px 10px 10px 0;
-    margin-left: 90px;
 }
 
 .info-box-number {
@@ -167,7 +166,6 @@ li [class^=icon-] {
     display: block;
     font-size: 16px;
     overflow: hidden;
-    text-overflow: ellipsis;
     font-weight: 400;
     text-transform: capitalize;
 }

@@ -53,7 +53,7 @@ export class CustomerReviewComponent implements OnInit {
 
   // ------------ Toast message ------------------------------//
   showSuccess() {
-    this.toastr.success('Package has been sucessfully deleted!', 'Success!');
+    this.toastr.success('Customer review has been sucessfully deleted!', 'Success!');
   }
 
   showDanger() {

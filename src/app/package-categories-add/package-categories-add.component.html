@@ -6,7 +6,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="card-box">
                         <div class="card-head">
-                            <a routerLink="/packageCategories" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                            <a routerLink="/package/categories" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                               <i class="material-icons">arrow_back_ios</i>
                             </a>
                             <header>Add new Packages Categories</header>
@@ -17,22 +17,29 @@
                           <form id="categoriesPackageAddForm" class="categoriesPackageAddForm" name="categoriesPackageAddForm" [formGroup]="createForm">
                             <div class="col-lg-12 p-t-20">
                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
-                                    <input class="mdl-textfield_input" formControlName="name" #name type="text" value="Tour" id="categoriesName">
-                                    <label class="mdl-textfield_label">Categories Name</label>
+                                <input class="form-control" formControlName="name" #name type="text" value="Tour" id="categoriesName"
+                                [ngClass]="{
+                                'is-invalid' : createForm.get('name').touched && createForm.get('name').invalid,
+                                'is-valid' : createForm.get('name').touched && createForm.get('name').valid
+                                }"
+                                >
+                                <label class="mdl-textfield_label">Categories Name</label>
+                                <div class="invalid-feedback">Category name is required</div>
                                 </div>
                             </div>
                             <div class="col-lg-12 p-t-20">
                                 <div class="textarea mdl-textfield mdl-js-textfield txt-full-width is-upgraded" data-upgraded=",MaterialTextfield">
                                     <label class="mdl-textfield_label floating-label" for="text7">Description</label>
-                                    <ckeditor id="pacakgeCategoriesDescription" formControlName="description" #description required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500">
+                                    <ckeditor class="form-control" id="pacakgeCategoriesDescription" formControlName="description" #description required [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"
+                                    >
                                     </ckeditor>
-                                    <!-- <textarea class="mdl-textfield_input" formControlName="description" #description rows="4" id="description">
+                                    <!-- <textarea class="form-control" formControlName="description" #description rows="4" id="description">
                                     </textarea> -->
                                 </div>
                             </div>
 
                             <div class="col-lg-12 p-t-20">
-                                <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" (click)="addCategory(name.value, description.value)">Submit
+                                <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary" (click)="addCategory(name.value, description.value)" >Submit
                                 </button>
                                 <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default" [routerLink]="['/packageCategories']" routerLinkActive="router-link-active" >Cancel
                                 </button>

@@ -54,15 +54,6 @@ export class BookingAddComponent implements OnInit {
   // onsubmit(fb: FormGroup) {
 
 
-  //   const booking = [];
-  //   booking['contact_name'] = this.createForm.value['contact_name'];
-  //   booking['contact_email'] = this.createForm.value['contact_email'];
-  //   booking['mobile'] = this.createForm.value['mobile'];
-  //   booking['no_of_adult'] = this.createForm.value['no_of_adult'];
-  //   booking['no_of_children'] = this.createForm.value['no_of_children'];
-  //   booking['desired_start_date'] = this.createForm.value['desired_start_date'];
-  //   booking['desired_end_date'] = this.createForm.value['desired_end_date'];
-
   //   console.log('----------------' + booking);
 
   //    this.bookingService.addBooking(booking).subscribe( () => {
