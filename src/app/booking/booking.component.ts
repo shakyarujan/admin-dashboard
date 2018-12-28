@@ -31,7 +31,7 @@ export class BookingComponent implements OnInit {
 
   // Get Booking Id
   getBookingId(booking_id) {
-    return this.router.navigate(['/bookingEdit/' + booking_id]);
+    return this.router.navigate(['/booking/edit/' + booking_id]);
   }
 
   // Delete the booking contents

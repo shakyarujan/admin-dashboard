@@ -85,6 +85,9 @@ export class BookingEditComponent implements OnInit {
 
   updatebooking(contact_name, contact_email, mobile, no_of_adult, no_of_children, desired_start_date, desired_end_date, name, status) {
 
+    if(contact_name == "" || contact_email == "" || mobile == "" || no_of_adult == "" || desired_start_date == "" || desired_end_date == "" || name == "" ) {
+      alert("Some mandatory fields are empty!");
+    } else {
     const bookingData = {
       booking_id: this.id,
       trip_id: name,
@@ -99,8 +102,11 @@ export class BookingEditComponent implements OnInit {
     }
 
     this.bookingService.updateBooking(bookingData).subscribe( () => {
+        this.showSuccess();
         this.router.navigate(['/booking']);
     });
+
+    }
   }
 
 

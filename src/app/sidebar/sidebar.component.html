@@ -82,7 +82,7 @@
                   </ul>
               </li>
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                  <a routerLink="/packageCategories" class="nav-link">
+                  <a routerLink="/package/categories" class="nav-link">
                       <i class="material-icons">list_alt</i>
                       <p>All Categories</p>
                   </a>
@@ -157,7 +157,7 @@
                           </a>
                       </li>
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/bookingReviewPending" class="nav-link">
+                          <a routerLink="/booking/review-pending" class="nav-link">
                               <span class="sub-title">All Pending Bookings</span>
                           </a>
                       </li>
@@ -167,7 +167,7 @@
                           </a>
                       </li> -->
                       <li class="nav-item hidden" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/bookingEdit" class="nav-link">
+                          <a routerLink="/booking/edit" class="nav-link">
                               <span class="sub-title">Edit Booking</span>
                           </a>
                       </li>
@@ -198,7 +198,8 @@
                   </ul>
               </li> -->
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                  <a routerLink="/customerReview" class="nav-link">
+                  <a routerLink="/customer/review" class="nav-link nav-toggle sub-menu-toggler" data-target=".customerReview-collapse" data-toggle="collapse">
+
                       <i class="material-icons">rate_review</i>
                       <p>Customer Review</p>
                       <!-- <i class="material-icons arrow-rotate">arrow_right</i> -->
@@ -206,7 +207,7 @@
                   <!-- 
                   <ul class="sub-menu customerReview-collapse collapse">
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                          <a routerLink="/customerReview" class="nav-link">
+                          <a routerLink="/customer/review" class="nav-link">
                               <span class="sub-title">All Customer</span>
                           </a>
                       </li>

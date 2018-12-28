@@ -48,16 +48,21 @@ export class PackageCategoriesEditComponent implements OnInit {
   }
 
   updateCategory(id, name, description) {
-     const category = {
-      category_id: id,
-      name: name,
-      description: description
-    };
 
-    this.categoryInfo.updateingCategory(category).subscribe(res => {
-      this.showSuccess();
-      this.router.navigate(['/packageCategories']);
-    });
+    if ( name == "" || description == "") {
+      alert("Some mandatory fields are empty!");
+    } else {
+       const category = {
+        category_id: id,
+        name: name,
+        description: description
+      };
+
+      this.categoryInfo.updateingCategory(category).subscribe(res => {
+        this.showSuccess();
+        this.router.navigate(['/packageCategories']);
+      });
+    }
   }
 
   // ------------ Toast message ------------------------------//

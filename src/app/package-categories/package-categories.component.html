@@ -32,7 +32,7 @@
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="bookingData" *ngFor="let category of categoryData">
+                                        <tbody class="bookingData" *ngFor="let category of categoryData | paginate: { itemsPerPage: 10, currentPage: p }">
                                             <tr>
                                                 <td>{{ category.name}}</td>
                                                 <td class="categories-description" [innerHTML]="category.description"></td>
@@ -47,6 +47,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <pagination-controls (pageChange)="p = $event" [id]="id"></pagination-controls>
                                 </div>
                             </div>
                         </div>

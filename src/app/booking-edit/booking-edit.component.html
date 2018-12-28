@@ -24,7 +24,7 @@
                                         'is-valid' : updateForm.get('contact_name').touched && updateForm.get('contact_name').valid
                                         }"
                                         >
-                                        <label class="mdl-textfield_label">Full Name</label>
+                                        <label class="mdl-textfield_label">Full Name*</label>
                                         <div class="invalid-feedback">Full name is required</div>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
                                         'is-invalid' : updateForm.get('mobile').touched && updateForm.get('mobile').invalid,
                                         'is-valid' : updateForm.get('mobile').touched && updateForm.get('mobile').valid
                                         }">
-                                        <label class="mdl-textfield_label" for="text5">Mobile Number</label>
+                                        <label class="mdl-textfield_label" for="text5">Mobile Number*</label>
                                         <div class="invalid-feedback">Mobile number is required</div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                         'is-invalid' : updateForm.get('contact_email').touched && updateForm.get('contact_email').invalid,
                                         'is-valid' : updateForm.get('contact_email').touched && updateForm.get('contact_email').valid
                                         }">
-                                      <label class="mdl-textfield_label">Email</label>
+                                      <label class="mdl-textfield_label">Email*</label>
                                       <div class="invalid-feedback">Email address is required</div>
                                   </div>
                                 </div>
@@ -63,7 +63,7 @@
                                         'is-invalid' : updateForm.get('no_of_adult').touched && updateForm.get('no_of_adult').invalid,
                                         'is-valid' : updateForm.get('no_of_adult').touched && updateForm.get('no_of_adult').valid
                                         }">
-                                        <label class="mdl-textfield_label">Adult</label>
+                                        <label class="mdl-textfield_label">Adult*</label>
                                         <div class="invalid-feedback">Adult number is required</div>
                                     </div>
                                 </div>
@@ -80,7 +80,7 @@
                                         'is-invalid' : updateForm.get('desired_start_date').touched && updateForm.get('desired_start_date').invalid,
                                         'is-valid' : updateForm.get('desired_start_date').touched && updateForm.get('desired_start_date').valid
                                         }">
-                                        <label class="mdl-textfield_label">Arrive</label>
+                                        <label class="mdl-textfield_label">Arrive*</label>
                                         <div class="invalid-feedback">Arrive date is required</div>
                                     </div>
                                 </div>
@@ -91,13 +91,13 @@
                                         'is-invalid' : updateForm.get('desired_end_date').touched && updateForm.get('desired_end_date').invalid,
                                         'is-valid' : updateForm.get('desired_end_date').touched && updateForm.get('desired_end_date').valid
                                         }">
-                                        <label class="mdl-textfield_label">Depart</label>
+                                        <label class="mdl-textfield_label">Depart*</label>
                                         <div class="invalid-feedback">Depart date is required</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select_fix-height txt-full-width is-upgraded" data-upgraded=",MaterialTextfield" style="width: 124px;">
-                                        <label for="list3" class="mdl-textfield_label floating-label">Package Name</label>
+                                        <label for="list3" class="mdl-textfield_label floating-label">Package Name*</label>
                                         <select class="custom-select form-control" id="name" #name formControlName="name" aria-placeholder="name"
                                         [ngClass]="{
                                         'is-invalid' : updateForm.get('name').touched && updateForm.get('name').invalid,

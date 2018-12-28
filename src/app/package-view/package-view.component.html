@@ -11,7 +11,7 @@
                             </a>
                             <header>Package Detail</header>
                             <div class="tools"  *ngFor="let trip of packageinfoData">
-                                <a routerLink="/packageEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(trip.trip_id)">
+                                <a class="btn btn-tbl-edit btn-xs" (click)="editPackageData(trip.trip_id)">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                             </div>
@@ -133,7 +133,7 @@
                         <div class="card-head">
                             <header>Cover Photo</header>
                             <div class="tools" *ngFor="let info of packageinfoData">
-                                <a routerLink="/siteinfoEdit" class="btn btn-tbl-edit btn-xs" (click)="editPackageData(info.trip_id)">
+                                <a class="btn btn-tbl-edit btn-xs" (click)="editPackageData(info.trip_id)">
                                     <i class="fa fa-pencil"></i>
                                 </a>
                             </div>

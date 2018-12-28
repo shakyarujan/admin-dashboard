@@ -74,6 +74,7 @@ export class PackageAddComponent implements OnInit {
   }
 
   addPackageTest(fg: FormGroup) {
+   
     const name = fg.value.name;
     const category_id = fg.value.category;
     const price = fg.value.price;
@@ -104,6 +105,16 @@ export class PackageAddComponent implements OnInit {
       festivalPrice = 0;
     }
 
+
+    if(name == "" || category_id == "" || price == "" || duration == "" || type == "" || difficulty == "" || overview == "" ||
+        altitude == "" || rating == "" || keyword == ""
+      ) {
+      alert("Some mandatory fields are empty!");
+    } else if (this.seasonList.length == 0) {
+      alert('Please choose season for the trip');
+    } else if (this.photoArray.length == 0) {
+      alert('Please choose at least one photo to upload');
+    } else {
     const newTrip = {
         name,
         category_id,
@@ -155,6 +166,7 @@ export class PackageAddComponent implements OnInit {
     this.showSuccess();
     // this.router.navigate(['/package']);
     // location.reload();
+  }
 }
 
 
@@ -319,3 +331,4 @@ export class PackageAddComponent implements OnInit {
   // ------------ End Toast message ------------------------------//
 
 }
+

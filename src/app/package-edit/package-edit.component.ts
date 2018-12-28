@@ -176,11 +176,22 @@ export class PackageEditComponent implements OnInit {
   updatePackage(name, type, category, price, duration, difficulty, altitude, rating, keyword,
     festivalPrice, overview) {
 
-    console.log(festivalPrice);
+  
 
-  if (festivalPrice == null || this.fesOffer == 'no' || this.fesOffer == 'No') {
+  if (festivalPrice == null || festivalPrice == "" || this.fesOffer == 'no' || this.fesOffer == 'No') {
         festivalPrice = 0;
-    }
+  }
+
+
+  if(name == "" || category == "" || price == "" || duration == "" || type == "" || difficulty == "" || overview == "" ||
+        altitude == "" || rating == "" || keyword == ""
+      ) {
+      alert("Some mandatory fields are empty!");
+    } else if (this.seasonList.length == 0) {
+      alert('Please choose season for the trip');
+    } else if (this.photoArray.length == 0) {
+      alert('Please choose at least one photo to upload');
+    } else {
 
     const packageData = {
           trip_id: this.id,
@@ -230,6 +241,8 @@ export class PackageEditComponent implements OnInit {
       // alert('Updated Successfully');
       // this.router.navigate(['/package']);
       // location.reload();
+
+  }
     
 }
 

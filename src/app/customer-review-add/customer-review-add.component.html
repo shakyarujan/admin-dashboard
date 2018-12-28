@@ -6,7 +6,7 @@
         <div class="col-md-8 col-sm-12">
           <div class="card-box">
             <div class="card-head">
-              <a routerLink="/customerReview" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+              <a routerLink="/customer/review" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                 <i class="material-icons">arrow_back_ios</i>
               </a>
               <header>Add Customer Review</header>
@@ -33,8 +33,12 @@
                 <div class="col-lg-12 p-t-20">
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width is-upgraded">
                     <input class="form-control" formControlName="review_title" #review_title type="text" id="heading"
-                      required>
+                      [ngClass]="{
+                                  'is-invalid' : createForm.get('review_title').touched && createForm.get('review_title').invalid,
+                                  'is-valid' : createForm.get('review_title').touched && createForm.get('review_title').valid
+                                  }">
                     <label class="mdl-textfield_label">Heading</label>
+                    <div class="invalid-feedback">Package name is required</div>
                   </div>
                 </div>
                 <div class="col-lg-12 p-t-20">
@@ -47,19 +51,19 @@
                 </div>
 
                 <div class="col-lg-12 p-t-20">
-                  <label class="control-label col-md-3">Upload Photo</label>
+                  <label class="control-label col-md-3">Customer Photo <br> (.jpg, .jpeg, .png)</label>
                   <form id="profilePhotoForm" class="fileUploadForm">
                     <div class="fileUploadForm-conatiner">
-                      <input type="file" (change)="reviwerPhotoUpload($event)" accept=".jpg,.jpeg,.png">
+                      <input type="file" (change)="reviwerPhotoUpload($event)" accept=".jpg,.jpeg,.png" required>
                     </div>
                   </form>
                 </div>
                 <div class="col-lg-12 p-t-20 text-center">
                   <button type="button" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 m-r-20 fill-primary"
-                    (click)="addCustomerReview(reviewer_name.value, review_title.value, comment.value)" >
+                    (click)="addCustomerReview(reviewer_name.value, review_title.value, comment.value)">
                     Submit
                   </button>
-                  <button type="button" routerLink="/customerReview" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default">
+                  <button type="button" routerLink="/customer/review" class="mdl-button mdl-js-button mdl-button--raised  m-b-10 btn-default">
                     Cancel
                   </button>
                 </div>

@@ -15,7 +15,7 @@
                                         <div class="row p-b-20">
                                             <div class="col-md-6 col-sm-6 col-6">
                                                 <div class="btn-group">
-                                                    <a routerLink="/customerReviewAdd" id="addRow" class="btn btn-info">
+                                                    <a routerLink="/customer/review/add" id="addRow" class="btn btn-info">
                                                         Add Customer Review
                                                         <i class="fa fa-plus"></i>
                                                     </a>
@@ -49,7 +49,7 @@
                                                                 <span>{{ review.review_title}}</span>
                                                             </td>
                                                             <td>
-                                                                <a routerLink="/customerReviewEdit" class="btn btn-tbl-edit btn-xs" (click)="getCustomerId(review.review_id)">
+                                                                <a class="btn btn-tbl-edit btn-xs" (click)="getCustomerId(review.review_id)">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
                                                                 <button class="btn btn-tbl-delete btn-xs" (click)="deleteReview(review.review_id)">

@@ -10,19 +10,19 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="card-head">
-                                            <a routerLink="/customerReview" id="panel-button" class="mdl-button mdl-button--icon collapsed">
+                                            <a routerLink="/customer/review" id="panel-button" class="mdl-button mdl-button--icon collapsed">
                                               <i class="material-icons">arrow_back_ios</i>
                                             </a>
                                             <header>View Customer Review</header>
                                         </div>
                                         <div class="inbox-body">
-                                            <div class="inbox-body no-pad" *ngFor="let review of dataReview">
-                                                <section class="review-list">
+                                            <div class="inbox-body no-pad">
+                                                <section class="review-list" *ngFor="let review of dataReview">
                                                     <div class="review-sender">
                                                         <div class="media">
-                                                            <div class="media-body">
+                                                            <div class="media-body" >
                                                                 <h4 class="text-primary">{{ review.reviewer_name }}</h4>
-                                                                <small class="text-muted">Solo Traveler</small>
+                                                                <small class="text-muted">package Name = {{ review.review_title}}</small>
                                                                 <!-- <small class="rating">4.5</small> -->
                                                             </div>
                                                         </div>
