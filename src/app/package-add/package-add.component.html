@@ -46,7 +46,7 @@
                                 'is-valid' : createForm.get('price').touched && createForm.get('price').valid
                                 }"
                                 >
-                                <label class="mdl-textfield_label">Price*</label>
+                                <label class="mdl-textfield_label">Price(In Rs.)*</label>
                                 <div class="invalid-feedback">Trip Price is required</div>
                             </div>
                         </div>
@@ -129,8 +129,8 @@
                             </div>
                         </div>
                       <div class="col-lg-4 p-t-20">
-                            <div class="select-input mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <label for="list3" class="mdl-textfield_label floating-label">Rating*</label>
+                            <div class="select-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                <label for="list4" class="mdl-textfield_label floating-label">Rating*</label>
                                 <!-- <input class="form-control" type="text" id="rating" formControlName="rating" #rating
                                 [ngClass]="{
                                 'is-invalid' : createForm.get('rating').touched && createForm.get('rating').invalid,
@@ -156,7 +156,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 p-t-20">
+                        <div class="col-lg-12 p-t-20">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
                                 <input class="form-control" formControlName="keyword" type="text" id="keyword" #keyword
                                 [ngClass]="{
@@ -254,26 +254,40 @@
                             </div>
                             <div class="invalid-feedback">Package overview is required</div>
                         </div>
-                        <div class="dashed-divider p-t-20"></div>
-                        <div class="col-lg-8 p-t-20">
-                            <!-- ADD Fields -->
-                            <button class="btn btn-tbl-add btn-xs pull-right" (click)="addDescriptionField(day.value,description.value)">
-                            <i class="fa fa-plus"></i>
-                            </button>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                <input class="form-control" type="number" id="day" #day>
-                                <label class="mdl-textfield_label">Day*</label>
+                        
+                        <div class="col-lg-12 p-t-20">
+                            <div class="mdl-textfield txt-full-width">
+                                <div class="sub-header">
+                                    <header>Day itinerary</header>
+                                </div>
+                                <div class="row dashed-divider"></div>
                             </div>
-                            <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
-                                <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
-                                <ckeditor id="description" #description [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
+                        </div>
+                        
+                        <div class="col-lg-12 p-t-20" id="itinerary">
+                            <div class="col-lg-3 col-md-3 col-12 p-t-20">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                                    <input class="form-control" type="number" id="day" #day>
+                                    <label class="mdl-textfield_label">Day(eg: 4)*</label>
+                                </div>
                             </div>
+                            <div class="col-lg-12 col-md-3 col-12 p-t-20">
+                                <div class="textarea mdl-textfield mdl-js-textfield txt-full-width">
+                                    <label class="mdl-textfield_label floating-label" for="text7">Description*</label>
+                                    <ckeditor id="description" #description [config]="{uiColor: '#F8F8F8'}" [readonly]="false" debounce="500"></ckeditor>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-12 p-t-20">
+                                    <button type="button" class="btn mdl-button--raised m-b-10 bg-success"
+                                    (click)="addDescriptionField(day.value,description.value)"
+                                    >Add Day</button>
+                              </div>
                         </div>
                         <div class="col-lg-8 p-t-20" id="itineraryTable">
                             <table class="table table-bordered" id="descriptionTable" style="display: none">
                                 <thead>
                                     <tr>
-                                        <th>Day</th>
+                                        <th class="day">Day</th>
                                         <th>Description</th>
                                         <th>Action</th>
                                     </tr>
@@ -295,8 +309,12 @@
                             </table>
                         </div>
                         <div class="col-lg-12 p-t-20 text-center">
-                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" data-upgraded=",MaterialButton,MaterialRipple" (click)="addPackageTest(createForm)" >Submit<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
-                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" data-upgraded=",MaterialButton,MaterialRipple" routerLink="/package">Cancel<span class="mdl-button_ripple-container"><span class="mdl-ripple"></span></span></button>
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 m-r-20 fill-primary" (click)="addPackageTest(createForm)" >
+                                Submit
+                            </button>
+                            <button type="button" class="mdl-button mdl-js-button mdl-button--raised m-b-10 btn-default" routerLink="/package">
+                                Cancel
+                            </button>
                         </div>
                     </form>
                 </div>

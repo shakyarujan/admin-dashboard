@@ -88,8 +88,15 @@
                   </a>
               </li>
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <a routerLink="/package" class="nav-link">
+                      <i class="material-icons">card_travel</i>
+                        <p>All Package</p>
+                    </a>
+                </li>
+                <!-- 
+              <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a class="nav-link nav-toggle sub-menu-toggler" data-target=".package-collapse" data-toggle="collapse">
-                      <!-- <i class="material-icons">list_alt</i> -->
+                      <i class="material-icons">list_alt</i>
                       <i class="material-icons">card_travel</i>
                       <p>Package</p>
                   </a>
@@ -99,7 +106,7 @@
                               <span class="sub-title">All Package</span>
                           </a>
                       </li>
-                    <!--   <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/packageAdd" class="nav-link">
                               <span class="sub-title">Add New Package</span>
                           </a>
@@ -133,9 +140,10 @@
                           <a routerLink="/packageCategoriesEdit" class="nav-link">
                               <span class="sub-title">Edit Package Categories</span>
                           </a>
-                      </li> -->
-                  </ul>
-              </li>
+                      </li> 
+                    </ul>
+                </li>
+            -->
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a class="nav-link nav-toggle sub-menu-toggler" data-target=".booking-collapse" data-toggle="collapse">
                       <i class="material-icons">business_center</i>
@@ -191,22 +199,25 @@
               </li> -->
               <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a routerLink="/customer/review" class="nav-link nav-toggle sub-menu-toggler" data-target=".customerReview-collapse" data-toggle="collapse">
+
                       <i class="material-icons">rate_review</i>
                       <p>Customer Review</p>
-                      <i class="material-icons arrow-rotate">arrow_right</i>
+                      <!-- <i class="material-icons arrow-rotate">arrow_right</i> -->
                   </a>
+                  <!-- 
                   <ul class="sub-menu customerReview-collapse collapse">
                       <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/customer/review" class="nav-link">
                               <span class="sub-title">All Customer</span>
                           </a>
                       </li>
-                      <!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                           <a routerLink="/customerReviewAdd" class="nav-link">
                               <span class="sub-title">Add Customer Review</span>
                           </a>
-                      </li> -->
-                  </ul>
+                      </li> 
+                    </ul>
+                -->
               </li>
              <!--  <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                   <a class="nav-link nav-toggle sub-menu-toggler" data-target=".backgroundImage-collapse" data-toggle="collapse">
